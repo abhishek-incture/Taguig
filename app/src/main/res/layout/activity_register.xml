@@ -8,26 +8,73 @@
     tools:context=".RegisterActivity">
 
     <androidx.core.widget.NestedScrollView
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="80dp">
+
+                <ImageView
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/maps_icon"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Republic of the phillipines"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="8sp"
+                        android:textAllCaps="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="City Government of Taguig"
+                        android:textColor="@color/colorWhite"
+                        android:textAllCaps="true"
+                        android:textSize="12sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="National Capital Region"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="8sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
         <TextView
             android:text="Register"
             android:textSize="20dp"
             android:textStyle="bold"
+            android:layout_marginBottom="40dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
-
 
 
             <com.facebook.login.widget.LoginButton
@@ -39,10 +86,15 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp" />
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                facebook:cardCornerRadius="2dp">
+
             <LinearLayout
               android:onClick="facebookLogin"
               android:gravity="center_horizontal"
-              android:background="#ffffff"
+              android:background="@color/colorWhite"
               android:layout_width="match_parent"
               android:layout_height="34dp">
 
@@ -62,69 +114,112 @@
 
           </LinearLayout>
 
+            </androidx.cardview.widget.CardView>
+
             <TextView
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
                 android:textSize="20dp"
-                android:text="Or"
-                android:textColor="#ffffff"
+                android:text="or"
+                android:textColor="@color/colorWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
              <TextView
                  android:layout_marginTop="10dp"
-                 android:textColor="@color/color_white"
-                 android:text="FirstName"
+                 android:textColor="@color/colorWhite"
+                 android:text="First Name"
+                 android:layout_marginBottom="5dp"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                facebook:cardCornerRadius="2dp">
+
             <EditText
                 android:id="@+id/etFirstName"
-                android:background="@color/color_white"
+                android:background="@color/colorWhite"
                 android:layout_width="match_parent"
                 android:layout_height="34dp"/>
 
+            </androidx.cardview.widget.CardView>
+
             <TextView
                 android:layout_marginTop="10dp"
-                android:textColor="@color/color_white"
-                android:text="LastName"
+                android:textColor="@color/colorWhite"
+                android:text="Last Name"
+                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                facebook:cardCornerRadius="2dp">
+
             <EditText
                 android:id="@+id/etLastName"
-                android:background="@color/color_white"
+                android:background="@color/colorWhite"
                 android:layout_width="match_parent"
                 android:layout_height="34dp"/>
+            </androidx.cardview.widget.CardView>
+
             <TextView
                 android:layout_marginTop="10dp"
-                android:textColor="@color/color_white"
+                android:textColor="@color/colorWhite"
                 android:text="Email ID"
+                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                facebook:cardCornerRadius="2dp">
+
             <EditText
                 android:id="@+id/etEmail"
                 android:inputType="textEmailAddress"
-                android:background="@color/color_white"
+                android:background="@color/colorWhite"
                 android:layout_width="match_parent"
                 android:layout_height="34dp"/>
+
+            </androidx.cardview.widget.CardView>
+
             <TextView
                 android:layout_marginTop="10dp"
-                android:textColor="@color/color_white"
+                android:textColor="@color/colorWhite"
                 android:text="Phone Number"
+                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                facebook:cardCornerRadius="2dp">
+
             <EditText
                 android:id="@+id/etPhoneNo"
                 android:inputType="phone"
                 android:maxLength="10"
-                android:background="@color/color_white"
+                android:background="@color/colorWhite"
                 android:layout_width="match_parent"
                 android:layout_height="34dp"/>
 
+            </androidx.cardview.widget.CardView>
+
+
             <TextView
                 android:layout_marginTop="10dp"
-                android:textColor="@color/color_white"
-                android:text="Date Of Birth"
+                android:textColor="@color/colorWhite"
+                android:text="Date of Birth"
+                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -133,7 +228,7 @@
 
                 <LinearLayout
                     android:layout_weight="3"
-                    android:background="@color/color_white"
+                    android:background="@color/colorWhite"
                     android:layout_width="0dp"
                     android:layout_height="match_parent">
 
@@ -149,14 +244,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_marginLeft="1dp"
                     android:layout_weight="4"
-
-                    android:background="@color/color_white"
+                    android:background="@color/colorWhite"
                     android:layout_width="0dp"
                     android:layout_height="match_parent">
-
 
                     <TextView
                         android:textColor="#000"
@@ -173,8 +267,7 @@
                 <LinearLayout
                     android:layout_marginLeft="1dp"
                     android:layout_weight="3"
-
-                    android:background="@color/color_white"
+                    android:background="@color/colorWhite"
                     android:layout_width="0dp"
                     android:layout_height="match_parent">
 
@@ -194,10 +287,13 @@
 
             <TextView
                 android:layout_marginTop="10dp"
-                android:textColor="@color/color_white"
+                android:textColor="@color/colorWhite"
                 android:text="Gender"
+                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+
             <RadioGroup
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -207,16 +303,15 @@
                 <androidx.appcompat.widget.AppCompatRadioButton
                    android:layout_weight="1"
                     android:text="Male"
-                    android:background="@color/color_white"
-
+                    android:background="@color/colorWhite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-                <androidx.appcompat.widget.AppCompatRadioButton
-                    android:background="@color/color_white"
 
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:background="@color/colorWhite"
                     android:layout_weight="1"
                     android:layout_marginLeft="5dp"
-                    android:text="FeMale"
+                    android:text="Female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -225,10 +320,17 @@
 
             <TextView
                 android:layout_marginTop="10dp"
-                android:textColor="@color/color_white"
+                android:textColor="@color/colorWhite"
                 android:text="Documents"
+                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                facebook:cardCornerRadius="2dp">
+
             <LinearLayout
                 android:gravity="center_horizontal"
                 android:background="#ffffff"
@@ -237,43 +339,55 @@
 
                 <ImageView
                     android:layout_gravity="center_vertical"
-                    android:padding="2dp"
                     android:src="@drawable/ic_upload_24dp"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
                 <TextView
                     android:layout_gravity="center_vertical"
-
-                    android:textColor="#374CCA"
+                    android:textColor="@color/colorPrimaryLight"
                     android:text="Upload"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
             </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
             <LinearLayout
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
             <CheckBox
                 android:text="I Accept the"
                 android:layout_width="wrap_content"
+                android:textColor="@color/colorWhite"
                 android:layout_height="wrap_content"/>
 
                 <TextView
-                    android:textColor="@android:color/holo_red_dark"
-                    android:text="Terms and Conditions"
+                    android:textColor="@color/colorAccent"
+                    android:text=" Terms and Conditions"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
         </LinearLayout>
 
-            <Button
-                android:layout_marginTop="5dp"
-                android:text="Register"
-                android:textColor="@color/color_white"
-                android:background="@android:color/holo_red_dark"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                facebook:cardCornerRadius="2dp"
+                android:layout_marginBottom="30dp">
+
+            <Button
+                android:id="@+id/registerButton"
+                android:text="Register"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorAccent"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:textAllCaps="false"/>
+
+            </androidx.cardview.widget.CardView>
 
 
 
