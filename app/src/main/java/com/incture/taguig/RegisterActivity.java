@@ -34,21 +34,24 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
-public class RegisterActivity extends AppCompatActivity  {
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText etFirstName,etLastName,etEmail,etPhoneNo;
     private LoginButton loginButton;
-    private Button fb;
+    private Button fb, registerButton;
     private CallbackManager callbackManager;
     private AccessTokenTracker accessTokenTracker;
     List< String > permissionNeeds;
     private int mYear, mMonth, mDay, mHour, mMinute;
     private String[] months;
     private TextView spinner1,spinner2,spinner3;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
         etFirstName = findViewById(R.id.etFirstName);
         etLastName = findViewById(R.id.etLastName);
         etEmail = findViewById(R.id.etEmail);
@@ -56,6 +59,7 @@ public class RegisterActivity extends AppCompatActivity  {
         spinner1 = findViewById(R.id.spinner1);
         spinner2 = findViewById(R.id.spinner2);
         spinner3 = findViewById(R.id.spinner3);
+        registerButton = findViewById(R.id.registerButton);
 
         months = this.getResources().getStringArray(R.array.months) ;
 
@@ -139,7 +143,7 @@ public class RegisterActivity extends AppCompatActivity  {
                     }
                 });
 
-
+        registerButton.setOnClickListener(this);
 
     }
 
@@ -178,7 +182,17 @@ public class RegisterActivity extends AppCompatActivity  {
                 }, mYear, mMonth, mDay);
         datePickerDialog.show();
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.registerButton:
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
+}
 
 
     /*@Override

@@ -2,60 +2,251 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/bottomBackground"
+    android:background="@drawable/bg_gradient"
     tools:context=".LoginActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="30dp">
+    <androidx.core.widget.NestedScrollView
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:src="@drawable/maps_icon"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="60dp">
+
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/maps_icon"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Republic of the phillipines"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="8sp"
+                    android:textAllCaps="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="City Government of Taguig"
+                    android:textColor="@color/colorWhite"
+                    android:textAllCaps="true"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="National Capital Region"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="8sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+            android:text="Login"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="40dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:textColor="@color/colorWhite"
+            android:text="Email ID/ Phone No."
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="2dp">
+
+            <EditText
+                android:id="@+id/username"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:layout_alignParentLeft="true"
+                android:text="Password"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:text="Forgot Password?"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="2dp">
+
+            <EditText
+                android:id="@+id/password"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="2dp"
+            android:layout_marginTop="20dp">
+
+            <Button
+                android:id="@+id/registerButton"
+                android:text="Login"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorAccent"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:textAllCaps="false"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:textSize="14sp"
+            android:text="Or Login With"
+            android:textColor="@color/colorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <com.facebook.login.widget.LoginButton
+            android:visibility="gone"
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            facebook:cardCornerRadius="2dp">
+
+            <LinearLayout
+                android:onClick="facebookLogin"
+                android:gravity="center_horizontal"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="34dp">
+
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:padding="2dp"
+                    android:src="@drawable/facebook"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"/>
+
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:textColor="#374CCA"
+                    android:text="Facebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center_vertical">
+            android:gravity="bottom"
+            android:layout_marginBottom="30dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Republic of the phillipines"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:textSize="14sp"
+                android:text="Didn't have an Account?"
                 android:textColor="@color/colorWhite"
-                android:textSize="8sp"
-                android:textAllCaps="true"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-            <TextView
-                android:layout_width="wrap_content"
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="City Government of Taguig"
-                android:textColor="@color/colorWhite"
-                android:textAllCaps="true"
-                android:textSize="12sp"
-                android:textStyle="bold"/>
+                app:cardCornerRadius="2dp"
+                android:layout_marginTop="10dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="National Capital Region"
-                android:textColor="@color/colorWhite"
-                android:textSize="8sp"/>
+                <Button
+                    android:id="@+id/createAccountButton"
+                    android:text="Create Account"
+                    android:textColor="@color/colorWhite"
+                    android:background="@color/colorAccent"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:textAllCaps="false"/>
 
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
 
+
     </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 
 </LinearLayout>
