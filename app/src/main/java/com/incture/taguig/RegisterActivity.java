@@ -60,13 +60,13 @@ public class RegisterActivity extends AppCompatActivity  {
         months = this.getResources().getStringArray(R.array.months) ;
 
 
-        callbackManager = CallbackManager.Factory.create();
+        //callbackManager = CallbackManager.Factory.create();
 
       //  fb =  findViewById(R.id.fb);
         //fb.setOnClickListener(this);
         loginButton = findViewById(R.id.login_button);
 
-         permissionNeeds = Arrays.asList("user_photos", "email",
+        /* permissionNeeds = Arrays.asList("user_photos", "email",
                 "user_birthday", "public_profile", "AccessToken");
 
         accessTokenTracker = new AccessTokenTracker() {
@@ -139,18 +139,56 @@ public class RegisterActivity extends AppCompatActivity  {
                     }
                 });
 
+*/
 
+
+        callbackManager = CallbackManager.Factory.create();
+        //loginButton.setReadPermissions(Arrays.asList("email", "public_profile","mobileNo"));
+        accessTokenTracker = new AccessTokenTracker() {
+            @Override
+            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+                if(currentAccessToken == null)
+                {
+                    etFirstName.setText("");
+                    etLastName.setText("");
+                    etEmail.setText("");
+                    Toast.makeText(RegisterActivity.this, "User is Logged out", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    loadUserProfile(currentAccessToken);
+                }
+            }
+        };
+       // checkLoginStatus();
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+
+            }
+        });
 
     }
 
     @Override
     protected void onActivityResult(int requestCode, int responseCode,
                                     Intent data) {
-        super.onActivityResult(requestCode, responseCode, data);
         callbackManager.onActivityResult(requestCode, responseCode, data);
+
+        super.onActivityResult(requestCode, responseCode, data);
     }
 
     public void facebookLogin(View view) {
+        //loginButton.setReadPermissions(permissionNeeds);
         loginButton.performClick();
 
     }
@@ -177,6 +215,46 @@ public class RegisterActivity extends AppCompatActivity  {
                     }
                 }, mYear, mMonth, mDay);
         datePickerDialog.show();
+    }
+
+
+
+
+
+
+
+
+    public void loadUserProfile(AccessToken newAccessToken){
+        GraphRequest request = GraphRequest.newMeRequest(newAccessToken, new GraphRequest.GraphJSONObjectCallback() {
+            @Override
+            public void onCompleted(JSONObject object, GraphResponse response) {
+                try {
+                    String first_name = object.getString("first_name");
+                    String last_name = object.getString("last_name");
+                    String email = object.getString("email");
+
+                    etFirstName.setText(first_name);
+                    etLastName.setText(last_name);
+                    etEmail.setText(email);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+
+        Bundle parameters= new Bundle();
+        parameters.putString("fields","first_name,last_name,email,id");
+        request.setParameters(parameters);
+        request.executeAsync();
+    }
+
+    public void checkLoginStatus(){
+        if(AccessToken.getCurrentAccessToken()!=null){
+            loadUserProfile(AccessToken.getCurrentAccessToken());
+        }
     }
     }
 
