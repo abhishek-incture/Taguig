@@ -177,7 +177,6 @@
             facebook:cardCornerRadius="2dp">
 
             <LinearLayout
-                android:onClick="facebookLogin"
                 android:gravity="center_horizontal"
                 android:background="@color/colorWhite"
                 android:layout_width="match_parent"
@@ -229,6 +228,7 @@
                 <Button
                     android:id="@+id/createAccountButton"
                     android:text="Create Account"
+                    android:onClick="goToCreateAccount"
                     android:textColor="@color/colorWhite"
                     android:background="@color/colorAccent"
                     android:layout_width="match_parent"

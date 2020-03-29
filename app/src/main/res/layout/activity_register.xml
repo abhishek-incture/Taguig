@@ -86,35 +86,79 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                facebook:cardCornerRadius="2dp">
-
             <LinearLayout
-              android:onClick="facebookLogin"
-              android:gravity="center_horizontal"
-              android:background="@color/colorWhite"
-              android:layout_width="match_parent"
-              android:layout_height="34dp">
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.cardview.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    facebook:cardCornerRadius="2dp">
 
-              <ImageView
-                  android:layout_gravity="center_vertical"
-                  android:padding="2dp"
-                  android:src="@drawable/facebook"
-                  android:layout_width="24dp"
-                  android:layout_height="24dp"/>
-              <TextView
-                  android:layout_gravity="center_vertical"
+                    <LinearLayout
+                        android:onClick="facebookLogin"
+                        android:gravity="center_horizontal"
+                        android:background="@color/colorWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp">
 
-                  android:textColor="#374CCA"
-                  android:text="Facebook"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"/>
+                        <ImageView
+                            android:layout_gravity="center_vertical"
+                            android:padding="2dp"
+                            android:src="@drawable/facebook"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"/>
+                        <TextView
+                            android:layout_marginLeft="5dp"
+                            android:layout_gravity="center_vertical"
 
-          </LinearLayout>
+                            android:textColor="#374CCA"
+                            android:text="Facebook"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
 
-            </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnGoogle"
+                    android:layout_marginLeft="5dp"
+                    android:onClick="signIn"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    facebook:cardCornerRadius="2dp">
+
+                    <LinearLayout
+                        android:gravity="center_horizontal"
+                        android:background="@color/colorWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp">
+
+                        <ImageView
+                            android:layout_gravity="center_vertical"
+                            android:padding="2dp"
+                            android:src="@drawable/google1"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"/>
+                        <TextView
+                            android:layout_marginLeft="5dp"
+                            android:layout_gravity="center_vertical"
+
+                            android:textColor="#374CCA"
+                            android:text="Google"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
 
             <TextView
                 android:layout_marginTop="10dp"
@@ -227,58 +271,42 @@
                 android:layout_height="34dp">
 
                 <LinearLayout
+
                     android:layout_weight="3"
-                    android:background="@color/colorWhite"
+                    android:background="@drawable/bg_button"
                     android:layout_width="0dp"
                     android:layout_height="match_parent">
 
-                <TextView
-                    android:textColor="#000"
-                    android:paddingLeft="20dp"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_vertical"
-                    android:text="01"
-                    android:onClick="showDatePicker"
-                    android:drawableRight="@drawable/ic_arrow_24dp"
-                    android:id="@+id/spinner1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    <Spinner
+
+                        android:id="@+id/spinner1"
+                        android:dropDownWidth="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_marginLeft="1dp"
+                    android:layout_marginLeft="4dp"
                     android:layout_weight="4"
-                    android:background="@color/colorWhite"
+                    android:background="@drawable/bg_button"
                     android:layout_width="0dp"
                     android:layout_height="match_parent">
 
-                    <TextView
-                        android:textColor="#000"
-                        android:paddingLeft="20dp"
-                        android:gravity="center_vertical"
-                        android:layout_gravity="center_vertical"
-                        android:text="January"
-                        android:onClick="showDatePicker"
-                        android:drawableRight="@drawable/ic_arrow_24dp"
+                    <Spinner
                         android:id="@+id/spinner2"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_marginLeft="1dp"
-                    android:layout_weight="3"
-                    android:background="@color/colorWhite"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/bg_button"
                     android:layout_width="0dp"
                     android:layout_height="match_parent">
 
-                    <TextView
-                        android:textColor="#000"
-                        android:paddingLeft="20dp"
-                        android:gravity="center_vertical"
-                        android:layout_gravity="center_vertical"
-                        android:text="1985"
-                        android:onClick="showDatePicker"
-                        android:drawableRight="@drawable/ic_arrow_24dp"
+                    <Spinner
+
                         android:id="@+id/spinner3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
@@ -300,15 +328,24 @@
                 android:layout_height="wrap_content">
 
 
-                <androidx.appcompat.widget.AppCompatRadioButton
+                <RadioButton
+                    android:id="@+id/rbMale"
+
                    android:layout_weight="1"
+                    android:checked="true"
+                    android:onClick="onRadioButtonClicked"
+                    android:buttonTint="@color/colorPrimaryDark"
                     android:text="Male"
-                    android:background="@color/colorWhite"
+                    android:background="@drawable/bg_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-                <androidx.appcompat.widget.AppCompatRadioButton
-                    android:background="@color/colorWhite"
+                <RadioButton
+
+                    android:id="@+id/rbFeMale"
+                    android:background="@drawable/bg_button"
+                    android:buttonTint="@color/colorPrimaryDark"
+                    android:onClick="onRadioButtonClicked"
                     android:layout_weight="1"
                     android:layout_marginLeft="5dp"
                     android:text="Female"
@@ -360,6 +397,7 @@
                 android:layout_height="wrap_content">
 
             <CheckBox
+                android:id="@+id/checkbox1"
                 android:text="I Accept the"
                 android:layout_width="wrap_content"
                 android:textColor="@color/colorWhite"
@@ -381,6 +419,7 @@
             <Button
                 android:id="@+id/registerButton"
                 android:text="Register"
+                android:onClick="register"
                 android:textColor="@color/colorWhite"
                 android:background="@color/colorAccent"
                 android:layout_width="match_parent"
