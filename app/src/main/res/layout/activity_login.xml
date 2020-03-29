@@ -9,11 +9,6 @@
     android:background="@drawable/bg_gradient"
     tools:context=".LoginActivity">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
     <LinearLayout
         android:orientation="vertical"
@@ -246,7 +241,6 @@
 
     </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
 
 
 </LinearLayout>
