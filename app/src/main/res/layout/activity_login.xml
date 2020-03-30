@@ -145,7 +145,7 @@
             android:layout_marginTop="20dp">
 
             <Button
-                android:id="@+id/registerButton"
+                android:id="@+id/loginButton"
                 android:text="Login"
                 android:textSize="@dimen/textsize18sp"
                 android:textColor="@color/colorWhite"
