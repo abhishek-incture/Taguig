@@ -9,7 +9,10 @@ import android.os.Handler;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.incture.taguig.fragment.ChatFragment;
 import com.incture.taguig.fragment.HomeFragment;
+import com.incture.taguig.fragment.ProfileFragment;
+import com.incture.taguig.fragment.RequestsFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
 
@@ -93,20 +96,16 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 fragment = new HomeFragment();
                 break;
 
-            case R.id.navigation_education:
-                fragment = new HomeFragment();
+            case R.id.navigation_requests:
+                fragment = new RequestsFragment();
                 break;
 
-            case R.id.navigation_health:
-                fragment = new HomeFragment();
-                break;
-
-            case R.id.navigation_service_provider:
-                fragment = new HomeFragment();
+            case R.id.navigation_chat:
+                fragment = new ChatFragment();
                 break;
 
             case R.id.navigation_profile:
-                fragment = new HomeFragment();
+                fragment = new ProfileFragment();
                 break;
         }
 
