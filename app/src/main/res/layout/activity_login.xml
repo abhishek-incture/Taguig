@@ -86,13 +86,15 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="2dp">
+            facebook:cardCornerRadius="@dimen/edittextRadius">
 
             <EditText
                 android:id="@+id/username"
+                android:paddingLeft="@dimen/editleftPadding"
+                android:paddingRight="@dimen/editleftPadding"
                 android:background="@color/colorWhite"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/size48dp"
+                android:layout_height="@dimen/edittextheight"
                 />
 
         </androidx.cardview.widget.CardView>
@@ -127,13 +129,15 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="2dp">
+            facebook:cardCornerRadius="@dimen/edittextRadius">
 
             <EditText
                 android:id="@+id/password"
+                android:paddingLeft="@dimen/editleftPadding"
+                android:paddingRight="@dimen/editleftPadding"
                 android:background="@color/colorWhite"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/size48dp"
+                android:layout_height="@dimen/edittextheight"
                 />
 
         </androidx.cardview.widget.CardView>
@@ -141,7 +145,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="2dp"
+            facebook:cardCornerRadius="@dimen/edittextRadius"
             android:layout_marginTop="20dp">
 
             <Button
@@ -151,7 +155,7 @@
                 android:textColor="@color/colorWhite"
                 android:background="@color/colorAccent"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/size48dp"
+                android:layout_height="@dimen/edittextheight"
                 android:textAllCaps="false"/>
 
         </androidx.cardview.widget.CardView>
@@ -178,13 +182,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            facebook:cardCornerRadius="2dp">
+            facebook:cardCornerRadius="@dimen/edittextRadius">
 
             <LinearLayout
+                android:onClick="facebookLogin"
+
                 android:gravity="center_horizontal"
                 android:background="@color/colorWhite"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/size48dp"
+                android:layout_height="@dimen/edittextheight"
                 >
 
                 <ImageView
@@ -208,16 +214,19 @@
         </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/btnGoogle"
+                android:onClick="signIn"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                facebook:cardCornerRadius="2dp">
+                facebook:cardCornerRadius="@dimen/edittextRadius">
 
                 <LinearLayout
                     android:gravity="center_horizontal"
                     android:background="@color/colorWhite"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/size48dp"
+                    android:layout_height="@dimen/edittextheight"
                     >
 
                     <ImageView
@@ -244,6 +253,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="90dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -263,7 +273,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="2dp"
+                facebook:cardCornerRadius="@dimen/edittextRadius"
                 android:layout_marginTop="10dp">
 
                 <Button
@@ -275,7 +285,7 @@
                     android:textColor="@color/colorWhite"
                     android:background="@color/colorAccent"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/size48dp"
+                    android:layout_height="@dimen/edittextheight"
                     android:textAllCaps="false"/>
 
             </androidx.cardview.widget.CardView>

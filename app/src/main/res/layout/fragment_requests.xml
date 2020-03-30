@@ -7,9 +7,93 @@
     android:background="@color/defaultscreen">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Requests Fragment" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/l1"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="@dimen/marginleftRequestTextView"
+            android:layout_marginRight="@dimen/marginleftRequestTextView"
+            android:layout_width="match_parent"
+            android:background="@color/tvdarkGrey"
+            android:layout_height="32dp">
+
+            <TextView
+                android:id="@+id/tvAll"
+                android:textAlignment="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_button"
+                android:textColor="@color/colorDarkRed"
+                android:textSize="@dimen/requestTextsize"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="32dp"
+                android:text="All" />
+
+            <View
+                android:layout_marginLeft="2dp"
+
+                android:background="#CCCBBC"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="2dp"
+                android:layout_width="2dp"
+                android:layout_height="25dp"/>
+
+            <TextView
+                android:textAlignment="center"
+                android:id="@+id/tvPending"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/colorDarkGrey"
+                android:textSize="@dimen/requestTextsize"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="32dp"
+                android:text="Pending" />
+
+            <View
+                android:layout_marginLeft="2dp"
+                android:background="#CCCBBC"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="2dp"
+                android:layout_width="2dp"
+                android:layout_height="25dp"/>
+
+            <TextView
+                android:id="@+id/tvApproved"
+                android:layout_gravity="center_vertical"
+                android:textAlignment="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/colorDarkGrey"
+                android:textSize="@dimen/requestTextsize"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="32dp"
+                android:text="Approved" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:clipToPadding="true"
+            android:layout_below="@+id/l1"
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            />
+
+
+
+    </RelativeLayout>
 
 </FrameLayout>

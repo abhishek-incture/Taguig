@@ -3,4 +3,10 @@
     <dimen name="textsize14sp">14sp</dimen>
     <dimen name="size48dp">48dp</dimen>
     <dimen name="textsize18sp">18sp</dimen>
+    <dimen name="edittextheight">34dp</dimen>
+    <dimen name="edittextRadius">4dp</dimen>
+    <dimen name="editleftPadding">5dp</dimen>
+    <dimen name="marginleftRequestTextView">25dp</dimen>
+    <dimen name="requestTextsize">18sp</dimen>
+    <dimen name="tvleftMargin">20dp</dimen>
 </resources>

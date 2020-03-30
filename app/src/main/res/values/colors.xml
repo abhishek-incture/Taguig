@@ -15,4 +15,10 @@
 
     <color name="defaultscreen">#F1F1F1</color>
     <color name="colorGray">#808080</color>
+    <color name="colorDarkRed">#E02020</color>
+    <color name="colorDarkGrey">#605F5F</color>
+    <color name="lightGreen">#34D900</color>
+    <color name="lightGrey">#DFDFE0</color>
+    <color name="lightRed">#F40001</color>
+    <color name="tvdarkGrey">#52CCCBBC</color>
 </resources>

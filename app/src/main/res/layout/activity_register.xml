@@ -45,8 +45,7 @@
                         android:layout_height="wrap_content"
                         android:text="Smart City App"
                         android:textColor="@color/colorWhite"
-                        android:textAllCaps="true"
-                        android:textSize="23sp"
+                        android:textSize="12sp"
                         android:textStyle="bold"/>
 
                     <TextView
@@ -55,7 +54,7 @@
                         android:text="Republic of the PHILLIPINES"
                         android:textColor="@color/colorWhite"
                         android:textAllCaps="true"
-                        android:textSize="11sp"/>
+                        android:textSize="8sp"/>
 
                 </LinearLayout>
 
@@ -89,14 +88,14 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    facebook:cardCornerRadius="2dp">
+                    facebook:cardCornerRadius="@dimen/edittextRadius">
 
                     <LinearLayout
                         android:onClick="facebookLogin"
                         android:gravity="center_horizontal"
                         android:background="@color/colorWhite"
                         android:layout_width="match_parent"
-                        android:layout_height="34dp">
+                        android:layout_height="@dimen/edittextheight">
 
                         <ImageView
                             android:layout_gravity="center_vertical"
@@ -124,13 +123,13 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    facebook:cardCornerRadius="2dp">
+                    facebook:cardCornerRadius="@dimen/edittextRadius">
 
                     <LinearLayout
                         android:gravity="center_horizontal"
                         android:background="@color/colorWhite"
                         android:layout_width="match_parent"
-                        android:layout_height="34dp">
+                        android:layout_height="@dimen/edittextheight">
 
                         <ImageView
                             android:layout_gravity="center_vertical"
@@ -175,7 +174,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                facebook:cardCornerRadius="2dp">
+                facebook:cardCornerRadius="@dimen/edittextRadius">
 
             <EditText
                 android:id="@+id/etFirstName"
@@ -183,7 +182,7 @@
                 android:paddingRight="5dp"
                 android:background="@color/colorWhite"
                 android:layout_width="match_parent"
-                android:layout_height="34dp"/>
+                android:layout_height="@dimen/edittextheight"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -198,7 +197,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                facebook:cardCornerRadius="2dp">
+                facebook:cardCornerRadius="@dimen/edittextRadius">
 
             <EditText
                 android:id="@+id/etLastName"
@@ -206,7 +205,7 @@
                 android:paddingRight="5dp"
                 android:background="@color/colorWhite"
                 android:layout_width="match_parent"
-                android:layout_height="34dp"/>
+                android:layout_height="@dimen/edittextheight"/>
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -220,7 +219,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                facebook:cardCornerRadius="2dp">
+                facebook:cardCornerRadius="@dimen/edittextRadius">
 
             <EditText
                 android:id="@+id/etEmail"
@@ -229,7 +228,7 @@
                 android:inputType="textEmailAddress"
                 android:background="@color/colorWhite"
                 android:layout_width="match_parent"
-                android:layout_height="34dp"/>
+                android:layout_height="@dimen/edittextheight"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -244,7 +243,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                facebook:cardCornerRadius="2dp">
+                facebook:cardCornerRadius="@dimen/edittextRadius">
 
             <EditText
                 android:id="@+id/etPhoneNo"
@@ -254,7 +253,7 @@
                 android:maxLength="10"
                 android:background="@color/colorWhite"
                 android:layout_width="match_parent"
-                android:layout_height="34dp"/>
+                android:layout_height="@dimen/edittextheight"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -271,7 +270,7 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="34dp">
+                android:layout_height="@dimen/edittextheight">
 
                 <LinearLayout
 
@@ -369,13 +368,13 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                facebook:cardCornerRadius="2dp">
+                facebook:cardCornerRadius="@dimen/edittextRadius">
 
             <LinearLayout
                 android:gravity="center_horizontal"
                 android:background="#ffffff"
                 android:layout_width="match_parent"
-                android:layout_height="34dp">
+                android:layout_height="@dimen/edittextheight">
 
                 <ImageView
                     android:layout_gravity="center_vertical"

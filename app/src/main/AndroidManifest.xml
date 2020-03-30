@@ -31,6 +31,7 @@
         <activity android:name=".RegisterActivity">
 
         </activity>
+        <activity android:name=".ReportIncidentActivity"/>
 
         <meta-data android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
