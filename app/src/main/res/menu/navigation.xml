@@ -7,23 +7,20 @@
         android:title="@string/home" />
 
     <item
-        android:id="@+id/navigation_education"
+        android:id="@+id/navigation_requests"
         android:icon="@drawable/ic_launcher_background"
-        android:title="@string/friends" />
+        android:title="@string/requests" />
 
     <item
-        android:id="@+id/navigation_health"
+        android:id="@+id/navigation_chat"
         android:icon="@drawable/ic_launcher_background"
-        android:title="@string/report" />
-
-    <item
-        android:id="@+id/navigation_service_provider"
-        android:icon="@drawable/ic_launcher_background"
-        android:title="@string/profile" />
+        android:title="@string/chat" />
 
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_launcher_background"
-        android:title="@string/chat" />
+        android:title="@string/profile" />
+
+
 
 </menu>
