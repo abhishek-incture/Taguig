@@ -13,4 +13,6 @@
     <color name="gradientendcolor">#002E98</color>
     <color name="lightOrange">#FF5A5A</color>
 
+    <color name="defaultscreen">#F1F1F1</color>
+    <color name="colorGray">#808080</color>
 </resources>
