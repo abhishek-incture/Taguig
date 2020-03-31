@@ -198,9 +198,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             /*Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(pickPhoto, 1);*/
 
-            Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-            photoPickerIntent.setType("image/*");
-            startActivityForResult(photoPickerIntent, PICK_IMAGE_MULTIPLE);
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_DENIED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CAPTURE_GALLERY);
+
+            }
+            else{
+                openGalleryIntent();
+            }
+
 
         }
         return true;
@@ -211,16 +217,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
 
         //return (ContextCompat.checkSelfPermission(getApplicationContext(), CAMERA) == PackageManager.PERMISSION_GRANTED);
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-                == PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA);
 
-        }
-        return true;
+        return (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED);
     }
 
     public void requestCameraPermission() {
-        ActivityCompat.requestPermissions(this, new String[]{CAMERA}, REQUEST_CAMERA);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA);
     }
 
     public void requestReadStoragePermission() {
@@ -253,10 +255,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
 
     private void openGalleryIntent() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Image"), REQUEST_CAPTURE_GALLERY);
+        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+        photoPickerIntent.setType("image/*");
+        startActivityForResult(photoPickerIntent, PICK_IMAGE_MULTIPLE);
     }
 
     private File createImageFile() throws IOException {
@@ -315,7 +316,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     @Override
     protected void onActivityResult(int requestCode, int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_MULTIPLE) {
+        if (requestCode == PICK_IMAGE_MULTIPLE && resultCode==RESULT_OK) {
             Uri imageUri = data.getData();
             String selectedImagePath = getPath(imageUri);
            // File f = new File(selectedImagePath);
