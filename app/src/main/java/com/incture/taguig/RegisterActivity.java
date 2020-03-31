@@ -53,7 +53,9 @@ import java.util.List;
 public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private static final int RC_SIGN_IN = 102 ;
+    private static final int FILE_REQUEST = 101;
     private EditText etFirstName,etLastName,etEmail,etPhoneNo;
+    private TextView tvfile1,tvfile2,tvfile3;
     private CheckBox checkBox1;
     private LoginButton loginButton;
     private CardView btnGoogle;
@@ -71,6 +73,8 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     private GoogleSignInClient mGoogleSignInClient;
     private boolean isLoggedIn;
 
+    public static int noOfFile= 1;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +89,10 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         spinner2 = findViewById(R.id.spinner2);
         spinner3 = findViewById(R.id.spinner3);
         checkBox1 =findViewById(R.id.checkbox1);
+        tvfile1 = findViewById(R.id.tvfile1);
+        tvfile2 = findViewById(R.id.tvfile2);
+        tvfile3 = findViewById(R.id.tvfile3);
+
         isLoggedIn = false;
 
        // months = this.getResources().getStringArray(R.array.months) ;
@@ -288,13 +296,39 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     @Override
     protected void onActivityResult(int requestCode, int responseCode,
                                     Intent data) {
+        switch (requestCode) {
+            case RC_SIGN_IN: {
+                // The Task returned from this call is always completed, no need to attach
+                // a listener.
+                Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                handleSignInResult(task);
+            }
+            case FILE_REQUEST:
+                if(responseCode== RESULT_OK){
+                    String path = data.getData().getLastPathSegment();
+                    String[] paths=path.split("/");
+                    path = paths[paths.length-1];
 
-        if (requestCode == RC_SIGN_IN) {
-            // The Task returned from this call is always completed, no need to attach
-            // a listener.
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
+                    if(noOfFile==1) {
+                        tvfile1.setVisibility(View.VISIBLE);
+                        tvfile1.setText("1. "+path);
+                    }
+                    if(noOfFile==2) {
+                        tvfile2.setVisibility(View.VISIBLE);
+
+                        tvfile2.setText("2. "+path);
+                    }
+                    if(noOfFile==3){
+                        tvfile3.setVisibility(View.VISIBLE);
+
+                        tvfile3.setText("3. "+path);
+
+                    }
+                    noOfFile++;
+                }
         }
+
+
         callbackManager.onActivityResult(requestCode, responseCode, data);
 
         super.onActivityResult(requestCode, responseCode, data);
@@ -489,6 +523,24 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                         isLoggedIn = false;
                     }
                 });
+    }
+
+
+    public void upLoadFiles(View view) {
+        if(noOfFile<4) {
+            Intent mFileIntent = new Intent(Intent.ACTION_GET_CONTENT);
+            mFileIntent.setType("*/*");
+            startActivityForResult(mFileIntent, FILE_REQUEST);
+        }
+        else{
+            Toast.makeText(this, "Only 3 files Allowed", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        noOfFile =1;
+        super.onBackPressed();
     }
 }
 

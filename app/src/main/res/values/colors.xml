@@ -27,4 +27,5 @@
     <color name="colorUpdatedText">#11005b</color>
     <color name="colorActiveGreen">#2BA846</color>
     <color name="colorActiveBlue">#027DFF</color>
+    <color name="sidebarGrey"></color>
 </resources>

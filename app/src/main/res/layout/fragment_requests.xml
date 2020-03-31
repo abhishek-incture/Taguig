@@ -19,7 +19,7 @@
             android:layout_marginLeft="@dimen/marginleftRequestTextView"
             android:layout_marginRight="@dimen/marginleftRequestTextView"
             android:layout_width="match_parent"
-            android:background="@color/tvdarkGrey"
+            android:background="@drawable/bg_buttondarkgrey"
             android:layout_height="32dp">
 
             <TextView
@@ -28,7 +28,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:gravity="center_vertical"
-                android:background="@drawable/bg_button"
+                android:background="@drawable/bg_buttongrey"
                 android:textColor="@color/colorDarkRed"
                 android:textSize="@dimen/requestTextsize"
                 android:layout_width="0dp"
@@ -37,13 +37,11 @@
                 android:text="All" />
 
             <View
-                android:layout_marginLeft="2dp"
-
                 android:background="#CCCBBC"
-                android:layout_marginTop="3dp"
-                android:layout_marginBottom="2dp"
-                android:layout_width="2dp"
-                android:layout_height="25dp"/>
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"/>
 
             <TextView
                 android:textAlignment="center"
@@ -53,20 +51,18 @@
                 android:paddingRight="10dp"
                 android:gravity="center_vertical"
                 android:textColor="@color/colorDarkGrey"
-                android:textSize="@dimen/requestTextsize"
+                android:textSize="@dimen/pendingTextSize"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="32dp"
                 android:text="Pending" />
 
             <View
-                android:layout_marginLeft="2dp"
                 android:background="#CCCBBC"
-                android:layout_marginTop="3dp"
-                android:layout_marginBottom="2dp"
-                android:layout_width="2dp"
-                android:layout_height="25dp"/>
-
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"/>
             <TextView
                 android:id="@+id/tvApproved"
                 android:layout_gravity="center_vertical"
@@ -75,7 +71,7 @@
                 android:paddingRight="10dp"
                 android:gravity="center_vertical"
                 android:textColor="@color/colorDarkGrey"
-                android:textSize="@dimen/requestTextsize"
+                android:textSize="@dimen/pendingTextSize"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="32dp"
@@ -84,7 +80,6 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:clipToPadding="true"
             android:layout_below="@+id/l1"
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"

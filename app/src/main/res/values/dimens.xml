@@ -6,8 +6,8 @@
     <dimen name="edittextheight">34dp</dimen>
     <dimen name="edittextRadius">4dp</dimen>
     <dimen name="editleftPadding">5dp</dimen>
-    <dimen name="marginleftRequestTextView">25dp</dimen>
-    <dimen name="requestTextsize">18sp</dimen>
+    <dimen name="marginleftRequestTextView">36dp</dimen>
+    <dimen name="requestTextsize">14sp</dimen>
     <dimen name="tvleftMargin">20dp</dimen>
 
     <dimen name="fifteen">15dp</dimen>
@@ -16,4 +16,5 @@
     <dimen name="five">5dp</dimen>
     <dimen name="fourteen_sp">14sp</dimen>
     <dimen name="hundred">100dp</dimen>
+    <dimen name="pendingTextSize">13sp</dimen>
 </resources>

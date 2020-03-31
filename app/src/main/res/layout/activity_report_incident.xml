@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_marginLeft="@dimen/tvleftMargin"
     android:layout_marginRight="@dimen/tvleftMargin"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ReportIncidentActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
 
     <TextView
         android:layout_marginTop="20dp"
         android:text="Report Incident"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="#000000"
 
@@ -17,6 +25,8 @@
         android:layout_height="wrap_content"/>
 
     <ImageView
+        android:scaleType="fitXY"
+        android:id="@+id/imgView"
         android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="360dp"/>
@@ -24,7 +34,7 @@
     <TextView
         android:layout_marginTop="20dp"
         android:text="Help Us To Understand Incident"
-        android:textSize="13sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="#000000"
         android:layout_width="match_parent"
@@ -32,24 +42,23 @@
 
     <EditText
         android:textSize="14sp"
-
-        android:hint="Type here"
+        android:text="Type here"
         android:paddingLeft="7dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="14sp"
         android:background="@drawable/bg_button5dp"
         android:layout_width="match_parent"
-        android:maxLines="4"
         android:layout_height="90dp"/>
     <TextView
         android:layout_marginTop="20dp"
         android:text="Add Location of Incident"
-        android:textSize="13sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="#000000"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <EditText
+        android:textSize="14sp"
         android:paddingLeft="7dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/bg_button5dp"
@@ -57,6 +66,7 @@
         android:layout_height="38dp"/>
 
     <Button
+        android:layout_marginTop="16dp"
         android:id="@+id/registerButton"
         android:text="Register"
         android:textSize="18sp"
@@ -68,13 +78,18 @@
         android:textAllCaps="false"/>
 
     <TextView
+        android:onClick="goToMainActivity"
         android:text="Cancel"
         android:textSize="18sp"
         android:textAlignment="center"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="20dp"
         android:textColor="@color/lightOrange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    </LinearLayout>
 
-</LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

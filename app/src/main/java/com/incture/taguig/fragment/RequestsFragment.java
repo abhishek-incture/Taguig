@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,13 +46,18 @@ public class RequestsFragment extends Fragment {
         tvApproved.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvApproved.setBackgroundResource(R.drawable.bg_button);
+                tvApproved.setBackgroundResource(R.drawable.bg_buttongrey);
                 tvApproved.setTextColor(getActivity().getResources().getColor(R.color.colorDarkRed));
+                tvApproved.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
                 tvAll.setBackgroundColor(getActivity().getResources().getColor(R.color.tvdarkGrey));
                 tvAll.setTextColor(getActivity().getResources().getColor(R.color.colorDarkGrey));
+                tvAll.setTextSize(TypedValue.COMPLEX_UNIT_SP,13);
+
 
                 tvPending.setBackgroundColor(getActivity().getResources().getColor(R.color.tvdarkGrey));
                 tvPending.setTextColor(getActivity().getResources().getColor(R.color.colorDarkGrey));
+                tvPending.setTextSize(TypedValue.COMPLEX_UNIT_SP,13);
+
 
                 updateList("Approved");
             }
@@ -59,13 +65,17 @@ public class RequestsFragment extends Fragment {
         tvPending.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvPending.setBackgroundResource(R.drawable.bg_button);
+                tvPending.setBackgroundResource(R.drawable.bg_buttongrey);
                 tvPending.setTextColor(getActivity().getResources().getColor(R.color.colorDarkRed));
-                tvAll.setTextColor(getActivity().getResources().getColor(R.color.colorDarkGrey));
+                tvPending.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
 
+                tvAll.setTextColor(getActivity().getResources().getColor(R.color.colorDarkGrey));
+                tvAll.setTextSize(TypedValue.COMPLEX_UNIT_SP,13);
                 tvAll.setBackgroundColor(getActivity().getResources().getColor(R.color.tvdarkGrey));
                 tvApproved.setBackgroundColor(getActivity().getResources().getColor(R.color.tvdarkGrey));
                 tvApproved.setTextColor(getActivity().getResources().getColor(R.color.colorDarkGrey));
+                tvApproved.setTextSize(TypedValue.COMPLEX_UNIT_SP,13);
+
 
                 updateList("Pending");
             }
@@ -73,13 +83,17 @@ public class RequestsFragment extends Fragment {
         tvAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvAll.setBackgroundResource(R.drawable.bg_button);
+                tvAll.setBackgroundResource(R.drawable.bg_buttongrey);
                 tvAll.setTextColor(getActivity().getResources().getColor(R.color.colorDarkRed));
+                tvAll.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
+
                 tvApproved.setTextColor(getActivity().getResources().getColor(R.color.colorDarkGrey));
+                tvApproved.setTextSize(TypedValue.COMPLEX_UNIT_SP,13);
 
                 tvApproved.setBackgroundColor(getActivity().getResources().getColor(R.color.tvdarkGrey));
                 tvPending.setBackgroundColor(getActivity().getResources().getColor(R.color.tvdarkGrey));
                 tvPending.setTextColor(getActivity().getResources().getColor(R.color.colorDarkGrey));
+                tvPending.setTextSize(TypedValue.COMPLEX_UNIT_SP,13);
 
                 updateList("");
             }
