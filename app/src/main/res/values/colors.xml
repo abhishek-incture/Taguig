@@ -21,4 +21,10 @@
     <color name="lightGrey">#DFDFE0</color>
     <color name="lightRed">#F40001</color>
     <color name="tvdarkGrey">#52CCCBBC</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorMediumGray">#696969</color>
+    <color name="colorLightGray">#9E9E9E</color>
+    <color name="colorUpdatedText">#11005b</color>
+    <color name="colorActiveGreen">#2BA846</color>
+    <color name="colorActiveBlue">#027DFF</color>
 </resources>

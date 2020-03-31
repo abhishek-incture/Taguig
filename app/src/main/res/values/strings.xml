@@ -55,4 +55,11 @@
     <string name="profile">Profile</string>
     <string name="chat">Chat</string>
     <string name="requests">Requests</string>
+    <string name="broadcast_and_announcements">Broadcast and Announcements</string>
+    <string name="view_all">View All</string>
+    <string name="in_taguig_city">In \"Taguig City\"</string>
+    <string name="in_phillipines">In Phillipines</string>
+    <string name="important_updates">Important Updates</string>
+    <string name="track_covid19_and_updates">Track Covid19 and Updates</string>
+    <string name="know_more">Know More</string>
 </resources>

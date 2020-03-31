@@ -9,6 +9,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_gradient"
         android:fitsSystemWindows="true">
 
         <androidx.appcompat.widget.Toolbar
@@ -38,29 +39,23 @@
                         android:layout_marginLeft="10dp"
                         android:layout_gravity="center_vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Republic of the phillipines"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="6sp"
-                            android:textAllCaps="true"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="City Government of Taguig"
+                            android:text="Smart City App"
                             android:textColor="@color/colorWhite"
                             android:textAllCaps="true"
-                            android:textSize="10sp"
+                            android:textSize="12sp"
                             android:textStyle="bold"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="National Capital Region"
+                            android:text="Republic of the Phillipines"
                             android:textColor="@color/colorWhite"
-                            android:textSize="6sp"/>
+                            android:textSize="8sp"
+                            android:textAllCaps="true"/>
 
                     </LinearLayout>
 
