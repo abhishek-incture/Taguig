@@ -457,7 +457,7 @@
                 android:textSize="18sp"
                 android:onClick="register"
                 android:textColor="@color/colorWhite"
-                android:background="@color/lightOrange"
+                android:background="@color/borderred"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:textAllCaps="false"/>

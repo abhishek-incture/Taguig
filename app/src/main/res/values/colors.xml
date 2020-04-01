@@ -29,4 +29,6 @@
     <color name="colorActiveGreen">#2BA846</color>
     <color name="colorActiveBlue">#027DFF</color>
     <color name="sidebarGrey"></color>
+    <color name="solidred">#FF5A5A</color>
+    <color name="borderred">#CA3E3E</color>
 </resources>

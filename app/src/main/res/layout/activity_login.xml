@@ -130,7 +130,7 @@
                 android:text="Login"
                 android:textSize="@dimen/textsize18sp"
                 android:textColor="@color/colorWhite"
-                android:background="@color/colorAccent"
+                android:background="@color/borderred"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edittextheight"
                 android:textAllCaps="false"/>
@@ -238,13 +238,13 @@
             android:layout_marginBottom="30dp">
 
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
-                android:textSize="@dimen/textsize14sp"
                 android:text="Didn't have an Account?"
                 android:textColor="@color/colorWhite"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:textSize="@dimen/textsize14sp" />
 
 
             <androidx.cardview.widget.CardView
@@ -260,7 +260,7 @@
 
                     android:onClick="goToCreateAccount"
                     android:textColor="@color/colorWhite"
-                    android:background="@color/colorAccent"
+                    android:background="@color/borderred"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edittextheight"
                     android:textAllCaps="false"/>
