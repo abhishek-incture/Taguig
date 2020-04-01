@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.incture.taguig.R;
@@ -34,6 +35,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     ArrayList<Map> arrayList = new ArrayList<>();
     ArrayList<Map> broadcastArrayList = new ArrayList<>();
 
+    LinearLayout viewAllServices;
     TextView knowMore, viewAll;
 
     @Override
@@ -44,6 +46,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         knowMore = (TextView)view.findViewById(R.id.knowMore);
         viewAll = (TextView)view.findViewById(R.id.viewAll);
+        viewAllServices = (LinearLayout) view.findViewById(R.id.viewAllServices);
         impUpdatesRecycler = (RecyclerView) view.findViewById(R.id.impUpdatesRecycler);
         broadcastAnnouncementRecycler = (RecyclerView) view.findViewById(R.id.broadcastAnnouncementRecycler);
 
@@ -65,7 +68,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
 
         broadcastArrayList.clear();
-        for(int i=0; i<4; i++){
+        for(int i=0; i<3; i++){
             broadcastMap = new HashMap<>();
             broadcastMap.put("title", "Taguig Cultural and Historical Awareness Week");
             broadcastMap.put("description", "Use the online image color picker right to select a color and get the HTML Color Code of this pixel. Also you get the HEX color code value, RGB value and HSV value.");
@@ -83,6 +86,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         knowMore.setOnClickListener(this);
         viewAll.setOnClickListener(this);
+        viewAllServices.setOnClickListener(this);
 
         return  view;
     }
@@ -96,6 +100,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.viewAll:
+                break;
+
+            case R.id.viewAllServices:
+                AllServicesFragment allServicesFragment = new AllServicesFragment();
+                replaceFragment(allServicesFragment);
                 break;
         }
     }

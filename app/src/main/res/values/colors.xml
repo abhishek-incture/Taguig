@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#0157C6</color>
     <color name="colorPrimaryLight">#283BB4</color>
-    <color name="colorPrimaryDark">#0038a3</color>
+    <color name="colorPrimaryDark">#002E98</color>
     <color name="colorAccent">#FF5959</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorYellow">#FFD300</color>
@@ -21,6 +21,7 @@
     <color name="lightGrey">#DFDFE0</color>
     <color name="lightRed">#F40001</color>
     <color name="tvdarkGrey">#52CCCBBC</color>
+    <color name="lineGrey">#CCCBBC</color>
     <color name="colorBlack">#000000</color>
     <color name="colorMediumGray">#696969</color>
     <color name="colorLightGray">#9E9E9E</color>

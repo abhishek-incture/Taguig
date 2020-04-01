@@ -7,47 +7,11 @@
     android:background="@drawable/bg_gradient"
     tools:context=".SplashActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
-
         <ImageView
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:src="@drawable/maps_icon"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center_vertical">
+            android:src="@drawable/app_logo"
+            android:layout_centerInParent="true"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Smart City App"
-                android:textColor="@color/colorWhite"
-                android:textSize="23sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Republic of the PHILLIPINES"
-                android:textColor="@color/colorWhite"
-                android:textAllCaps="true"
-                android:textSize="11sp"/>
-
-
-        </LinearLayout>
-
-
-
-
-    </LinearLayout>
 
 </RelativeLayout>

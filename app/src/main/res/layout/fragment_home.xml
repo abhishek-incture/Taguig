@@ -1,16 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/defaultscreen"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.HomeFragment"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.HomeFragment">
+
+    <androidx.cardview.widget.CardView
+              android:layout_width="match_parent"
+              android:layout_height="100dp"
+              app:cardCornerRadius="5dp"
+              android:layout_marginLeft="10dp"
+              android:layout_marginRight="10dp"
+              android:layout_marginBottom="65dp"
+        android:layout_alignParentBottom="true">
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:background="@color/colorWhite">
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="Top Services"
+                      android:textSize="10sp"
+                      android:textStyle="bold"
+                      android:layout_margin="10dp"
+                      android:textColor="@color/colorLightGray"/>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:weightSum="4"
+                      android:layout_marginLeft="10dp"
+                      android:layout_marginRight="10dp"
+                      android:layout_marginBottom="10dp">
+
+                      <LinearLayout
+                          android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:layout_marginRight="5dp">
+
+                          <ImageView
+                              android:layout_width="35dp"
+                              android:layout_height="35dp"
+                              android:layout_gravity="center_horizontal"
+                              android:src="@drawable/medical_icon"/>
+
+                          <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="Medical Aid"
+                              android:paddingTop="2dp"
+                              android:layout_gravity="center_horizontal"
+                              android:textColor="@color/colorActiveBlue"
+                              android:textSize="12sp"/>
+
+                      </LinearLayout>
+
+                      <LinearLayout
+                          android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:layout_marginRight="5dp">
+
+                          <ImageView
+                              android:layout_width="35dp"
+                              android:layout_height="35dp"
+                              android:layout_gravity="center_horizontal"
+                              android:src="@drawable/education"/>
+
+                          <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="Education"
+                              android:paddingTop="2dp"
+                              android:layout_gravity="center_horizontal"
+                              android:textColor="@color/colorActiveBlue"
+                              android:textSize="12sp"/>
+
+                      </LinearLayout>
+
+                      <LinearLayout
+                          android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:layout_marginRight="5dp">
+
+                          <ImageView
+                              android:layout_width="35dp"
+                              android:layout_height="35dp"
+                              android:layout_gravity="center_horizontal"
+                              android:src="@drawable/socialhelp_icon"/>
+
+                          <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="Social Help"
+                              android:paddingTop="2dp"
+                              android:layout_gravity="center_horizontal"
+                              android:textColor="@color/colorActiveBlue"
+                              android:textSize="12sp"/>
+
+                      </LinearLayout>
+
+                      <LinearLayout
+                          android:id="@+id/viewAllServices"
+                          android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
+                          android:layout_weight="1">
+
+                          <ImageView
+                              android:layout_width="35dp"
+                              android:layout_height="35dp"
+                              android:layout_gravity="center_horizontal"
+                              android:src="@drawable/viewall_icon"/>
+
+                          <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="@string/view_all"
+                              android:paddingTop="2dp"
+                              android:layout_gravity="center_horizontal"
+                              android:textColor="@color/colorActiveBlue"
+                              android:textSize="12sp"/>
+
+                      </LinearLayout>
+
+                  </LinearLayout>
+
+              </LinearLayout>
+
+          </androidx.cardview.widget.CardView>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/defaultscreen">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
 
     <TextView
@@ -18,7 +158,10 @@
         android:layout_height="wrap_content"
         android:text="@string/important_updates"
         android:textSize="16sp"
-        android:layout_margin="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="10dp"
         android:textStyle="bold"
         android:textColor="@color/colorBlack"/>
 
@@ -39,8 +182,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -68,7 +210,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/in_phillipines"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:textStyle="bold"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
@@ -105,6 +247,12 @@
                     android:paddingTop="3dp"
                     android:textColor="@color/colorAccent"/>
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/confirmed_graph"
+                    android:layout_gravity="center_horizontal"/>
+
             </LinearLayout>
 
             <LinearLayout
@@ -131,6 +279,12 @@
                     android:textStyle="bold"
                     android:paddingTop="3dp"
                     android:textColor="@color/colorActiveBlue"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/active_graph"
+                    android:layout_gravity="center_horizontal"/>
 
             </LinearLayout>
 
@@ -159,6 +313,12 @@
                     android:paddingTop="3dp"
                     android:textColor="@color/colorActiveGreen"/>
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/recovered_graph"
+                    android:layout_gravity="center_horizontal"/>
+
 
             </LinearLayout>
 
@@ -186,6 +346,12 @@
                     android:paddingTop="3dp"
                     android:textColor="@color/colorGray"/>
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/deceased_graph"
+                    android:layout_gravity="center_horizontal"/>
+
 
             </LinearLayout>
 
@@ -198,7 +364,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/in_taguig_city"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:textStyle="bold"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
@@ -235,6 +401,12 @@
                     android:paddingTop="3dp"
                     android:textColor="@color/colorAccent"/>
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/confirmed_graph"
+                    android:layout_gravity="center_horizontal"/>
+
             </LinearLayout>
 
             <LinearLayout
@@ -261,6 +433,12 @@
                     android:textStyle="bold"
                     android:paddingTop="3dp"
                     android:textColor="@color/colorActiveBlue"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/active_graph"
+                    android:layout_gravity="center_horizontal"/>
 
             </LinearLayout>
 
@@ -355,7 +533,7 @@
             android:orientation="vertical"
             android:padding="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="60dp"
+            android:layout_marginBottom="160dp"
             android:background="@color/colorWhite">
 
             <androidx.recyclerview.widget.RecyclerView
@@ -366,7 +544,14 @@
 
         </LinearLayout>
 
+
     </LinearLayout>
 
-</LinearLayout>
-</androidx.core.widget.NestedScrollView>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</RelativeLayout>
+

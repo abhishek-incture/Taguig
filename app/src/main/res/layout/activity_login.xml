@@ -25,39 +25,15 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="60dp">
+            android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:src="@drawable/maps_icon"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_gravity="center_vertical">
+                android:src="@drawable/app_logo"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="60dp"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Smart City App"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="12sp"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Republic of the PHILLIPINES"
-                    android:textColor="@color/colorWhite"
-                    android:textAllCaps="true"
-                    android:textSize="8sp"/>
-            </LinearLayout>
 
         </LinearLayout>
 
