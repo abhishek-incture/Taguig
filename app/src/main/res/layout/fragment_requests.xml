@@ -20,7 +20,8 @@
             android:layout_marginRight="@dimen/marginleftRequestTextView"
             android:layout_width="match_parent"
             android:background="@drawable/bg_buttondarkgrey"
-            android:layout_height="32dp">
+            android:layout_height="36dp"
+            android:padding="2dp">
 
             <TextView
                 android:id="@+id/tvAll"
@@ -37,9 +38,9 @@
                 android:text="All" />
 
             <View
-                android:background="#CCCBBC"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
+                android:background="#A7A79D"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 android:layout_width="1dp"
                 android:layout_height="wrap_content"/>
 
@@ -58,9 +59,9 @@
                 android:text="Pending" />
 
             <View
-                android:background="#CCCBBC"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
+                android:background="#A7A79D"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 android:layout_width="1dp"
                 android:layout_height="wrap_content"/>
             <TextView

@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/defaultscreen"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".BookAppointmentActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+
+        android:background="@drawable/toolbar_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:layout_marginLeft="-25dp"
+                android:src="@drawable/app_logo"/>
+
+            <ImageView
+                android:id="@+id/tv_header_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_camera" />
+
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:id="@+id/backArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All Services"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imgView"
+            android:src="@drawable/hospitalimage_1"
+            android:scaleType="fitXY"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"/>
+
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_marginBottom="3dp"
+            android:layout_marginRight="100dp"
+            android:layout_alignBottom="@+id/imgView"
+
+            android:textSize="14sp"
+            android:text="@string/text1"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_above="@+id/tv2"
+            android:textStyle="bold"
+            android:textSize="16sp"
+
+            android:text="Army General Hospital"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RatingBar
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="5dp"
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:saveEnabled="true"
+            android:scaleX="0.50"
+            android:scaleY="0.50"
+            android:rating="3.5"
+            android:translationX="60dp"
+            android:translationY="0dp"
+            android:numStars="5"/>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+
+        android:background="@color/defaultscreen"
+        android:padding="2dp">
+
+        <TextView
+            android:layout_weight="0.8"
+            android:textSize="@dimen/textsize14sp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_button"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="4dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="4dp"
+
+            android:text="Today"
+            android:textAlignment="center"
+            android:textColor="@color/colorDarkRed" />
+
+        <View
+            android:layout_marginLeft="2dp"
+            android:background="@color/lineGrey"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:layout_weight="1.2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:id="@+id/tvTommorrow"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorDarkGrey"
+            android:textSize="@dimen/tv13sp"
+            android:text="Tomorrow" />
+        <View
+            android:layout_marginLeft="2dp"
+            android:background="@color/lineGrey"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:id="@+id/tv3"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorDarkGrey"
+            android:textSize="@dimen/tv13sp"
+            android:text="1 April" />
+        <View
+            android:layout_marginLeft="2dp"
+            android:background="@color/lineGrey"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:id="@+id/tv4"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorDarkGrey"
+            android:textSize="@dimen/tv13sp"
+            android:text="2 April" />
+
+
+
+
+    </LinearLayout>
+    </LinearLayout>
+
+
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="25dp"
+            android:text="Select Slot for appointment"
+            android:textSize="@dimen/textsize14sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:background="@color/defaultscreen"
+            android:id="@+id/recyclerView"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
+
+
+
+
+    <TextView
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="25dp"
+        android:text="Patient Name"
+        android:textSize="@dimen/textsize14sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+
+        android:id="@+id/etName"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/bg_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edittextheight"/>
+
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Patient Age"
+            android:textSize="@dimen/textsize14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RelativeLayout
+            android:layout_marginTop="5dp"
+            android:background="@drawable/bg_button"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp">
+            <EditText
+                android:layout_centerVertical="true"
+                android:id="@+id/etAge"
+                android:textColor="#000000"
+                android:paddingLeft="10dp"
+                android:paddingRight="20dp"
+                android:textSize="18sp"
+                android:background="@color/colorWhite"
+                android:inputType="number"
+                android:maxLength="2"
+                android:text="74"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+
+
+                <ImageView
+                    android:scaleType="fitXY"
+                    android:layout_toRightOf="@+id/etAge"
+                    android:id="@+id/imgViewUp"
+                    android:src="@drawable/ic_arrow_up_24dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"/>
+                <ImageView
+                    android:scaleType="fitXY"
+                    android:layout_toRightOf="@+id/etAge"
+                    android:layout_below="@+id/imgViewUp"
+                    android:id="@+id/imgViewDown"
+                    android:src="@drawable/ic_arrow_down_24dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"/>
+
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Patient Gender"
+                android:textSize="@dimen/textsize14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <RadioButton
+                    android:id="@+id/rbMale"
+
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:onClick="onRadioButtonClicked"
+                    android:buttonTint="@color/darkblue"
+                    android:text="Male"
+                    android:background="@drawable/bg_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"/>
+
+                <RadioButton
+
+                    android:id="@+id/rbFeMale"
+                    android:background="@drawable/bg_button"
+                    android:buttonTint="@color/darkblue"
+                    android:onClick="onRadioButtonClicked"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:text="Female"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"/>
+
+
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="25dp"
+        android:text="Please describe the Problem"
+        android:textSize="@dimen/textsize14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="16dp"
+        android:padding="5dp"
+        android:background="@drawable/bg_layoutbordergrey"
+        android:layout_width="match_parent"
+        android:layout_height="90dp">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et1"
+                android:layout_marginTop="5dp"
+                android:textSize="14sp"
+                android:hint="Type here"
+                android:paddingLeft="7dp"
+                android:background="@drawable/bg_button5dp"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                />
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+
+        <Button
+            android:onClick="BookAppointment"
+            android:id="@+id/btnBook"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:text="Book Appointment"
+            android:textSize="18sp"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/bg_buttonred"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:textAllCaps="false"/>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+</androidx.core.widget.NestedScrollView>

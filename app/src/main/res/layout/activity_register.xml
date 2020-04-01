@@ -239,21 +239,57 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <androidx.cardview.widget.CardView
+
+
+
+               <!-- <com.google.android.material.textfield.TextInputLayout
+                    facebook:passwordToggleEnabled="true"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+                    android:layout_width="match_parent"
+                    android:background="@drawable/bg_button"
+                    android:layout_height="34dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="textPassword"
+                        android:textColor="#000000"
+                        android:id="@+id/editPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+-->
+
+            <LinearLayout
+                android:background="@drawable/bg_button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                facebook:cardCornerRadius="@dimen/edittextRadius">
+                android:layout_height="34dp">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layoutMode="clipBounds"
+                android:layout_marginTop="-8dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="42dp"
+                facebook:passwordToggleEnabled="true">
 
                 <EditText
-                    android:id="@+id/etPassword"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:maxLength="10"
-                    android:background="@color/colorWhite"
+                    android:paddingLeft="7dp"
+                    android:background="@drawable/bg_button"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:id="@+id/returning_password"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/edittextheight"/>
+                    android:layout_height="wrap_content"
+                    android:text="Password"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    />
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
 
 
             <TextView

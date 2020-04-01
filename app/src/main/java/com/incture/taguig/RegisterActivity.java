@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -54,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
     private static final int RC_SIGN_IN = 102 ;
     private static final int FILE_REQUEST = 101;
-    private EditText etFirstName,etLastName,etEmail,etPhoneNo;
+    private EditText etFirstName,etLastName,etEmail,etPhoneNo,etPassword;
     private TextView tvfile1,tvfile2,tvfile3;
     private CheckBox checkBox1;
     private LoginButton loginButton;
@@ -84,6 +85,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         etLastName = findViewById(R.id.etLastName);
         etEmail = findViewById(R.id.etEmail);
         etPhoneNo = findViewById(R.id.etPhoneNo);
+        //etPassword = findViewById(R.id.etPassword);
         btnGoogle = findViewById(R.id.btnGoogle);
         spinner1 = findViewById(R.id.spinner1);
         spinner2 = findViewById(R.id.spinner2);
@@ -196,7 +198,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                     etLastName.setText("");
                     etEmail.setText("");
 
-                    Toast.makeText(RegisterActivity.this, "User is Logged out", Toast.LENGTH_SHORT).show();
+                 //   Toast.makeText(RegisterActivity.this, "User is Logged out", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     loadUserProfile(currentAccessToken);
@@ -296,12 +298,15 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     @Override
     protected void onActivityResult(int requestCode, int responseCode,
                                     Intent data) {
+        super.onActivityResult(requestCode, responseCode, data);
+
         switch (requestCode) {
             case RC_SIGN_IN: {
                 // The Task returned from this call is always completed, no need to attach
                 // a listener.
                 Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
                 handleSignInResult(task);
+                return;
             }
             case FILE_REQUEST:
                 if(responseCode== RESULT_OK){
@@ -331,7 +336,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
         callbackManager.onActivityResult(requestCode, responseCode, data);
 
-        super.onActivityResult(requestCode, responseCode, data);
     }
 
 
@@ -542,6 +546,23 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         noOfFile =1;
         super.onBackPressed();
     }
+
+/*
+    public void showPasswordCheckListener(View view) {
+
+            boolean checked = ((CheckBox) view).isChecked();
+            switch (view.getId()) {
+                case R.id.etPassword:
+                    if (!checked)
+                       etPassword .setTransformationMethod(new PasswordTransformationMethod());  //hide the password from the edit text
+                    else
+                        etPassword.setTransformationMethod(null); //show the password from the edit text
+                    break;
+
+            }
+
+    }
+*/
 }
 
 

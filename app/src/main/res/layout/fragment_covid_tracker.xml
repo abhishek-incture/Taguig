@@ -61,15 +61,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textAlignment="center"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
-                android:gravity="center_vertical"
                 android:background="@drawable/bg_button"
-                android:textColor="@color/colorDarkRed"
-                android:text="Tracker" />
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingTop="4dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="4dp"
+                android:text="Tracker"
+                android:textAlignment="center"
+                android:textColor="@color/colorDarkRed" />
 
             <View
                 android:layout_marginLeft="2dp"

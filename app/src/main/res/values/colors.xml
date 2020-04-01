@@ -31,4 +31,9 @@
     <color name="sidebarGrey"></color>
     <color name="solidred">#FF5A5A</color>
     <color name="borderred">#CA3E3E</color>
+    <color name="bordergrey">#979797</color>
+    <color name="greydark">#CFCFCF</color>
+    <color name="tvRed">#E04C05</color>
+    <color name="tvGreen">#41B50A</color>
+    <color name="darkBlack">#131313</color>
 </resources>
