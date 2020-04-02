@@ -1,6 +1,8 @@
 package com.incture.taguig.models;
 
-public class HospitalModel {
+import java.io.Serializable;
+
+public class HospitalModel implements Serializable {
 
     private int hospitalImage;
     private String hospitalName;

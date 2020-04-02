@@ -66,6 +66,8 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.ViewHo
                 //eventListener.onClick(f1);
 
                 Intent intent = new Intent(context, BookAppointmentActivity.class);
+                intent.putExtra("hospital", h1);
+
                 context.startActivity(intent);
 
             }

@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.incture.taguig.adapter.BookingAdapter;
 import com.incture.taguig.models.BookingModel;
+import com.incture.taguig.models.HospitalModel;
 import com.incture.taguig.utils.PhotoDecorator;
 
 import java.util.ArrayList;
@@ -25,8 +27,10 @@ import java.util.List;
 
 public class BookAppointmentActivity extends AppCompatActivity implements View.OnClickListener,BookingAdapter.OnEventListener {
     private Toolbar toolbar;
-    private ImageView imgViewUp,imgViewDown;
+    private ImageView imgView,imgViewUp,imgViewDown;
+    private TextView tv1,tv2;
     private EditText etName,etAge;
+
     private RecyclerView recyclerView;
     private BookingAdapter adapter;
     private List<BookingModel> bookingModelList;
@@ -40,11 +44,25 @@ public class BookAppointmentActivity extends AppCompatActivity implements View.O
         imgViewDown = findViewById(R.id.imgViewDown);
         imgViewUp.setOnClickListener(this);
         imgViewDown.setOnClickListener(this);
+        tv1 = findViewById(R.id.tv1);
+        tv2 = findViewById(R.id.tv2);
+        imgView = findViewById(R.id.imgView);
+
         etName = findViewById(R.id.etName);
+
+
 
         etAge = findViewById(R.id.etAge);
 
         recyclerView = findViewById(R.id.recyclerView);
+
+        Intent intent = getIntent();
+        HospitalModel h1 = (HospitalModel) intent.getSerializableExtra("hospital");
+        tv1.setText(h1.getHospitalName());
+        tv2.setText(h1.getHospitalDetail());
+        imgView.setImageResource(h1.getHospitalImage());
+
+
         bookingModelList = new ArrayList<>();
         initDatasource();
         adapter = new BookingAdapter(this,bookingModelList);
