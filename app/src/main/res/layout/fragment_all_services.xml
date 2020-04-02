@@ -19,7 +19,8 @@
             android:id="@+id/backArrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_back"/>
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/back_icon"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,7 +30,7 @@
             android:layout_gravity="center_vertical"
             android:textStyle="bold"
             android:textColor="@color/colorBlack"
-            android:textSize="14sp"/>
+            android:textSize="16sp"/>
 
     </LinearLayout>
 
@@ -180,7 +181,7 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/education"/>
+                        android:src="@drawable/benifits"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -206,7 +207,7 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/socialhelp_icon"/>
+                        android:src="@drawable/events_icon"/>
 
                     <TextView
                         android:layout_width="wrap_content"

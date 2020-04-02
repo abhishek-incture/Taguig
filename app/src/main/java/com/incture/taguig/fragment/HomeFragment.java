@@ -51,12 +51,22 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         broadcastAnnouncementRecycler = (RecyclerView) view.findViewById(R.id.broadcastAnnouncementRecycler);
 
         arrayList.clear();
-        for(int i=0; i<3; i++){
-            updateMap = new HashMap<>();
-            updateMap.put("date", "Today");
-            updateMap.put("msg", "Use the online image color picker right to select a color and get the HTML Color Code of this pixel. Also you get the HEX color code value, RGB value and HSV value.");
-            arrayList.add(updateMap);
-        }
+
+            Map<String, String>  updateMap1 = new HashMap<>();
+            updateMap1.put("date", "Today");
+            updateMap1.put("msg", "The Philippines has yet to reach its peak in COVID-19 infections, a health expert said Wednesday as the public continues to clamor for mass testing for the highly-contagious disease.");
+            arrayList.add(updateMap1);
+
+            Map<String, String>  updateMap2 = new HashMap<>();
+            updateMap2.put("date", "Today");
+            updateMap2.put("msg", "The eight new fatalities are all elderly patients: a 65-year-old woman from Quezon City, a 79-year-old woman from Makati City, a 73-year-old man from Pasig City, a 66-year-old man from Parañaque City, a 77-year-old man from Manila, an 84-year-old man from Mandaluyong City, a 70-year-old man from Cebu City, and an 80-year-old man from San Juan City.");
+            arrayList.add(updateMap2);
+
+            Map<String, String>  updateMap3 = new HashMap<>();
+            updateMap3.put("date", "Yesterday");
+            updateMap3.put("msg", "The additional recovered patient is PH179, a 59-year-old Filipino male from Taguig City with no travel history. He experienced symptoms on March 11, tested positive for COVID-19 on March 16, and was discharged on March 29 after receiving 2 negative test results.");
+            arrayList.add(updateMap3);
+
 
 
 
@@ -68,13 +78,36 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
 
         broadcastArrayList.clear();
-        for(int i=0; i<3; i++){
-            broadcastMap = new HashMap<>();
-            broadcastMap.put("title", "Taguig Cultural and Historical Awareness Week");
-            broadcastMap.put("description", "Use the online image color picker right to select a color and get the HTML Color Code of this pixel. Also you get the HEX color code value, RGB value and HSV value.");
-            broadcastMap.put("date", "22 dec 2019");
-            broadcastArrayList.add(broadcastMap);
-        }
+
+        Map<String, String> newsMap1 = new HashMap<>();
+        newsMap1.put("title", "More tests needed as Philippines unlikely to reach COVID-19 peak soon – expert");
+        newsMap1.put("description", "The Philippines has yet to reach its peak in COVID-19 infections, a health expert said Wednesday as the public continues to clamor for mass testing for the highly-contagious disease.");
+        newsMap1.put("date", "30 March 2020");
+        newsMap1.put("thumbnail", "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB10vhvO.img?h=0&w=720&m=6&q=60&u=t&o=f&l=f&x=322&y=170");
+        broadcastArrayList.add(newsMap1);
+
+        Map<String, String> newsMap2 = new HashMap<>();
+        newsMap2.put("title", "Philippines' COVID-19 death toll nears 100, recoveries at 50");
+        newsMap2.put("description", "Eight more Filipinos have died from the coronavirus disease in the country, raising the nationwide death toll to 96, the Department of Health reported Wednesday. Meanwhile, a 59-year-old man from Taguig City is the 50th patient to recover from the viral disease. The country now has has 2,311 cases of COVID-19 as the Department of Health also announced 227 new patients.");
+        newsMap2.put("date", "28 March 2020");
+        newsMap2.put("thumbnail", "https://imagevars.gulfnews.com/2020/03/10/Coronavirus-Manila_170c4a83f13_medium.jpg");
+        broadcastArrayList.add(newsMap2);
+
+        Map<String, String> newsMap3 = new HashMap<>();
+        newsMap3.put("title", "Philippines’ Covid-19 cases soar");
+        newsMap3.put("description", "The country recorded its largest daily increase in coronavirus deaths and infections, as it ramped up testing with the arrival of thousands of kits from abroad and the opening of new laboratories.Ten more deaths took the toll to 88 yesterday, while the tally of infections rose to 2,084, with 538 additional cases, said health ministry official Maria Rosario Vergeire.");
+        newsMap3.put("date", "26 March 2020");
+        newsMap3.put("thumbnail", "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS6wRJ4TDl0pHRiEeUJsQev90Y-ATPkibekgCzxBie2By6323O2&usqp=CAU");
+        broadcastArrayList.add(newsMap3);
+
+        Map<String, String> newsMap4 = new HashMap<>();
+        newsMap4.put("title", "DOH announces 227 new COVID-19 cases; total at 2,311");
+        newsMap4.put("description", "The additional recovered patient is PH179, a 59-year-old Filipino male from Taguig City with no travel history. He experienced symptoms on March 11, tested positive for COVID-19 on March 16, and was discharged on March 29 after receiving 2 negative test results. Meanwhile, all 8 new fatalities are senior citizens. The youngest was 65 years old, and the oldest was 84 years old.");
+        newsMap4.put("areaname", "Global");
+        newsMap4.put("date", "22 March 2020");
+        newsMap4.put("thumbnail", "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSws_SZdRwFF-SXkijtFwB0Igp_6Ih2xKQu4WcJ-37AveSwNDfi&usqp=CAU");
+        broadcastArrayList.add(newsMap4);
+
 
 
         broadcastAdapter = new BroadcastAdapter(getActivity(), broadcastArrayList);

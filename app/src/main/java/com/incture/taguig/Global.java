@@ -1,7 +1,10 @@
 package com.incture.taguig;
 
 import android.content.Context;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 public class Global {
 
@@ -19,5 +22,12 @@ public class Global {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void loadPicasa(String imageUrl, ImageView imageView) {
+        Picasso.with(mContext)
+                .load(imageUrl)
+                .noPlaceholder()
+                .into(imageView);
     }
 }

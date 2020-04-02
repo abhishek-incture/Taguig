@@ -36,7 +36,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ic_camera" />
+                    android:src="@drawable/camera_icon_header" />
 
             </RelativeLayout>
 

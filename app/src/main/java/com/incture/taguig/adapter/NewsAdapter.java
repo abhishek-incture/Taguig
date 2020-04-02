@@ -1,6 +1,5 @@
 package com.incture.taguig.adapter;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,22 +8,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.incture.taguig.Global;
 import com.incture.taguig.R;
 
 import java.util.ArrayList;
 import java.util.Map;
 
-public class BroadcastAdapter extends RecyclerView.Adapter<BroadcastAdapter.ViewHolder>{
+public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
     Context mContext;
     LayoutInflater inflater;
     ArrayList<Map> arrayListMap;
     Map<String, String> map;
 
-    public BroadcastAdapter(Context context, ArrayList<Map> arrayList) {
+    public NewsAdapter(Context context, ArrayList<Map> arrayList) {
         this.mContext = context;
         inflater = LayoutInflater.from(this.mContext);
         arrayListMap = arrayList;
@@ -33,10 +30,10 @@ public class BroadcastAdapter extends RecyclerView.Adapter<BroadcastAdapter.View
 
     @NonNull
     @Override
-    public BroadcastAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public NewsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View listItem= layoutInflater.inflate(R.layout.broadcast_list_item, parent, false);
-        ViewHolder viewHolder = new ViewHolder(listItem);
+        View listItem= layoutInflater.inflate(R.layout.news_list_item, parent, false);
+        NewsAdapter.ViewHolder viewHolder = new NewsAdapter.ViewHolder(listItem);
         return viewHolder;
     }
 
@@ -47,9 +44,8 @@ public class BroadcastAdapter extends RecyclerView.Adapter<BroadcastAdapter.View
 
         holder.articleTitle.setText(map.get("title"));
         holder.description.setText(map.get("description"));
+        holder.areaName.setText(map.get("areaname"));
         holder.date.setText(map.get("date"));
-        new Global(mContext).loadPicasa(map.get("thumbnail"), holder.thumbnail);
-
     }
 
 
@@ -61,16 +57,18 @@ public class BroadcastAdapter extends RecyclerView.Adapter<BroadcastAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView articleTitle, description, date;
-        ImageView thumbnail;
+        TextView articleTitle, description, areaName, date;
+        ImageView share;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             articleTitle = itemView.findViewById(R.id.articleTitle);
             description = itemView.findViewById(R.id.description);
+            areaName = itemView.findViewById(R.id.areaName);
             date = itemView.findViewById(R.id.date);
-            thumbnail = itemView.findViewById(R.id.thumbnail);
+            share = itemView.findViewById(R.id.share);
         }
     }
 }
+
 
