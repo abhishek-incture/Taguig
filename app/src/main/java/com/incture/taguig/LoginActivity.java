@@ -139,10 +139,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
            // etFirstName.setText(firstName);
            // etLastName.setText(lastName);
-          //  username.setText(email);
-            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-            startActivity(intent);
-            finish();
+           username.setText(email);
+            //Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+           // startActivity(intent);
+            //finish();
 
             isLoggedIn = true;
             //  String personId = acct.getId();
@@ -198,10 +198,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                    // etFirstName.setText(first_name);
                     //etLastName.setText(last_name);
-                    //username.setText(email);
-                    Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                    username.setText(email);
+                    //Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                  //  startActivity(intent);
+                 //   finish();
 
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -491,6 +491,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         }
     }
 
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

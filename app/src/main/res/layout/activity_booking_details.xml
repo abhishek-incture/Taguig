@@ -61,8 +61,7 @@
                 android:layout_height="64dp"
                 android:padding="10dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/circleshapegreen"
-                android:src="@drawable/ic_done_24dp"
+                android:src="@drawable/success"
                 android:layout_alignTop="@+id/relativeLayout"
                 android:layout_centerHorizontal="true"
                 />

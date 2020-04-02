@@ -282,7 +282,6 @@
                     android:id="@+id/returning_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Password"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     />
