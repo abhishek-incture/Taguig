@@ -35,7 +35,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="20dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_camera" />
+                android:src="@drawable/camera_icon_header" />
 
 
         </RelativeLayout>
@@ -67,7 +67,7 @@
             android:id="@+id/backArrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_back"/>
+            android:src="@drawable/back_icon"/>
 
         <TextView
             android:layout_width="wrap_content"

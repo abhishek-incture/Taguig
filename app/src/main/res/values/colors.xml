@@ -36,4 +36,10 @@
     <color name="tvRed">#E04C05</color>
     <color name="tvGreen">#41B50A</color>
     <color name="darkBlack">#131313</color>
+
+    <color name="colorLightBlue">#a0c7fe</color>
+    <color name="darkBrown">#781F1F</color>
+    <color name="lightSafron">#FF9A50</color>
+    <color name="blueText">#173F76</color>
+    <color name="buttongrey">#e1e1e3</color>
 </resources>

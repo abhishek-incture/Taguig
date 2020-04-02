@@ -27,6 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Today"
+                android:maxLines="1"
                 android:textStyle="bold"
                 android:textSize="10sp"
                 android:textColor="@color/colorGray"/>
@@ -37,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:text="lorem ipsum lorem ipsum lorem ipsum"
                 android:textStyle="bold"
+                android:maxLines="5"
                 android:textSize="12sp"
                 android:layout_marginTop="2dp"
                 android:textColor="@color/colorUpdatedText"/>
