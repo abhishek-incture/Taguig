@@ -186,6 +186,9 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 */
 
         LoginManager.getInstance().logOut();
+        if(isLoggedIn){
+            signOut();
+        }
 
         callbackManager = CallbackManager.Factory.create();
         //loginButton.setReadPermissions(Arrays.asList("email", "public_profile","mobileNo"));
@@ -540,6 +543,18 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         else{
             Toast.makeText(this, "Only 3 files Allowed", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        accessTokenTracker.stopTracking();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        accessTokenTracker.startTracking();
     }
 
     @Override

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -36,6 +37,7 @@ public class BookingDetailsActivity extends AppCompatActivity {
 
     private ImageView imgView;
     private static final int REQUEST_CAPTURE_GALLERY = 101;
+    private TextView  tvName ;
 
 
     @Override
@@ -43,9 +45,11 @@ public class BookingDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_details);
         imgView = findViewById(R.id.imgView);
+        tvName = findViewById(R.id.tvName);
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
+        tvName.setText(name);
         generateQR( name);
     }
 

@@ -18,11 +18,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.incture.taguig.adapter.BookingAdapter;
 import com.incture.taguig.models.BookingModel;
+import com.incture.taguig.utils.PhotoDecorator;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookAppointmentActivity extends AppCompatActivity implements View.OnClickListener {
+public class BookAppointmentActivity extends AppCompatActivity implements View.OnClickListener,BookingAdapter.OnEventListener {
     private Toolbar toolbar;
     private ImageView imgViewUp,imgViewDown;
     private EditText etName,etAge;
@@ -49,6 +50,9 @@ public class BookAppointmentActivity extends AppCompatActivity implements View.O
         adapter = new BookingAdapter(this,bookingModelList);
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));
         recyclerView.setAdapter(adapter);
+        recyclerView.addItemDecoration(new PhotoDecorator(
+                getResources().getDimensionPixelSize(R.dimen.photos_list_spacing),
+                getResources().getInteger(R.integer.photo_list_preview_columns)));
 
     }
 
@@ -153,5 +157,10 @@ public class BookAppointmentActivity extends AppCompatActivity implements View.O
 
     public void onback(View view) {
         onBackPressed();
+    }
+
+    @Override
+    public void onClick(BookingModel b1) {
+        Toast.makeText(this, "You selected " + b1.getTime(), Toast.LENGTH_SHORT).show();
     }
 }

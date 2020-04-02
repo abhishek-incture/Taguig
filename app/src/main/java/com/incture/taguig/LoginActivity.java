@@ -133,16 +133,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void updateUI(GoogleSignInAccount acct) {
         if(acct!=null) {
             // String personName = acct.getDisplayName();
-            //String firstName = acct.getGivenName();
-            //String lastName = acct.getFamilyName();
+            String firstName = acct.getGivenName();
+            String lastName = acct.getFamilyName();
             String email = acct.getEmail();
 
            // etFirstName.setText(firstName);
            // etLastName.setText(lastName);
-           username.setText(email);
-            //Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-           // startActivity(intent);
-            //finish();
+          // username.setText(email);
+            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+             startActivity(intent);
+            Toast.makeText(LoginActivity.this, "You logged in as "+firstName+" "+lastName, Toast.LENGTH_SHORT).show();
+
+            finish();
 
             isLoggedIn = true;
             //  String personId = acct.getId();
@@ -192,16 +194,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onCompleted(JSONObject object, GraphResponse response) {
                 try {
-                    //String first_name = object.getString("first_name");
-                   // String last_name = object.getString("last_name");
+                    String first_name = object.getString("first_name");
+                   String last_name = object.getString("last_name");
                     String email = object.getString("email");
 
                    // etFirstName.setText(first_name);
                     //etLastName.setText(last_name);
-                    username.setText(email);
-                    //Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                  //  startActivity(intent);
-                 //   finish();
+                   // username.setText(email);
+                    Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                   startActivity(intent);
+                    Toast.makeText(LoginActivity.this, "You logged in as "+first_name+" "+last_name, Toast.LENGTH_SHORT).show();
+                   finish();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -258,5 +261,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         isLoggedIn = false;
                     }
                 });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        accessTokenTracker.stopTracking();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        accessTokenTracker.startTracking();
     }
 }

@@ -65,4 +65,7 @@
     <string name="text1" translatable="false">175 Doña Soledad Ave Better Living Subdivision, Parañaque, 1711 Metro Manila, Philippines</string>
     <string name="tvAddress" translatable="false">175 Doña Soledad Ave Better Living Subdivision, Parañaque, 1711 Metro Manila, Philippines</string>
     <string name="hospital_detail" translatable="false">175 Doña Soledad Ave Better Living Subdivision, Parañaque, 1711 Metro Manila, Philippines</string>
+
+    <integer name="photo_list_preview_columns">3</integer>
+
 </resources>

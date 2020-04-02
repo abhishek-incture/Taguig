@@ -23,19 +23,19 @@ import java.util.List;
 public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHolder> {
 
     public interface OnEventListener {
-        void onClick(RequestModel f1);
+        void onClick(BookingModel b1);
     }
 
     private final List<BookingModel> bookingModelList;
     private final Context context;
-  //  private final OnEventListener eventListener;
+    private final OnEventListener eventListener;
 
     public BookingAdapter(Context context, List<BookingModel> bookingModelList) {
         this.bookingModelList = bookingModelList;
         this.context = context;
 
         // context => MovieListActivity -> OnEventListener
-         //this.eventListener = (OnEventListener) context;
+         this.eventListener = (OnEventListener) context;
     }
 
     @NonNull
@@ -75,7 +75,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHold
             @Override
             public void onClick(View v) {
                 // Toast.makeText(context, "Cliked on: " + movie.getTitle(), Toast.LENGTH_SHORT).show();
-                //eventListener.onClick(f1);
+                eventListener.onClick(b1);
             }
         });
     }
