@@ -19,7 +19,7 @@
 
         <ImageView
             android:layout_margin="8dp"
-            android:id="@+id/cat_thumbnail"
+            android:id="@+id/imgViewHospital"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
@@ -29,47 +29,67 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
             android:paddingLeft="@dimen/five"
             android:paddingRight="@dimen/five"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/articleTitle"
+                android:id="@+id/tvHospitalName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLines="2"
-                android:text="ffhgf gjhg gjhgtg gvhj"
+                android:maxLines="1"
+                android:text="Paranaque Doctors Hospital"
                 android:paddingLeft="@dimen/ten"
                 android:paddingRight="@dimen/ten"
-                android:textSize="11sp"
-                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                android:textColor="#020202"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/description"
+
+                android:id="@+id/tvHospitalDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="2"
-                android:layout_marginTop="2dp"
-                android:text=""
+                android:layout_marginTop="3dp"
+                android:text="@string/hospital_detail"
                 android:paddingLeft="@dimen/ten"
-                android:paddingRight="@dimen/ten"
+                android:paddingRight="20dp"
                 android:textSize="10sp"
-                android:textColor="@color/colorGray"
-                android:textStyle="bold" />
+                android:textColor="#020202"
+                />
 
-            <TextView
-                android:id="@+id/date"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="gyyyyuuu"
-                android:gravity="bottom"
-                android:paddingLeft="@dimen/ten"
-                android:paddingRight="@dimen/ten"
-                android:textSize="10sp"
+
+            <LinearLayout
                 android:layout_marginTop="5dp"
-                android:textColor="@color/colorLightGray"
-                android:textStyle="bold" />
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textAlignment="center"
+                    android:textSize="11sp"
+                    android:textColor="#FF4852"
+                    android:text="Get Direction"
+                    android:id="@+id/btnGetDirection"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/btnGoToBook"
+                    android:background="@drawable/bg_buttonred"
+                    android:text="Book Appintment"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="11sp"
+                    android:textAllCaps="false"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
 
 
         </LinearLayout>
@@ -78,4 +98,4 @@
     </LinearLayout>
 
 
-</>
+</androidx.cardview.widget.CardView>

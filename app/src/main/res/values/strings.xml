@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Taguig</string>
-    <string name="facebook_app_id">2533284370271987</string>
-    <string name="fb_login_protocol_scheme">fb2533284370271987</string>
+    <string name="facebook_app_id" translatable="false">2533284370271987</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb2533284370271987</string>
     <string-array name="days">
         <item>01</item>
         <item>02</item>
@@ -52,16 +52,17 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
     <string name="report">Report</string>
-    <string name="profile">Profile</string>
-    <string name="chat">Chat</string>
-    <string name="requests">Requests</string>
-    <string name="broadcast_and_announcements">Broadcast and Announcements</string>
-    <string name="view_all">View All</string>
-    <string name="in_taguig_city">In \"Taguig City\"</string>
-    <string name="in_phillipines">In Phillipines</string>
-    <string name="important_updates">Important Updates</string>
-    <string name="track_covid19_and_updates">Track Covid19 and Updates</string>
-    <string name="know_more">Know More</string>
-    <string name="text1">175 Doña Soledad Ave Better Living Subdivision, Parañaque, 1711 Metro Manila, Philippines</string>
-    <string name="tvAddress">175 Doña Soledad Ave Better Living Subdivision, Parañaque, 1711 Metro Manila, Philippines</string>
+    <string name="profile" translatable="false">Profile</string>
+    <string name="chat" translatable="false">Chat</string>
+    <string name="requests" translatable="false">Requests</string>
+    <string name="broadcast_and_announcements" translatable="false">Broadcast and Announcements</string>
+    <string name="view_all" translatable="false">View All</string>
+    <string name="in_taguig_city" translatable="false">In \"Taguig City\"</string>
+    <string name="in_phillipines" translatable="false">In Phillipines</string>
+    <string name="important_updates" translatable="false">Important Updates</string>
+    <string name="track_covid19_and_updates" translatable="false">Track Covid19 and Updates</string>
+    <string name="know_more" translatable="false">Know More</string>
+    <string name="text1" translatable="false">175 Doña Soledad Ave Better Living Subdivision, Parañaque, 1711 Metro Manila, Philippines</string>
+    <string name="tvAddress" translatable="false">175 Doña Soledad Ave Better Living Subdivision, Parañaque, 1711 Metro Manila, Philippines</string>
+    <string name="hospital_detail" translatable="false">175 Doña Soledad Ave Better Living Subdivision, Parañaque, 1711 Metro Manila, Philippines</string>
 </resources>

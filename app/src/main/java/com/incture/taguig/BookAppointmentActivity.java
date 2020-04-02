@@ -150,4 +150,8 @@ public class BookAppointmentActivity extends AppCompatActivity implements View.O
             Toast.makeText(this, "Please type Name", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void onback(View view) {
+        onBackPressed();
+    }
 }

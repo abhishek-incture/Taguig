@@ -5,7 +5,7 @@
     android:background="@color/defaultscreen"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".BookAppointmentActivity">
+    tools:context=".MedicalServicesActivity">
 
 
 
@@ -35,7 +35,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="20dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_camera" />
+                android:src="@drawable/camera_icon_header" />
 
 
         </RelativeLayout>
@@ -57,6 +57,7 @@
 
 
             <LinearLayout
+                android:onClick="onback"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -67,7 +68,7 @@
                     android:id="@+id/backArrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_back"/>
+                    android:src="@drawable/back_icon"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -102,9 +103,11 @@
                     android:paddingRight="10dp"
                     android:paddingTop="2dp"
                     android:paddingBottom="2dp"
-                    android:text="Tracker"
+                    android:text="List view"
                     android:textAlignment="center"
-                    android:textColor="@color/colorDarkRed" />
+                    android:textColor="@color/colorDarkRed"
+
+                    />
 
                 <View
                     android:layout_marginLeft="2dp"
@@ -116,7 +119,7 @@
 
                 <TextView
                     android:id="@+id/tvPending"
-                    android:layout_width="51dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="21dp"
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
@@ -124,7 +127,7 @@
                     android:paddingRight="10dp"
                     android:paddingTop="2dp"
                     android:paddingBottom="2dp"
-                    android:text="News"
+                    android:text="Map View"
                     android:textAlignment="center"
                     android:textColor="@color/colorDarkGrey"
                     android:textSize="14sp" />

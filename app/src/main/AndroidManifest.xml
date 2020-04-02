@@ -44,6 +44,8 @@
         <activity android:name=".BookAppointmentActivity"/>
         <activity android:name=".BookingDetailsActivity"/>
 
+        <activity android:name=".MedicalServicesActivity"/>
+
         <meta-data android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
 

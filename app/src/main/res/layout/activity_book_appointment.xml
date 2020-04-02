@@ -57,6 +57,7 @@
 
 
     <LinearLayout
+        android:onClick="onback"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -213,7 +214,7 @@
             android:gravity="center_vertical"
             android:textColor="@color/colorDarkGrey"
             android:textSize="@dimen/tv13sp"
-            android:text="1 April" />
+            android:text="3 April" />
         <View
             android:layout_marginLeft="2dp"
             android:background="@color/lineGrey"
@@ -236,7 +237,7 @@
             android:gravity="center_vertical"
             android:textColor="@color/colorDarkGrey"
             android:textSize="@dimen/tv13sp"
-            android:text="2 April" />
+            android:text="4 April" />
 
 
 
