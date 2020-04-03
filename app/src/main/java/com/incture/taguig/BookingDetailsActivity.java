@@ -26,6 +26,7 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
+import com.incture.taguig.models.HospitalModel;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import java.io.File;
@@ -37,7 +38,7 @@ public class BookingDetailsActivity extends AppCompatActivity {
 
     private ImageView imgView;
     private static final int REQUEST_CAPTURE_GALLERY = 101;
-    private TextView  tvName ;
+    private TextView  tvName,tvSlot,tvAge,tvGender,tvHospitalName,tvHospitalAddress;
 
 
     @Override
@@ -46,10 +47,26 @@ public class BookingDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_booking_details);
         imgView = findViewById(R.id.imgView);
         tvName = findViewById(R.id.tvName);
+        tvSlot = findViewById(R.id.tvSlot);
+        tvAge = findViewById(R.id.tvAge);
+        tvGender = findViewById(R.id.tvGender);
+        tvHospitalName = findViewById(R.id.tvHospitalName);
+        tvHospitalAddress = findViewById(R.id.tvHospitalAddress);
+
 
         Intent intent = getIntent();
-        String name = intent.getStringExtra("name");
+        String name = intent.getStringExtra(BookAppointmentActivity.PATIENT_NAME);
         tvName.setText(name);
+        String slotTime= intent.getStringExtra(BookAppointmentActivity.APPOINTMENT_DAY)+", "+
+                intent.getStringExtra(BookAppointmentActivity.PATIENT_SLOTTIME);
+        tvSlot.setText(slotTime);
+        String age= intent.getStringExtra(BookAppointmentActivity.PATIENT_AGE)+" years";
+        tvAge.setText(age);
+        tvGender.setText(intent.getStringExtra(BookAppointmentActivity.PATIENT_GENDER));
+        HospitalModel h1= (HospitalModel) intent.getSerializableExtra(BookAppointmentActivity.HOSPITAL);
+        tvHospitalName.setText(h1.getHospitalName());
+        tvHospitalAddress.setText(h1.getHospitalDetail());
+
         generateQR( name);
     }
 
@@ -158,4 +175,7 @@ public class BookingDetailsActivity extends AppCompatActivity {
         }
     }
 
+    public void onback(View view) {
+        onBackPressed();
+    }
 }

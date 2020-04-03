@@ -71,6 +71,7 @@
             android:src="@drawable/back_icon"/>
 
         <TextView
+            android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="All Services"
@@ -98,7 +99,7 @@
             android:layout_marginBottom="3dp"
             android:layout_marginRight="100dp"
             android:layout_alignBottom="@+id/imgView"
-
+            android:paddingLeft="10dp"
             android:textSize="14sp"
             android:text="@string/text1"
             android:textColor="@color/colorWhite"
@@ -110,7 +111,7 @@
             android:layout_above="@+id/tv2"
             android:textStyle="bold"
             android:textSize="16sp"
-
+            android:paddingLeft="10dp"
             android:text="Army General Hospital"
             android:textColor="@color/colorWhite"
             android:layout_width="wrap_content"
@@ -154,6 +155,8 @@
         android:padding="2dp">
 
         <TextView
+            android:onClick="onClickToday"
+            android:id="@+id/tvToday"
             android:layout_weight="0.8"
             android:textSize="@dimen/textsize14sp"
             android:layout_width="0dp"
@@ -178,6 +181,7 @@
             android:layout_height="match_parent"/>
 
         <TextView
+            android:onClick="onClickTomorrow"
             android:layout_weight="1.2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -201,6 +205,7 @@
             android:layout_height="match_parent"/>
 
         <TextView
+            android:onClick="onClickSecondDay"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -224,6 +229,7 @@
             android:layout_height="match_parent"/>
 
         <TextView
+            android:onClick="onClickThirdDay"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -317,7 +323,7 @@
             android:layout_height="42dp">
             <EditText
                 android:layout_centerVertical="true"
-                android:id="@+id/etAge"
+                android:id="@+id/etPatientAge"
                 android:textColor="#000000"
                 android:paddingLeft="10dp"
                 android:paddingRight="20dp"
@@ -332,14 +338,14 @@
 
                 <ImageView
                     android:scaleType="fitXY"
-                    android:layout_toRightOf="@+id/etAge"
+                    android:layout_toRightOf="@+id/etPatientAge"
                     android:id="@+id/imgViewUp"
                     android:src="@drawable/ic_arrow_up_24dp"
                     android:layout_width="24dp"
                     android:layout_height="24dp"/>
                 <ImageView
                     android:scaleType="fitXY"
-                    android:layout_toRightOf="@+id/etAge"
+                    android:layout_toRightOf="@+id/etPatientAge"
                     android:layout_below="@+id/imgViewUp"
                     android:id="@+id/imgViewDown"
                     android:src="@drawable/ic_arrow_down_24dp"

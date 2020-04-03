@@ -1,6 +1,7 @@
 package com.incture.taguig.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.incture.taguig.MedicalServicesActivity;
 import com.incture.taguig.R;
 import com.incture.taguig.adapter.BroadcastAdapter;
 import com.incture.taguig.adapter.ImpUpdatesAdapter;
@@ -35,7 +37,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     ArrayList<Map> arrayList = new ArrayList<>();
     ArrayList<Map> broadcastArrayList = new ArrayList<>();
 
-    LinearLayout viewAllServices;
+    LinearLayout viewAllServices,MedicalAid;
     TextView knowMore, viewAll;
 
     @Override
@@ -47,6 +49,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         knowMore = (TextView)view.findViewById(R.id.knowMore);
         viewAll = (TextView)view.findViewById(R.id.viewAll);
         viewAllServices = (LinearLayout) view.findViewById(R.id.viewAllServices);
+        MedicalAid = view.findViewById(R.id.MedicalAid);
         impUpdatesRecycler = (RecyclerView) view.findViewById(R.id.impUpdatesRecycler);
         broadcastAnnouncementRecycler = (RecyclerView) view.findViewById(R.id.broadcastAnnouncementRecycler);
 
@@ -120,6 +123,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         knowMore.setOnClickListener(this);
         viewAll.setOnClickListener(this);
         viewAllServices.setOnClickListener(this);
+        MedicalAid.setOnClickListener(this);
 
         return  view;
     }
@@ -139,6 +143,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 AllServicesFragment allServicesFragment = new AllServicesFragment();
                 replaceFragment(allServicesFragment);
                 break;
+            case R.id.MedicalAid:
+                Intent intent = new Intent(getActivity(), MedicalServicesActivity.class);
+                startActivity(intent);
+                break;
+
+
         }
     }
 

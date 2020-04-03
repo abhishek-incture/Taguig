@@ -32,6 +32,8 @@ import com.google.android.gms.tasks.Task;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Arrays;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int RC_SIGN_IN = 102 ;
 
@@ -65,7 +67,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         LoginManager.getInstance().logOut();
 
         callbackManager = CallbackManager.Factory.create();
-        //loginButton.setReadPermissions(Arrays.asList("email", "public_profile","mobileNo"));
+        loginButton.setReadPermissions(Arrays.asList("email", "public_profile"));
         accessTokenTracker = new AccessTokenTracker() {
             @Override
             protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
@@ -135,7 +137,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             // String personName = acct.getDisplayName();
             String firstName = acct.getGivenName();
             String lastName = acct.getFamilyName();
-            String email = acct.getEmail();
+           // String email = acct.getEmail();
 
            // etFirstName.setText(firstName);
            // etLastName.setText(lastName);
@@ -196,7 +198,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 try {
                     String first_name = object.getString("first_name");
                    String last_name = object.getString("last_name");
-                    String email = object.getString("email");
+                    //String email = object.getString("email");
 
                    // etFirstName.setText(first_name);
                     //etLastName.setText(last_name);

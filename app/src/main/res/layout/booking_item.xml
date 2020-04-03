@@ -6,11 +6,12 @@
     android:layout_margin="16dp"
     android:orientation="vertical"
     app:cardCornerRadius="4dp"
-    android:background="@color/defaultscreen">
+    app:cardBackgroundColor="@color/gradientendcolor"
+    >
 
     <RelativeLayout
         android:id="@+id/r1"
-
+        android:background="@color/tvGreen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

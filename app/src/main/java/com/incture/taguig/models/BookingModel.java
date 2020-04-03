@@ -4,10 +4,13 @@ public class BookingModel {
 
     private String time;
     private String bookingStatus;
+    private Boolean isSelected;
+
 
     public BookingModel(String time, String bookingStatus) {
         this.time = time;
         this.bookingStatus = bookingStatus;
+        this.isSelected=false;
     }
 
     public String getTime() {
@@ -24,5 +27,13 @@ public class BookingModel {
 
     public void setBookingStatus(String bookingStatus) {
         this.bookingStatus = bookingStatus;
+    }
+
+    public Boolean getSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(Boolean selected) {
+        isSelected = selected;
     }
 }

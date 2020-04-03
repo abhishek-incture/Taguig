@@ -2,6 +2,7 @@ package com.incture.taguig;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -181,10 +182,17 @@ public class MedicalServicesActivity extends AppCompatActivity implements OnMapR
 
     public void onListClick(View view) {
 
-        tvListView.setTextColor(this.getResources().getColor(R.color.colorDarkRed));
+       /* tvListView.setTextColor(this.getResources().getColor(R.color.colorDarkRed));
         tvListView.setBackgroundResource(R.drawable.bg_button);
         tvMapView.setTextColor(this.getResources().getColor(R.color.colorDarkGrey));
-        tvMapView.setBackgroundResource(R.drawable.bg_buttondarkgrey);
+       // tvMapView.setBackgroundResource(R.drawable.bg_buttondarkgrey);*/
+        tvListView.setBackgroundResource(R.drawable.bg_buttongrey);
+        tvListView.setTextColor(this.getResources().getColor(R.color.colorDarkRed));
+        tvListView.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
+
+        tvMapView.setTextColor(this.getResources().getColor(R.color.colorDarkGrey));
+        tvMapView.setTextSize(TypedValue.COMPLEX_UNIT_SP,13);
+        tvMapView.setBackgroundColor(this.getResources().getColor(R.color.buttongrey));
         l1Map.setVisibility(View.GONE);
         recyclerView.setVisibility(View.VISIBLE);
 
@@ -193,10 +201,13 @@ public class MedicalServicesActivity extends AppCompatActivity implements OnMapR
 
     public void onMapClick(View view) {
 
+        tvMapView.setBackgroundResource(R.drawable.bg_buttongrey);
         tvMapView.setTextColor(this.getResources().getColor(R.color.colorDarkRed));
-        tvMapView.setBackgroundResource(R.drawable.bg_button);
+        tvMapView.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
+
         tvListView.setTextColor(this.getResources().getColor(R.color.colorDarkGrey));
-        tvListView.setBackgroundResource(R.drawable.bg_buttondarkgrey);
+        tvListView.setTextSize(TypedValue.COMPLEX_UNIT_SP,13);
+        tvListView.setBackgroundColor(this.getResources().getColor(R.color.buttongrey));
         recyclerView.setVisibility(View.GONE);
         l1Map.setVisibility(View.VISIBLE);
     }

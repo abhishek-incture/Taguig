@@ -47,7 +47,9 @@ public class FriendsListAdapter extends RecyclerView.Adapter<FriendsListAdapter.
 
         holder.friendsName.setText(map.get("name"));
         holder.address.setText(map.get("address"));
-        new Global(mContext).loadPicasa(map.get("profileimage"), holder.profileImage);
+        //new Global(mContext).loadPicasa(map.get("profileimage"), holder.profileImage);
+
+        holder.profileImage.setImageResource(Integer.parseInt(map.get("profileimage")));
 
     }
 

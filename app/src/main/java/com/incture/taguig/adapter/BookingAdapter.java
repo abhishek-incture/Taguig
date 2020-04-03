@@ -5,8 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -14,16 +13,16 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.incture.taguig.BookAppointmentActivity;
 import com.incture.taguig.R;
 import com.incture.taguig.models.BookingModel;
-import com.incture.taguig.models.RequestModel;
 
 import java.util.List;
 
 public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHolder> {
 
     public interface OnEventListener {
-        void onClick(BookingModel b1);
+        void onClick(BookingModel b1,int position);
     }
 
     private final List<BookingModel> bookingModelList;
@@ -47,17 +46,17 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
         final BookingModel b1 = bookingModelList.get(position);
         viewHolder.tvTime.setText(b1.getTime());
         viewHolder.tvStatus.setText( b1.getBookingStatus());
-        if(b1.getBookingStatus().equals("Available"))
+        if(b1.getBookingStatus().equals(BookAppointmentActivity.AVAILABLE))
         {
             viewHolder.tvTime.setTextColor(context.getResources().getColor(R.color.colorWhite));
 
             viewHolder.r1.setBackgroundColor(context.getResources().getColor(R.color.tvGreen));
         }
-        else  if(b1.getBookingStatus().equals("Fast filling"))
+        else  if(b1.getBookingStatus().equals(BookAppointmentActivity.FAST_FILLING))
         {
             viewHolder.tvTime.setTextColor(context.getResources().getColor(R.color.colorWhite));
 
@@ -69,13 +68,30 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHold
             viewHolder.r1.setBackgroundColor(context.getResources().getColor(R.color.greydark));
         }
 
+        if(b1.getSelected())
+        {
+            /*FrameLayout.LayoutParams relativeParams = (FrameLayout.LayoutParams)viewHolder.r1.getLayoutParams();
+            relativeParams.setMargins(3, 3, 3, 0);  // left, top, right, bottom
+            viewHolder.r1.setLayoutParams(relativeParams);*/
+
+            if(b1.getBookingStatus().equals(BookAppointmentActivity.AVAILABLE)){
+                viewHolder.r1.setBackgroundResource(R.drawable.bg_buttondarkgreen);
+            }
+            else
+            {  viewHolder.r1.setBackgroundResource(R.drawable.bg_buttondarkred);}
+
+
+        }
+
+
+
 
 
         viewHolder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Toast.makeText(context, "Cliked on: " + movie.getTitle(), Toast.LENGTH_SHORT).show();
-                eventListener.onClick(b1);
+                eventListener.onClick(b1,position);
             }
         });
     }

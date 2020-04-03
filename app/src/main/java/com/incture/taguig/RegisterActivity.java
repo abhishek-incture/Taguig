@@ -191,7 +191,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         }
 
         callbackManager = CallbackManager.Factory.create();
-        //loginButton.setReadPermissions(Arrays.asList("email", "public_profile","mobileNo"));
+        loginButton.setReadPermissions(Arrays.asList("email", "public_profile"));
         accessTokenTracker = new AccessTokenTracker() {
             @Override
             protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
@@ -401,11 +401,13 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
             public void onCompleted(JSONObject object, GraphResponse response) {
                 try {
                     String first_name = object.getString("first_name");
+                    etFirstName.setText(first_name);
                     String last_name = object.getString("last_name");
+                    etLastName.setText(last_name);
+
                     String email = object.getString("email");
 
-                    etFirstName.setText(first_name);
-                    etLastName.setText(last_name);
+
                     etEmail.setText(email);
 
                 } catch (JSONException e) {

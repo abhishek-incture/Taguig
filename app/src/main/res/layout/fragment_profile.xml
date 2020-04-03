@@ -200,6 +200,7 @@
         <!--Friends recycler view-->
 
             <androidx.recyclerview.widget.RecyclerView
+
                 android:id="@+id/friendsListRecycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -215,7 +216,8 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="15dp"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="gone"
+                >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -289,11 +291,16 @@
 
             <RadioGroup
                 android:id="@+id/radioGroup1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/l1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                 <RadioButton
+                    android:onClick="onRadioButtonClicked"
                     android:id="@+id/radioButtonA1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -302,7 +309,31 @@
                     android:buttonTint="@color/darkblue"
                     android:textSize="12sp"/>
 
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/tvVote1"
+                        android:gravity="end"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginBottom="1dp"
+                        android:textSize="12sp"
+                        android:textColor="#004AB7"
+                        android:text="vote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/l2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
                 <RadioButton
+                    android:onClick="onRadioButtonClicked"
+
                     android:id="@+id/radioButtonA2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -311,7 +342,30 @@
                     android:buttonTint="@color/darkblue"
                     android:textSize="12sp"/>
 
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/tvVote2"
+                        android:gravity="end"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginBottom="1dp"
+                        android:textSize="12sp"
+                        android:textColor="#004AB7"
+                        android:text="vote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/l3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
                 <RadioButton
+                    android:onClick="onRadioButtonClicked"
+
                     android:id="@+id/radioButtonA3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -320,7 +374,29 @@
                     android:buttonTint="@color/darkblue"
                     android:textSize="12sp"/>
 
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/tvVote3"
+                        android:gravity="end"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginBottom="1dp"
+                        android:textSize="12sp"
+                        android:textColor="#004AB7"
+                        android:text="vote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/l4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
                 <RadioButton
+                    android:onClick="onRadioButtonClicked"
+
                     android:id="@+id/radioButtonA4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -328,6 +404,23 @@
                     android:textColor="@color/colorBlack"
                     android:buttonTint="@color/darkblue"
                     android:textSize="12sp"/>
+
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/tvVote4"
+                        android:gravity="end"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginBottom="1dp"
+                        android:textSize="12sp"
+                        android:textColor="#004AB7"
+                        android:text="vote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
             </RadioGroup>
 
         </LinearLayout>
@@ -363,6 +456,8 @@
                         android:orientation="vertical">
 
                         <RadioButton
+                            android:onClick="onRadioButtonClicked"
+
                             android:id="@+id/radioButtonB1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -372,6 +467,8 @@
                             android:textSize="12sp"/>
 
                         <RadioButton
+                            android:onClick="onRadioButtonClicked"
+
                             android:id="@+id/radioButtonB2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -381,6 +478,8 @@
                             android:textSize="12sp"/>
 
                         <RadioButton
+                            android:onClick="onRadioButtonClicked"
+
                             android:id="@+id/radioButtonB3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -390,6 +489,7 @@
                             android:textSize="12sp"/>
 
                         <RadioButton
+                            android:onClick="onRadioButtonClicked"
                             android:id="@+id/radioButtonB4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

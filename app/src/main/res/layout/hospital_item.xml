@@ -35,6 +35,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:textFontWeight="400"
                 android:id="@+id/tvHospitalName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,7 +45,7 @@
                 android:paddingRight="@dimen/ten"
                 android:textSize="14sp"
                 android:textColor="#020202"
-                android:textStyle="bold" />
+                android:textStyle="normal" />
 
             <TextView
 
@@ -58,12 +59,13 @@
                 android:paddingRight="20dp"
                 android:textSize="10sp"
                 android:textColor="#020202"
+                android:textStyle="normal"
                 />
 
 
             <LinearLayout
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="3dp"
+                android:layout_marginBottom="9dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_width="match_parent"
