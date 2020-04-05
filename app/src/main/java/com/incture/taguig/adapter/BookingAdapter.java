@@ -53,12 +53,14 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHold
         if(b1.getBookingStatus().equals(BookAppointmentActivity.AVAILABLE))
         {
             viewHolder.tvTime.setTextColor(context.getResources().getColor(R.color.colorWhite));
+            viewHolder.tvStatus.setVisibility(View.VISIBLE);
 
             viewHolder.r1.setBackgroundColor(context.getResources().getColor(R.color.tvGreen));
         }
         else  if(b1.getBookingStatus().equals(BookAppointmentActivity.FAST_FILLING))
         {
             viewHolder.tvTime.setTextColor(context.getResources().getColor(R.color.colorWhite));
+            viewHolder.tvStatus.setVisibility(View.VISIBLE);
 
             viewHolder.r1.setBackgroundColor(context.getResources().getColor(R.color.tvRed));
         }
@@ -76,9 +78,14 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHold
 
             if(b1.getBookingStatus().equals(BookAppointmentActivity.AVAILABLE)){
                 viewHolder.r1.setBackgroundResource(R.drawable.bg_buttondarkgreen);
+                viewHolder.tvStatus.setVisibility(View.VISIBLE);
+
             }
             else
-            {  viewHolder.r1.setBackgroundResource(R.drawable.bg_buttondarkred);}
+            {  viewHolder.r1.setBackgroundResource(R.drawable.bg_buttondarkred);
+                viewHolder.tvStatus.setVisibility(View.VISIBLE);
+
+            }
 
 
         }

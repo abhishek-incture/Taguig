@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.ProfileFragment"
+    android:background="@color/defaultscreen"
     android:orientation="vertical"
-    android:background="@color/defaultscreen">
+    tools:context=".fragment.ProfileFragment">
 
     <RelativeLayout
         android:id="@+id/Relative_image"
@@ -20,62 +20,62 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:fitsSystemWindows="true"
-            android:src="@drawable/banner_background"
             android:scaleType="fitXY"
-            app:layout_collapseMode="parallax"
-            android:visibility="gone"/>
+            android:src="@drawable/banner_background"
+            android:visibility="gone"
+            app:layout_collapseMode="parallax" />
 
         <LinearLayout
             android:id="@+id/author_description"
-            android:layout_marginTop="70dp"
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
+            android:layout_marginTop="70dp"
             android:background="@color/colorWhite"
-            android:paddingLeft="10dp">
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
-                android:layout_gravity="center_horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/UserName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorBlack"
                     android:text="Jasmine K"
-                    android:textStyle="bold"
-                    android:textSize="18sp" />
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/AuthorDesignation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorBlack"
                     android:text="Manilla, Phillipines"
-                    android:textSize="10sp"/>
+                    android:textColor="@color/colorBlack"
+                    android:textSize="10sp" />
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:background="@drawable/update_profile_gradient"
-                    android:text="Update Profile"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginTop="5dp"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
+                    android:background="@drawable/update_profile_gradient"
                     android:paddingLeft="35dp"
                     android:paddingRight="35dp"
-                    android:layout_gravity="center_horizontal"
+                    android:text="Update Profile"
                     android:textAllCaps="false"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorWhite"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -91,19 +91,19 @@
                 android:id="@+id/edit_profile_image"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/profile_image"
                 android:layout_centerHorizontal="true"
-                android:layout_gravity="bottom" />
+                android:layout_gravity="bottom"
+                android:src="@drawable/profile_image" />
 
             <com.incture.taguig.utils.CircleImageView
                 android:id="@+id/addImage"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="-10dp"
                 android:layout_alignRight="@+id/edit_profile_image"
                 android:layout_alignBottom="@+id/edit_profile_image"
-                android:src="@drawable/updatedp"/>
+                android:layout_marginRight="-10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/updatedp" />
 
         </RelativeLayout>
 
@@ -112,75 +112,75 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="@dimen/marginleftRequestTextView"
-        android:layout_marginRight="@dimen/marginleftRequestTextView"
-        android:background="@color/buttongrey"
         android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/marginleftRequestTextView"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/marginleftRequestTextView"
+        android:layout_marginBottom="15dp"
+        android:background="@color/buttongrey"
         android:padding="1dp">
 
         <TextView
             android:id="@+id/friendsButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:textAlignment="center"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:gravity="center_vertical"
             android:background="@drawable/bg_button"
-            android:textColor="@color/colorDarkRed"
-            android:text="Friends" />
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:text="Friends"
+            android:textAlignment="center"
+            android:textColor="@color/colorDarkRed" />
 
         <View
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="1dp"
-            android:background="@color/lineGrey"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
             android:layout_width="2dp"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/lineGrey" />
 
         <TextView
             android:id="@+id/pollsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
             android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:text="Polls(2)"
+            android:textAlignment="center"
             android:textColor="@color/colorDarkGrey"
-            android:textSize="14sp"
-            android:text="Polls(2)" />
+            android:textSize="14sp" />
 
         <View
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="1dp"
-            android:background="@color/lineGrey"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
             android:layout_width="2dp"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/lineGrey" />
 
         <TextView
             android:id="@+id/surveysButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
             android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:text="Surveys(1)"
+            android:textAlignment="center"
             android:textColor="@color/colorDarkGrey"
-            android:textSize="14sp"
-            android:text="Surveys(1)" />
+            android:textSize="14sp" />
 
 
     </LinearLayout>
@@ -188,26 +188,26 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/defaultscreen"
         android:layout_marginLeft="15dp"
-        android:layout_marginBottom="60dp">
+        android:layout_marginBottom="60dp"
+        android:background="@color/defaultscreen">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        <!--Friends recycler view-->
+            <!--Friends recycler view-->
 
             <androidx.recyclerview.widget.RecyclerView
 
                 android:id="@+id/friendsListRecycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 
-        <!--Polls Screen-->
+            <!--Polls Screen-->
 
             <LinearLayout
                 android:id="@+id/pollsLinear"
@@ -216,313 +216,682 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="15dp"
                 android:orientation="vertical"
-                android:visibility="gone"
-                >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="10dp"
-            android:textColor="@color/colorLightGray"/>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="5dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:orientation="vertical"
-            android:background="@color/colorWhite">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Most Popular Place to Roam around in manila?"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:textColor="@color/colorBlack"/>
-
-            <RadioGroup
-                android:id="@+id/radiogroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:orientation="vertical" />
-
-            <!--<RelativeLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_marginTop="5dp">
-
-            <RadioButton
-                android:id="@+id/radioButtonA1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rizal Park"
-                android:textColor="@color/colorBlack"
-                android:buttonTint="@color/darkblue"
-                android:textSize="12sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="Vote"
-                android:layout_marginRight="10dp"
-                android:textSize="12sp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:textColor="@color/colorActiveBlue"/>
-
-        </RelativeLayout>-->
-
-            <RadioGroup
-                android:id="@+id/radioGroup1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:id="@+id/l1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:onClick="onRadioButtonClicked"
-                    android:id="@+id/radioButtonA1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rizal Park"
-                    android:textColor="@color/colorBlack"
-                    android:buttonTint="@color/darkblue"
-                    android:textSize="12sp"/>
-
-                    <TextView
-                        android:visibility="gone"
-                        android:id="@+id/tvVote1"
-                        android:gravity="end"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="1dp"
-                        android:layout_marginRight="25dp"
-                        android:layout_marginBottom="1dp"
-                        android:textSize="12sp"
-                        android:textColor="#004AB7"
-                        android:text="vote"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                </LinearLayout>
-
-
-
-                <LinearLayout
-                    android:id="@+id/l2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                <RadioButton
-                    android:onClick="onRadioButtonClicked"
-
-                    android:id="@+id/radioButtonA2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fort Santiago"
-                    android:textColor="@color/colorBlack"
-                    android:buttonTint="@color/darkblue"
-                    android:textSize="12sp"/>
-
-                    <TextView
-                        android:visibility="gone"
-                        android:id="@+id/tvVote2"
-                        android:gravity="end"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="1dp"
-                        android:layout_marginRight="25dp"
-                        android:layout_marginBottom="1dp"
-                        android:textSize="12sp"
-                        android:textColor="#004AB7"
-                        android:text="vote"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/l3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:onClick="onRadioButtonClicked"
-
-                    android:id="@+id/radioButtonA3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sant Agustin Church"
-                    android:textColor="@color/colorBlack"
-                    android:buttonTint="@color/darkblue"
-                    android:textSize="12sp"/>
-
-                    <TextView
-                        android:visibility="gone"
-                        android:id="@+id/tvVote3"
-                        android:gravity="end"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="1dp"
-                        android:layout_marginRight="25dp"
-                        android:layout_marginBottom="1dp"
-                        android:textSize="12sp"
-                        android:textColor="#004AB7"
-                        android:text="vote"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/l4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                <RadioButton
-                    android:onClick="onRadioButtonClicked"
-
-                    android:id="@+id/radioButtonA4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Manila Ocean Park"
-                    android:textColor="@color/colorBlack"
-                    android:buttonTint="@color/darkblue"
-                    android:textSize="12sp"/>
-
-                    <TextView
-                        android:visibility="gone"
-                        android:id="@+id/tvVote4"
-                        android:gravity="end"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="1dp"
-                        android:layout_marginRight="25dp"
-                        android:layout_marginBottom="1dp"
-                        android:textSize="12sp"
-                        android:textColor="#004AB7"
-                        android:text="vote"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                </LinearLayout>
-
-            </RadioGroup>
-
-        </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="5dp"
-                android:layout_marginTop="10dp">
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:orientation="vertical"
-                    android:background="@color/colorWhite">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Which one of below areas should be improved first?"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorBlack"/>
+                        android:layout_marginBottom="10dp"
+                        android:text="New"
+                        android:textColor="@color/colorLightGray"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
-
-                    <RadioGroup
-                        android:id="@+id/radioGroup2"
-                        android:layout_width="wrap_content"
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        app:cardCornerRadius="5dp">
 
-                        <RadioButton
-                            android:onClick="onRadioButtonClicked"
-
-                            android:id="@+id/radioButtonB1"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Manila National Highway"
-                            android:textColor="@color/colorBlack"
-                            android:buttonTint="@color/darkblue"
-                            android:textSize="12sp"/>
+                            android:background="@color/colorWhite"
+                            android:orientation="vertical"
+                            android:padding="10dp">
 
-                        <RadioButton
-                            android:onClick="onRadioButtonClicked"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Most Popular Place to Roam around in manila?"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
 
-                            android:id="@+id/radioButtonB2"
-                            android:layout_width="wrap_content"
+                            <RadioGroup
+                                android:id="@+id/radiogroup"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:orientation="vertical" />
+
+                            <!--<RelativeLayout
                             android:layout_height="wrap_content"
-                            android:text="Ongpin Street"
-                            android:textColor="@color/colorBlack"
-                            android:buttonTint="@color/darkblue"
-                            android:textSize="12sp"/>
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="5dp">
 
-                        <RadioButton
-                            android:onClick="onRadioButtonClicked"
+                            <RadioButton
+                                android:id="@+id/radioButtonA1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rizal Park"
+                                android:textColor="@color/colorBlack"
+                                android:buttonTint="@color/darkblue"
+                                android:textSize="12sp"/>
 
-                            android:id="@+id/radioButtonB3"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:text="Vote"
+                                android:layout_marginRight="10dp"
+                                android:textSize="12sp"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:textColor="@color/colorActiveBlue"/>
+
+                        </RelativeLayout>-->
+
+                            <RadioGroup
+                                android:id="@+id/radioGroup1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:id="@+id/l1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <RadioButton
+                                        android:id="@+id/radioButtonA1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:buttonTint="@color/darkblue"
+                                        android:onClick="onRadioButtonClicked"
+                                        android:text="Rizal Park"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="12sp" />
+
+                                    <TextView
+                                        android:id="@+id/tvVote1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginTop="1dp"
+                                        android:layout_marginRight="25dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:gravity="end"
+                                        android:onClick="onTextViewClick"
+                                        android:text="vote"
+                                        android:textColor="#004AB7"
+                                        android:textSize="12sp"
+                                        android:visibility="gone" />
+
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:id="@+id/l2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <RadioButton
+                                        android:id="@+id/radioButtonA2"
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:buttonTint="@color/darkblue"
+                                        android:onClick="onRadioButtonClicked"
+                                        android:text="Fort Santiago"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="12sp" />
+
+                                    <TextView
+                                        android:id="@+id/tvVote2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginTop="1dp"
+                                        android:layout_marginRight="25dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:gravity="end"
+                                        android:text="vote"
+                                        android:textColor="#004AB7"
+                                        android:textSize="12sp"
+                                        android:visibility="gone" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/l3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <RadioButton
+                                        android:id="@+id/radioButtonA3"
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:buttonTint="@color/darkblue"
+                                        android:onClick="onRadioButtonClicked"
+                                        android:text="Sant Agustin Church"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="12sp" />
+
+                                    <TextView
+                                        android:id="@+id/tvVote3"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginTop="1dp"
+                                        android:layout_marginRight="25dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:gravity="end"
+                                        android:text="vote"
+                                        android:textColor="#004AB7"
+                                        android:textSize="12sp"
+                                        android:visibility="gone" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/l4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <RadioButton
+                                        android:id="@+id/radioButtonA4"
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:buttonTint="@color/darkblue"
+                                        android:onClick="onRadioButtonClicked"
+                                        android:text="Manila Ocean Park"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="12sp" />
+
+                                    <TextView
+                                        android:id="@+id/tvVote4"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginTop="1dp"
+                                        android:layout_marginRight="25dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:gravity="end"
+                                        android:text="vote"
+                                        android:textColor="#004AB7"
+                                        android:textSize="12sp"
+                                        android:visibility="gone" />
+
+                                </LinearLayout>
+
+                            </RadioGroup>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:cardCornerRadius="5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Avenida Rizal"
-                            android:textColor="@color/colorBlack"
-                            android:buttonTint="@color/darkblue"
-                            android:textSize="12sp"/>
+                            android:background="@color/colorWhite"
+                            android:orientation="vertical"
+                            android:padding="10dp">
 
-                        <RadioButton
-                            android:onClick="onRadioButtonClicked"
-                            android:id="@+id/radioButtonB4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ortigas Center"
-                            android:textColor="@color/colorBlack"
-                            android:buttonTint="@color/darkblue"
-                            android:textSize="12sp"/>
-                    </RadioGroup>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Which one of below areas should be improved first?"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
 
+
+                            <RadioGroup
+                                android:id="@+id/radioGroup2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:id="@+id/l5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <RadioButton
+
+                                        android:id="@+id/radioButtonB1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:buttonTint="@color/darkblue"
+                                        android:text="Manila National Highway"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="12sp" />
+
+                                    <TextView
+                                        android:id="@+id/tvVote5"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginTop="1dp"
+                                        android:layout_marginRight="25dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:gravity="end"
+                                        android:text="vote"
+                                        android:textColor="#004AB7"
+                                        android:textSize="12sp"
+                                        android:visibility="gone" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/l6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+
+                                    <RadioButton
+
+                                        android:id="@+id/radioButtonB2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:buttonTint="@color/darkblue"
+                                        android:text="Ongpin Street"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="12sp" />
+
+                                    <TextView
+                                        android:id="@+id/tvVote6"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginTop="1dp"
+                                        android:layout_marginRight="25dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:gravity="end"
+                                        android:text="vote"
+                                        android:textColor="#004AB7"
+                                        android:textSize="12sp"
+                                        android:visibility="gone" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/l7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+
+                                    <RadioButton
+
+                                        android:id="@+id/radioButtonB3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:buttonTint="@color/darkblue"
+                                        android:text="Avenida Rizal"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="12sp" />
+
+                                    <TextView
+                                        android:id="@+id/tvVote7"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginTop="1dp"
+                                        android:layout_marginRight="25dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:gravity="end"
+                                        android:text="vote"
+                                        android:textColor="#004AB7"
+                                        android:textSize="12sp"
+                                        android:visibility="gone" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/l8"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+
+                                    <RadioButton
+                                        android:id="@+id/radioButtonB4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:buttonTint="@color/darkblue"
+                                        android:onClick="onRadioButtonClicked"
+                                        android:text="Ortigas Center"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="12sp" />
+
+                                    <TextView
+                                        android:id="@+id/tvVote8"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginTop="1dp"
+                                        android:layout_marginRight="25dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:gravity="end"
+                                        android:text="vote"
+                                        android:textColor="#004AB7"
+                                        android:textSize="12sp"
+                                        android:visibility="gone" />
+
+                                </LinearLayout>
+                            </RadioGroup>
+
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
 
                 <!--Completed-->
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Completed"
+                        android:textColor="@color/colorLightGray"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorWhite"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="According to you which problem should be resolved First?"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Traffic Congestion"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="right"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/progress_graph1" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Potholes"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="right"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/progress_graph2" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Drainage"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="right"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/progress_graph2" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Others"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="15dp"
+                                        android:layout_gravity="right"
+                                        android:src="@drawable/progress_graph3" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:cardCornerRadius="5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorWhite"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="According to you which problem should be resolved First?"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Traffic Congestion"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="right"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/progress_graph1" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Potholes"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="right"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/progress_graph2" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Drainage"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="right"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/progress_graph2" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Others"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="15dp"
+                                        android:layout_gravity="right"
+                                        android:src="@drawable/progress_graph3" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!--Sruvey Screen-->
+
             <LinearLayout
+                android:id="@+id/surveysLinear"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical"
+                android:visibility="gone">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Completed"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:textColor="@color/colorLightGray"/>
+                    android:text="New"
+                    android:textColor="@color/colorLightGray"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -532,248 +901,60 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
+                        android:background="@color/colorWhite"
                         android:orientation="vertical"
-                        android:background="@color/colorWhite">
+                        android:padding="10dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="According to you which problem should be resolved First?"
+                            android:text="Please help us improve, your feedback isvery important."
+                            android:textColor="@color/colorBlack"
                             android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/colorBlack"/>
+                            android:textStyle="bold" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:weightSum="2"
-                            android:layout_marginTop="5dp">
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal">
 
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:textSize="12sp"
-                                android:textColor="@color/colorBlack"
-                                android:textStyle="bold"
-                                android:text="Traffic Congestion"/>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
 
-                            <ImageView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:layout_gravity="right"
-                                android:src="@drawable/progress_graph1"/>
+                                <TextView
+                                    android:id="@+id/surveyTime"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Survey Time"
+                                    android:textColor="@color/colorLightGray"
+                                    android:textSize="12sp" />
 
-                        </LinearLayout>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/surveyTime"
+                                    android:text="Max 3 Mins"
+                                    android:textColor="@color/colorAccent"
+                                    android:textSize="12sp" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:weightSum="2"
-                            android:layout_marginTop="5dp">
+                                <Button
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="30dp"
+                                    android:layout_alignParentRight="true"
+                                    android:background="@drawable/update_profile_gradient"
+                                    android:paddingLeft="70dp"
+                                    android:paddingRight="70dp"
+                                    android:text="Start Survey"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/colorWhite"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
 
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:textSize="12sp"
-                                android:textColor="@color/colorBlack"
-                                android:textStyle="bold"
-                                android:text="Potholes"/>
 
-                            <ImageView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:layout_gravity="right"
-                                android:src="@drawable/progress_graph2"/>
+                            </RelativeLayout>
 
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:weightSum="2"
-                            android:layout_marginTop="5dp">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:textSize="12sp"
-                                android:textColor="@color/colorBlack"
-                                android:textStyle="bold"
-                                android:text="Drainage"/>
-
-                            <ImageView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:layout_gravity="right"
-                                android:src="@drawable/progress_graph2"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:weightSum="2"
-                            android:layout_marginTop="5dp">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:textSize="12sp"
-                                android:textColor="@color/colorBlack"
-                                android:textStyle="bold"
-                                android:text="Others"/>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_gravity="right"
-                                android:orientation="vertical">
-
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="15dp"
-                                    android:layout_gravity="right"
-                                    android:src="@drawable/progress_graph3"/>
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="5dp"
-                    android:layout_marginTop="10dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:orientation="vertical"
-                        android:background="@color/colorWhite">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="According to you which problem should be resolved First?"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/colorBlack"/>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:weightSum="2"
-                            android:layout_marginTop="5dp">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:textSize="12sp"
-                                android:textColor="@color/colorBlack"
-                                android:textStyle="bold"
-                                android:text="Traffic Congestion"/>
-
-                            <ImageView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:layout_gravity="right"
-                                android:src="@drawable/progress_graph1"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:weightSum="2"
-                            android:layout_marginTop="5dp">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:textSize="12sp"
-                                android:textColor="@color/colorBlack"
-                                android:textStyle="bold"
-                                android:text="Potholes"/>
-
-                            <ImageView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:layout_gravity="right"
-                                android:src="@drawable/progress_graph2"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:weightSum="2"
-                            android:layout_marginTop="5dp">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:textSize="12sp"
-                                android:textColor="@color/colorBlack"
-                                android:textStyle="bold"
-                                android:text="Drainage"/>
-
-                            <ImageView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:layout_gravity="right"
-                                android:src="@drawable/progress_graph2"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:weightSum="2"
-                            android:layout_marginTop="5dp">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:textSize="12sp"
-                                android:textColor="@color/colorBlack"
-                                android:textStyle="bold"
-                                android:text="Others"/>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_gravity="right"
-                                android:orientation="vertical">
-
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="15dp"
-                                    android:layout_gravity="right"
-                                    android:src="@drawable/progress_graph3"/>
-
-                            </LinearLayout>
 
                         </LinearLayout>
 
@@ -782,101 +963,6 @@
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
-
-            </LinearLayout>
-
-
-        <!--Sruvey Screen-->
-
-        <LinearLayout
-            android:id="@+id/surveysLinear"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp"
-            android:visibility="gone">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="10dp"
-            android:textColor="@color/colorLightGray"/>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:orientation="vertical"
-                    android:background="@color/colorWhite">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Please help us improve, your feedback isvery important."
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorBlack"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="15dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:id="@+id/surveyTime"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Survey Time"
-                                android:textSize="12sp"
-                                android:textColor="@color/colorLightGray"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Max 3 Mins"
-                                android:textSize="12sp"
-                                android:layout_below="@+id/surveyTime"
-                                android:textColor="@color/colorAccent"/>
-
-                            <Button
-                                android:layout_width="wrap_content"
-                                android:layout_height="30dp"
-                                android:background="@drawable/update_profile_gradient"
-                                android:text="Start Survey"
-                                android:textSize="12sp"
-                                android:textStyle="bold"
-                                android:paddingLeft="70dp"
-                                android:paddingRight="70dp"
-                                android:textAllCaps="false"
-                                android:layout_alignParentRight="true"
-                                android:textColor="@color/colorWhite"/>
-
-
-                        </RelativeLayout>
-
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
 
         </LinearLayout>
 

@@ -3,6 +3,7 @@ package com.incture.taguig.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,19 +27,19 @@ import java.util.List;
 public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.ViewHolder> {
 
     public interface OnEventListener {
-        void onClick(RequestModel f1);
+        void onClick(HospitalModel h1,int position);
     }
 
     private final List<HospitalModel> hospitalModelList;
     private final Context context;
-  //  private final OnEventListener eventListener;
+   private final OnEventListener eventListener;
 
     public HospitalAdapter(Context context, List<HospitalModel> hospitalModelList) {
         this.hospitalModelList = hospitalModelList;
         this.context = context;
 
         // context => MovieListActivity -> OnEventListener
-         //this.eventListener = (OnEventListener) context;
+         this.eventListener = (OnEventListener) context;
     }
 
     @NonNull
@@ -50,12 +51,23 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
         final HospitalModel h1 = hospitalModelList.get(position);
         viewHolder.tvHospitalName.setText(h1.getHospitalName());
         viewHolder.tvHospitalDetail.setText( h1.getHospitalDetail());
         viewHolder.imgViewHospital.setImageResource(h1.getHospitalImage());
 
+
+        viewHolder.btnGetDirection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Toast.makeText(context, "Cliked on: " + movie.getTitle(), Toast.LENGTH_SHORT).show();
+                eventListener.onClick(h1,position);
+
+
+
+            }
+        });
 
 
 
@@ -90,7 +102,7 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.ViewHo
         ImageView imgViewHospital;
         TextView tvHospitalName;
         TextView tvHospitalDetail;
-        Button btnGoToBook;
+        Button btnGoToBook,btnGetDirection;
 
 
         CardView layout;
@@ -101,6 +113,8 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.ViewHo
             layout = (CardView) itemView;
 
             btnGoToBook = layout.findViewById(R.id.btnGoToBook);
+            btnGetDirection = layout.findViewById(R.id.btnGetDirection);
+
             imgViewHospital = layout.findViewById(R.id.imgViewHospital);
             tvHospitalName = layout.findViewById(R.id.tvHospitalName);
             tvHospitalDetail = layout.findViewById(R.id.tvHospitalDetail);

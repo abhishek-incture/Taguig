@@ -114,13 +114,16 @@ public class BookAppointmentActivity extends AppCompatActivity implements View.O
         tvName.setText(h1.getHospitalName());
         imgView.setImageResource(h1.getHospitalImage());
         bookingModelList = new ArrayList<>();
+
         adapter = new BookingAdapter(this,bookingModelList);
+        initDatasource();
+
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));
+
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new PhotoDecorator(
                 getResources().getDimensionPixelSize(R.dimen.photos_list_spacing),
                 getResources().getInteger(R.integer.photo_list_preview_columns)));
-        initDatasource();
 
 
     }
@@ -397,7 +400,7 @@ public class BookAppointmentActivity extends AppCompatActivity implements View.O
         bookingModelList.add(bookingModel);
         bookingModel = new BookingModel(" 2PM-3PM",FULL);
         bookingModelList.add(bookingModel);
-        bookingModel = new BookingModel(" 3PM-4PM",FULL);
+        bookingModel = new BookingModel(" 3PM-4PM",AVAILABLE);
         bookingModelList.add(bookingModel);
         bookingModel = new BookingModel(" 4PM-5PM",AVAILABLE);
         bookingModelList.add(bookingModel);
@@ -425,7 +428,7 @@ public class BookAppointmentActivity extends AppCompatActivity implements View.O
         bookingModelList.add(bookingModel);
         bookingModel = new BookingModel(" 2PM-3PM",FULL);
         bookingModelList.add(bookingModel);
-        bookingModel = new BookingModel(" 3PM-4PM",FULL);
+        bookingModel = new BookingModel(" 3PM-4PM",AVAILABLE);
         bookingModelList.add(bookingModel);
         bookingModel = new BookingModel(" 4PM-5PM",AVAILABLE);
         bookingModelList.add(bookingModel);

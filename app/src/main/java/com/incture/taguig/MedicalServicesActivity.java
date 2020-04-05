@@ -1,6 +1,8 @@
 package com.incture.taguig;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
@@ -22,27 +24,31 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.incture.taguig.adapter.CustomInfoWindowAdapter;
 import com.incture.taguig.adapter.HospitalAdapter;
 import com.incture.taguig.adapter.RequestAdapter;
 import com.incture.taguig.models.HospitalModel;
 import com.incture.taguig.models.RequestList;
 import com.incture.taguig.models.RequestModel;
+import com.incture.taguig.utils.CustomInfoWindowAdapter;
+import com.incture.taguig.utils.MapWrapperLayout;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MedicalServicesActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
+public class MedicalServicesActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener,HospitalAdapter.OnEventListener {
 
     private RecyclerView recyclerView;
     private HospitalAdapter adapter;
     private List<HospitalModel> hospitalModelList;
-    private List<LatLng> latLngList;
+    public List<LatLng> latLngList;
     private TextView tvListView,tvMapView;
     private LinearLayout l1Map;
 
     private GoogleMap mMap;
+    private GoogleMap googleMap;
+    MapWrapperLayout mapWrapperLayout;
+
 
 
     @Override
@@ -76,13 +82,13 @@ public class MedicalServicesActivity extends AppCompatActivity implements OnMapR
 
     private void initLatLongList() {
         LatLng  sydney;
-        sydney = new LatLng(-34.0000050, 151.00005);
+        sydney = new LatLng(12.957815, 77.700601);
         latLngList.add(sydney);
-        sydney = new LatLng(-34.0000057, 147.00007);
+        sydney = new LatLng(12.955280, 77.703211);
         latLngList.add(sydney);
-        sydney = new LatLng(-36.0000053, 148.00008);
+        sydney = new LatLng(12.953445, 77.705740);
         latLngList.add(sydney);
-        sydney = new LatLng(-34.0000048, 150.00009);
+        sydney = new LatLng(12.951674, 77.701938);
         latLngList.add(sydney);
 
 
@@ -92,16 +98,16 @@ public class MedicalServicesActivity extends AppCompatActivity implements OnMapR
     private List init() {
         hospitalModelList.clear();
         HospitalModel hospitalModel;
-        hospitalModel = new HospitalModel(R.drawable.hospitalimage_1,"Paranaque Doctors Hospital",
+        hospitalModel = new HospitalModel(R.drawable.image1,"Paranaque Doctors Hospital",
                 "175 Doña Soledad Ave Better Living Subdivision,\n" +
                         "Parañaque, 1711 Metro Manila, Philippines");
         hospitalModelList.add(hospitalModel);
-        hospitalModel = new HospitalModel(R.drawable.hospitalimage_1,"SSMC Medical Center",
+        hospitalModel = new HospitalModel(R.drawable.image2,"SSMC Medical Center",
                 "175 Doña Soledad Ave Better Living Subdivision,\n" +
                                       "Parañaque, 1711 Metro Manila, Philippines");
         hospitalModelList.add(hospitalModel);
 
-        hospitalModel = new HospitalModel(R.drawable.hospitalimage_1,"Paranaque Doctors Hospital",
+        hospitalModel = new HospitalModel(R.drawable.image3,"Paranaque Doctors Hospital",
                 "175 Doña Soledad Ave Better Living Subdivision,\n" +
                         "Parañaque, 1711 Metro Manila, Philippines");
         hospitalModelList.add(hospitalModel);
@@ -120,9 +126,27 @@ public class MedicalServicesActivity extends AppCompatActivity implements OnMapR
     }
 
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(GoogleMap mMap) {
 
-        mMap = googleMap;
+
+        googleMap = mMap;
+
+        mapWrapperLayout = (MapWrapperLayout)findViewById(R.id.map_relative_layout);
+
+
+
+
+        // MapWrapperLayout initialization
+        // 39 - default marker height
+        // 20 - offset between the default InfoWindow bottom edge and it's content bottom edge
+        mapWrapperLayout.init(googleMap, getPixelsFromDp(this, 39 + 20));
+
+        LatLng sydney = new LatLng(12.957815, 77.700601);
+        MarkerOptions b = new MarkerOptions().position(sydney).title("Marker in Sydney");
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        moveCamera(sydney,15f);
+
+        /*mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-34, 151);
@@ -130,16 +154,16 @@ public class MedicalServicesActivity extends AppCompatActivity implements OnMapR
        // mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         moveCamera(sydney,7f);
         mMap.setOnInfoWindowClickListener(this);
-
+*/
     }
 
     private void moveCamera(LatLng latLng, float zoom){
         //Log.d(TAG, "moveCamera: moving the camera to: lat: " + latLng.latitude + ", lng: " + latLng.longitude );
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
 
-        mMap.clear();
+        googleMap.clear();
 
-        mMap.setInfoWindowAdapter(new CustomInfoWindowAdapter(this));
+        googleMap.setInfoWindowAdapter(new CustomInfoWindowAdapter(this,mapWrapperLayout));
 
         addMarkers();
 
@@ -175,7 +199,7 @@ public class MedicalServicesActivity extends AppCompatActivity implements OnMapR
                     .position(latLngList.get(i))
                     .title(h1.getHospitalName())
                     .snippet(snippet);
-            mMap.addMarker(options);
+            googleMap.addMarker(options);
 
         }
     }
@@ -210,5 +234,19 @@ public class MedicalServicesActivity extends AppCompatActivity implements OnMapR
         tvListView.setBackgroundColor(this.getResources().getColor(R.color.buttongrey));
         recyclerView.setVisibility(View.GONE);
         l1Map.setVisibility(View.VISIBLE);
+    }
+
+
+    public static int getPixelsFromDp(Context context, float dp) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int)(dp * scale + 0.5f);
+    }
+
+    @Override
+    public void onClick(HospitalModel h1,int position) {
+        Intent intent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://maps.google.com/maps?daddr=" + latLngList.get(position).latitude + "," +latLngList.get(position).longitude));
+        startActivity(intent);
+
     }
 }
