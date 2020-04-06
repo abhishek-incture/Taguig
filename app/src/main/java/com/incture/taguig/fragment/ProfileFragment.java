@@ -445,7 +445,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 // Ninjas rule
                 break;
 
-            case R.id.radioButtonA3:
+            case R.id.radioButtonB3:
                 if (checked)
                     // Toast.makeText(getActivity(), "You clicked", Toast.LENGTH_SHORT).show();
                     l7.setBackgroundResource(R.drawable.bg_buttonlightgreen);

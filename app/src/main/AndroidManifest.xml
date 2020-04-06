@@ -53,6 +53,7 @@
         <activity android:name=".BookAppointmentActivity" />
         <activity android:name=".BookingDetailsActivity" />
         <activity android:name=".MedicalServicesActivity" />
+        <activity android:name=".SurveyActivity"/>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

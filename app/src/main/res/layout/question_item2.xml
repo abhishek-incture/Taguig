@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite"
+    app:cardCornerRadius="8dp"
+    android:padding="16dp"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/tvQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tvQuestion"
+        android:textColor="#0A0A0A"
+        android:textSize="@dimen/textsize14sp" />
+
+
+
+    <RelativeLayout
+        android:background="@drawable/bg_spinner"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:padding="2dp"
+        android:layout_height="38dp">
+
+        <Spinner
+            android:id="@+id/spinnerOptions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:spinnerMode="dropdown"
+            android:visibility="visible" />
+
+
+
+        <EditText
+            android:paddingLeft="9dp"
+            android:id="@+id/etOptions"
+            android:drawableRight="@drawable/ic_arrow_down_24dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Choose"
+            android:textSize="@dimen/textsize14sp"
+            android:focusable="false"
+            android:background="#ffffff"
+            android:textColor="#0A0A0A" />
+-->
+    </RelativeLayout>
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>
