@@ -940,6 +940,7 @@
                                     android:textSize="12sp" />
 
                                 <Button
+                                    android:id="@+id/btnStartSurvey"
                                     android:layout_width="wrap_content"
                                     android:layout_height="30dp"
                                     android:layout_alignParentRight="true"

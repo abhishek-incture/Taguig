@@ -1,5 +1,6 @@
 package com.incture.taguig.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -17,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.incture.taguig.R;
+import com.incture.taguig.SurveyActivity;
 import com.incture.taguig.adapter.FriendsListAdapter;
 
 import java.util.ArrayList;
@@ -36,6 +39,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     LinearLayout surveysLinear, pollsLinear, l1, l2, l3, l4,l5,l6,l7,l8;
     RadioButton radioButtonA1, radioButtonA2, radioButtonA3, radioButtonA4,radioButtonB1,radioButtonB2,radioButtonB3,radioButtonB4;
     RadioGroup radioGroup1;
+    Button btnStartSurvey;
 
 
     @Override
@@ -44,7 +48,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-
+        btnStartSurvey = view.findViewById(R.id.btnStartSurvey);
         friendsListRecycler = (RecyclerView) view.findViewById(R.id.friendsListRecycler);
         friendsButton = (TextView) view.findViewById(R.id.friendsButton);
         pollsButton = (TextView) view.findViewById(R.id.pollsButton);
@@ -97,6 +101,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         tvVote6.setOnClickListener(this);
         tvVote7.setOnClickListener(this);
         tvVote8.setOnClickListener(this);
+
+        btnStartSurvey.setOnClickListener(this);
+
 
 
 
@@ -301,6 +308,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.tvVote8:
                 onTextViewClick2(tvVote8);
+                break;
+            case R.id.btnStartSurvey:
+                Intent intent = new Intent(getActivity(), SurveyActivity.class);
+                startActivity(intent);
                 break;
         }
     }

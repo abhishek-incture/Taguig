@@ -54,6 +54,7 @@
         <activity android:name=".BookingDetailsActivity" />
         <activity android:name=".MedicalServicesActivity" />
         <activity android:name=".SurveyActivity"/>
+        <activity android:name=".Splash2Activity"/>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
