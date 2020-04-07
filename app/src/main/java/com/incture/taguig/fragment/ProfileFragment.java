@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,7 +40,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     LinearLayout surveysLinear, pollsLinear, l1, l2, l3, l4,l5,l6,l7,l8;
     RadioButton radioButtonA1, radioButtonA2, radioButtonA3, radioButtonA4,radioButtonB1,radioButtonB2,radioButtonB3,radioButtonB4;
     RadioGroup radioGroup1;
-    Button btnStartSurvey;
+    Button btnStartSurvey,btnSecondSurvey;
 
 
     @Override
@@ -47,6 +48,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        btnSecondSurvey= view.findViewById(R.id.btnSecondSurvey);
 
         btnStartSurvey = view.findViewById(R.id.btnStartSurvey);
         friendsListRecycler = (RecyclerView) view.findViewById(R.id.friendsListRecycler);
@@ -104,6 +107,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
         btnStartSurvey.setOnClickListener(this);
 
+        btnSecondSurvey.setOnClickListener(this);
 
 
 
@@ -313,7 +317,18 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 Intent intent = new Intent(getActivity(), SurveyActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.btnSecondSurvey:
+                Survey2Fragment survey2Fragment = new Survey2Fragment();
+                replaceFragment(survey2Fragment);
+                break;
         }
+    }
+
+    public void replaceFragment(Fragment someFragment) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, someFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
 

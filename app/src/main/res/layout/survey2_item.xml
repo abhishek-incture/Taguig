@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:padding="3dp"
+    android:layout_marginLeft="10dp"
+    android:paddingTop="8dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/tvQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tvQuestion"
+        android:textColor="#0A0A0A"
+        android:textSize="@dimen/textsize14sp" />
+
+
+    <RadioGroup
+        android:layout_marginTop="5dp"
+
+        android:layout_marginLeft="5dp"
+        android:orientation="vertical"
+        android:id="@+id/radioGroup1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <RadioButton
+            android:layout_weight="1"
+
+            android:id="@+id/rb1"
+            android:buttonTint="@color/darkblue"
+
+            android:textColor="#0A0A0A"
+            android:textSize="@dimen/textsize14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="Yes" />
+
+        <RadioButton
+            android:id="@+id/rb2"
+            android:buttonTint="@color/darkblue"
+
+            android:textColor="#0A0A0A"
+            android:textSize="@dimen/textsize14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="No" />
+
+        <RadioButton
+            android:id="@+id/rb3"
+            android:buttonTint="@color/darkblue"
+
+            android:textColor="#0A0A0A"
+            android:textSize="@dimen/textsize14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="3" />
+        <RadioButton
+            android:id="@+id/rb4"
+            android:buttonTint="@color/darkblue"
+
+            android:textColor="#0A0A0A"
+            android:textSize="@dimen/textsize14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="4" />
+
+
+
+    </RadioGroup>
+
+</LinearLayout>
