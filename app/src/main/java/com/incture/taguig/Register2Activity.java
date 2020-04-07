@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -71,7 +72,7 @@ import static com.incture.taguig.MainActivity.IMAGE_FILE_PATH;
 public class Register2Activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private static final int REQUEST_CAPTURE_GALLERY = 101;
     int PICK_IMAGE_MULTIPLE = 1;
-
+     boolean backpress=false;
     private static final int RC_SIGN_IN = 102 ;
     private static final int FILE_REQUEST = 101;
     private EditText etFirstName,etLastName,etEmail,etPhoneNo,etPassword;
@@ -548,7 +549,7 @@ public class Register2Activity extends AppCompatActivity implements AdapterView.
 
 
         else {
-            Intent intent = new Intent(this,LoginActivity.class);
+            Intent intent = new Intent(this,Splash2Activity.class);
             startActivity(intent);
         }
 
@@ -655,7 +656,16 @@ public class Register2Activity extends AppCompatActivity implements AdapterView.
     @Override
     public void onBackPressed() {
         noOfFile =1;
-        super.onBackPressed();
+        if(!backpress)
+        {
+            backpress=true;
+            RelativeLayout r2=findViewById(R.id.r2);
+            r2.performClick();
+        }
+        else {
+            super.onBackPressed();
+
+        }
     }
 
     public void spinnerClick(View view) {
@@ -681,6 +691,7 @@ public class Register2Activity extends AppCompatActivity implements AdapterView.
         lineAttaach.setVisibility(View.VISIBLE);
         l2Attach.setVisibility(View.VISIBLE);
         layoutPersonalInfo.setVisibility(View.GONE);
+        backpress=false;
     }
 
     public void UploadPhoto(View view) {
@@ -759,6 +770,8 @@ public class Register2Activity extends AppCompatActivity implements AdapterView.
         // this is our fallback here
         return uri.getPath();
     }
+
+
 
 
 

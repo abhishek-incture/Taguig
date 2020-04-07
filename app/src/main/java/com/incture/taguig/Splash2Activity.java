@@ -135,7 +135,7 @@ public class Splash2Activity extends AppCompatActivity implements View.OnClickLi
 
     public void goToCreateAccount(View view) {
 
-        Intent intent = new Intent(this,RegisterActivity.class);
+        Intent intent = new Intent(this,Register2Activity.class);
         startActivity(intent);
     }
 
