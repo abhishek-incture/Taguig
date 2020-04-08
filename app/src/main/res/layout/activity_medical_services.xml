@@ -68,7 +68,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="All Services"
+                    android:text="Medical Services"
                     android:layout_marginLeft="10dp"
                     android:layout_gravity="center_vertical"
                     android:textStyle="bold"

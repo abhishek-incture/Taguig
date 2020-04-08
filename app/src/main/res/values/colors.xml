@@ -43,5 +43,9 @@
     <color name="blueText">#173F76</color>
     <color name="buttongrey">#e1e1e3</color>
     <color name="transparentwhite">#cccccc</color>
+    <color name="colorblack">#000000</color>
+    <color name="tvPersonalInfoColor">#FF5A5A</color>
+    <color name="tvAttachColor">#7D7979</color>
+    <color name="tvblue">#0051BE</color>
 
 </resources>

@@ -39,8 +39,11 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
-        <activity android:name=".SplashActivity">
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -57,6 +60,34 @@
         <activity android:name=".MedicalServicesActivity" />
         <activity android:name=".SurveyActivity"/>
         <activity android:name=".Splash2Activity"/>
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".RegisterActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ReportIncidentActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".BookAppointmentActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".BookingDetailsActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".MedicalServicesActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".SurveyActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Splash2Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Register2Activity"/>
+
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

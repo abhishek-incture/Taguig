@@ -38,13 +38,14 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.incture.taguig.adapter.SliderAdapter;
+import com.incture.taguig.fragment.BottomSheetExample;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
 
-public class Splash2Activity extends AppCompatActivity implements View.OnClickListener {
+public class Splash2Activity extends AppCompatActivity implements View.OnClickListener, BottomSheetExample.BottomSheetListener {
 
     ViewPager viewPager;
 
@@ -134,7 +135,7 @@ public class Splash2Activity extends AppCompatActivity implements View.OnClickLi
 
     public void goToCreateAccount(View view) {
 
-        Intent intent = new Intent(this,RegisterActivity.class);
+        Intent intent = new Intent(this,Register2Activity.class);
         startActivity(intent);
     }
 
@@ -142,10 +143,14 @@ public class Splash2Activity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.loginButton:
-                Intent intent = new Intent(this,MainActivity.class);
+                /*Intent intent = new Intent(this,MainActivity.class);
                 startActivity(intent);
-                finish();
+                finish();*/
+
+                BottomSheetExample bottomSheet = new BottomSheetExample();
+                bottomSheet.show(getSupportFragmentManager(), "exampleBottomSheet");
                 break;
+
         }
     }
 
@@ -399,4 +404,16 @@ public class Splash2Activity extends AppCompatActivity implements View.OnClickLi
         accessTokenTracker.startTracking();
     }
 
+    @Override
+    public void onButtonClicked(String text) {
+           if(text.equals("true")){
+               Intent intent = new Intent(this,MainActivity.class);
+               startActivity(intent);
+               finish();
+           }
+           else
+           {
+               Toast.makeText(this, ""+text, Toast.LENGTH_SHORT).show();
+           }
+    }
 }

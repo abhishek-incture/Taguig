@@ -112,6 +112,7 @@
         <LinearLayout
             android:id="@+id/l2"
             android:layout_marginTop="16dp"
+            android:orientation="vertical"
             android:padding="5dp"
             android:background="@drawable/bg_layoutbordergrey"
             android:layout_width="match_parent"
@@ -121,7 +122,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <EditText
+                <!--<EditText
                     android:layout_marginTop="5dp"
                     android:textSize="14sp"
                     android:hint="Type here"
@@ -129,11 +130,33 @@
                     android:background="@drawable/bg_button5dp"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
-                    />
+                    />-->
+
+                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/ic_magnify"
+                    android:layout_centerVertical="true"
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    android:id="@+id/input_search"
+                    android:background="@null"
+                    android:hint="Enter Address, City or Zip Code"
+                    android:imeOptions="actionSearch"/>
+
+
             </androidx.core.widget.NestedScrollView>
 
 
+
         </LinearLayout>
+
+        <fragment android:id="@+id/autocomplete_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+            />
+
 
 
         <Button
