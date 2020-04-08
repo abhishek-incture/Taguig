@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.incture.taguig.R;
+import com.incture.taguig.Register2Activity;
 
 import java.util.List;
 
@@ -52,6 +53,7 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.ViewHolder> im
             public void onClick(View view) {
                 fileNameList.remove(position);
                 notifyDataSetChanged();
+                Register2Activity.noOfFile--;
             }
         });
 
