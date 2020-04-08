@@ -1,6 +1,5 @@
 package com.incture.taguig.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -17,10 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.incture.taguig.R;
-import com.incture.taguig.SurveyActivity;
 import com.incture.taguig.adapter.FriendsListAdapter;
 
 import java.util.ArrayList;
@@ -40,7 +37,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     LinearLayout surveysLinear, pollsLinear, l1, l2, l3, l4,l5,l6,l7,l8;
     RadioButton radioButtonA1, radioButtonA2, radioButtonA3, radioButtonA4,radioButtonB1,radioButtonB2,radioButtonB3,radioButtonB4;
     RadioGroup radioGroup1;
-    Button btnStartSurvey,btnSecondSurvey;
+    Button btnFirstSurvey,btnSecondSurvey;
 
 
     @Override
@@ -49,9 +46,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        btnSecondSurvey= view.findViewById(R.id.btnSecondSurvey);
+        btnSecondSurvey= view.findViewById(R.id.btnStartSurvey2);
 
-        btnStartSurvey = view.findViewById(R.id.btnStartSurvey);
+        btnFirstSurvey = view.findViewById(R.id.btnStartSurvey1);
         friendsListRecycler = (RecyclerView) view.findViewById(R.id.friendsListRecycler);
         friendsButton = (TextView) view.findViewById(R.id.friendsButton);
         pollsButton = (TextView) view.findViewById(R.id.pollsButton);
@@ -105,7 +102,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         tvVote7.setOnClickListener(this);
         tvVote8.setOnClickListener(this);
 
-        btnStartSurvey.setOnClickListener(this);
+        btnFirstSurvey.setOnClickListener(this);
 
         btnSecondSurvey.setOnClickListener(this);
 
@@ -313,13 +310,13 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             case R.id.tvVote8:
                 onTextViewClick2(tvVote8);
                 break;
-            case R.id.btnStartSurvey:
-                Intent intent = new Intent(getActivity(), SurveyActivity.class);
-                startActivity(intent);
+            case R.id.btnStartSurvey1:
+                SurveyOneFragment surveyOneFragment = new SurveyOneFragment();
+                replaceFragment(surveyOneFragment);
                 break;
-            case R.id.btnSecondSurvey:
-                Survey2Fragment survey2Fragment = new Survey2Fragment();
-                replaceFragment(survey2Fragment);
+            case R.id.btnStartSurvey2:
+                SurveyTwoFragment surveyTwoFragment = new SurveyTwoFragment();
+                replaceFragment(surveyTwoFragment);
                 break;
         }
     }
@@ -433,22 +430,20 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.radioButtonB1:
                 if (checked)
-                    // Toast.makeText(getActivity(), "You clicked", Toast.LENGTH_SHORT).show();
                     l5.setBackgroundResource(R.drawable.bg_buttonlightgreen);
-                tvVote5.setVisibility(View.VISIBLE);
+                    tvVote5.setVisibility(View.VISIBLE);
 
-                l6.setBackgroundResource(0);
-                tvVote6.setVisibility(View.GONE);
-                radioButtonB2.setChecked(false);
-                l7.setBackgroundResource(0);
-                tvVote7.setVisibility(View.GONE);
-                radioButtonB3.setChecked(false);
+                    l6.setBackgroundResource(0);
+                    tvVote6.setVisibility(View.GONE);
+                    radioButtonB2.setChecked(false);
+                    l7.setBackgroundResource(0);
+                    tvVote7.setVisibility(View.GONE);
+                    radioButtonB3.setChecked(false);
 
-                l8.setBackgroundResource(0);
-                tvVote8.setVisibility(View.GONE);
-                radioButtonB4.setChecked(false);
+                    l8.setBackgroundResource(0);
+                    tvVote8.setVisibility(View.GONE);
+                    radioButtonB4.setChecked(false);
 
-                // Pirates are the best
                 break;
             case R.id.radioButtonB2:
                 if (checked)
