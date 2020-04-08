@@ -1,37 +1,26 @@
-package com.incture.taguig.fragment;
+package com.incture.taguig;
 
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.speech.RecognizerIntent;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.incture.taguig.ChatActivity;
-import com.incture.taguig.R;
+
 import com.incture.taguig.adapter.MessageListAdapter;
 import com.incture.taguig.models.BaseMessage;
-import com.incture.taguig.network.BotApplication;
 import com.incture.taguig.network.Connector;
 import com.incture.taguig.network.VolleyListener;
 
@@ -43,61 +32,47 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
+
 
 import static com.incture.taguig.utils.Constants.REQ_CODE_SPEECH_INPUT;
 
 
-public class ChatFragment extends Fragment implements VolleyListener {
-    private static final int RESULT_OK =-1 ;
+public class ChatActivity extends AppCompatActivity implements VolleyListener {
     private RecyclerView mMessageRecycler;
     private MessageListAdapter mMessageAdapter;
     private List<BaseMessage> messageList = new ArrayList<>();
     private EditText mEditText;
     private ImageView ivSend;
-    private ImageView ivMic;
     Connector connector = new Connector();
     private static final int POST = Request.Method.POST;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.activity_chat, container, false);
-        mMessageRecycler = view.findViewById(R.id.reyclerview_message_list);
-        mEditText = view.findViewById(R.id.edittext_chatbox);
-        ivSend = view.findViewById(R.id.ivSend);
-        ivMic=view.findViewById(R.id.ivMic);
-        initWidgets();
-        return view;
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_chat);
+        mMessageRecycler = findViewById(R.id.reyclerview_message_list);
+        mEditText = findViewById(R.id.edittext_chatbox);
+        ivSend = findViewById(R.id.ivSend);
+
+        mMessageAdapter = new MessageListAdapter(this, messageList);
+        mMessageRecycler.setLayoutManager(new LinearLayoutManager(ChatActivity.this));
+        mMessageRecycler.setAdapter(mMessageAdapter);
+        mMessageRecycler.setItemAnimator(new DefaultItemAnimator());
+
+        initTextbox();
+
+        ivSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String content = mEditText.getText().toString();
+                if (content.isEmpty()) {
+                    startVoiceInput();
+                } else {
+                    fetchResponse(content);
+                }
+            }
+        });
     }
- public void initWidgets(){
-
-     mMessageAdapter = new MessageListAdapter(getActivity(), messageList);
-     mMessageRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-     mMessageRecycler.setAdapter(mMessageAdapter);
-     mMessageRecycler.setItemAnimator(new DefaultItemAnimator());
-
-   //  initTextbox();
-
-     ivMic.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View view) {
-             startVoiceInput();
-         }
-     });
-
-     ivSend.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View view) {
-             String content = mEditText.getText().toString();
-             if (content.isEmpty()) {
-                 startVoiceInput();
-             } else {
-                 fetchResponse(content);
-             }
-         }
-     });
- }
 
     private void initTextbox() {
         TextWatcher mTextEditorWatcher = new TextWatcher() {
@@ -130,13 +105,13 @@ public class ChatFragment extends Fragment implements VolleyListener {
         try {
             startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
         } catch (ActivityNotFoundException a) {
-            Toast.makeText(getActivity(), "Oops... try again", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Oops... try again", Toast.LENGTH_SHORT).show();
 
         }
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         switch (requestCode) {
@@ -166,9 +141,8 @@ public class ChatFragment extends Fragment implements VolleyListener {
     }
 
     private void call(String content) throws JSONException {
-        connect("https://api.cai.tools.sap/build/v1/dialog", POST, createBody(content), new HashMap<String, String>(0));
-        //https://api.cai.tools.sap/build/v1/dialog
-        //https://api.recast.ai/build/v1/dialog
+        connector.connect("https://api.recast.ai/build/v1/dialog", POST, createBody(content), ChatActivity.this, new HashMap<String, String>(0));
+
     }
 
     private JSONObject createBody(String content) throws JSONException {
@@ -217,37 +191,4 @@ public class ChatFragment extends Fragment implements VolleyListener {
         }
 
     }
-
-    public void connect(final String URL, int POST, JSONObject body, final HashMap<String, String> requestHeaders) {
-        JsonObjectRequest jsonRequest = new JsonObjectRequest(
-                POST,
-                URL,
-                body,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        VolleyLog.d("resp", response.toString());
-                        onResponseReceived(URL, response);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        VolleyLog.d("resp", "Error: " + error.getMessage());
-                    }
-                }) {
-
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> headers = new HashMap<>();
-                headers.put("Content-Type", "application/json");
-                headers.put("Authorization", "Token 399cfed8c6ad414d38c228899190bcd1");
-                return headers;
-                //031339e46e8471dc638739cfa9dd088f
-            }
-        };
-        BotApplication.getInstance().addToRequestQueue(jsonRequest);
-
-    }
-
 }
