@@ -35,8 +35,10 @@ public class SurveyOneFragment extends Fragment implements View.OnClickListener 
         View view = inflater.inflate(R.layout.fragment_survey_one, container, false);
 
         backArrow = (ImageView)view.findViewById(R.id.backArrow);
+        btnSubmit = (Button) view.findViewById(R.id.btnSubmit);
 
         backArrow.setOnClickListener(this);
+        btnSubmit.setOnClickListener(this);
 
         return view;
     }
@@ -45,13 +47,6 @@ public class SurveyOneFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        btnSubmit= view.findViewById(R.id.btnSubmit);
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().onBackPressed();
-            }
-        });
         recyclerView = view.findViewById(R.id.recyclerView);
         question2ModelList = new ArrayList<>();
         init();
@@ -96,6 +91,10 @@ public class SurveyOneFragment extends Fragment implements View.OnClickListener 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.backArrow:
+                getActivity().onBackPressed();
+                break;
+
+            case R.id.btnSubmit:
                 getActivity().onBackPressed();
                 break;
 

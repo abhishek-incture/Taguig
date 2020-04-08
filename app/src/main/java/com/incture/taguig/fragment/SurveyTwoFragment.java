@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.incture.taguig.R;
@@ -32,6 +33,7 @@ public class SurveyTwoFragment extends Fragment implements View.OnClickListener 
     private Question2Adapter adapter2;
     private List<Question2Model> question2ModelList;
     ImageView backArrow;
+    Button registerButton;
 
 
     @Override
@@ -41,6 +43,7 @@ public class SurveyTwoFragment extends Fragment implements View.OnClickListener 
         View view = inflater.inflate(R.layout.fragment_survey_two, container, false);
 
         backArrow = (ImageView)view.findViewById(R.id.backArrow);
+        registerButton = (Button)view.findViewById(R.id.registerButton);
 
         recyclerView = view.findViewById(R.id.recyclerView);
         questionModelList= new ArrayList<>();
@@ -63,6 +66,7 @@ public class SurveyTwoFragment extends Fragment implements View.OnClickListener 
         recyclerView2.addItemDecoration(itemDecorator);
 
         backArrow.setOnClickListener(this);
+        registerButton.setOnClickListener(this);
 
         return view;
     }
@@ -103,14 +107,14 @@ public class SurveyTwoFragment extends Fragment implements View.OnClickListener 
                 "media.");
     }
 
-    public void Submit(View view) {
-        getActivity().onBackPressed();
-    }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.backArrow:
+                getActivity().onBackPressed();
+                break;
+
+            case R.id.registerButton:
                 getActivity().onBackPressed();
                 break;
         }
