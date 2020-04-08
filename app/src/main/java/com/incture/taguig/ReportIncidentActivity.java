@@ -88,7 +88,7 @@ public class ReportIncidentActivity extends AppCompatActivity {
                     .into(imgView);
         }
         else if(intent.getStringExtra(MainActivity.CAPTURE_FROM).equals("WithoutPhoto")) {
-
+                imgView.setVisibility(View.GONE);
 
         }
         else {

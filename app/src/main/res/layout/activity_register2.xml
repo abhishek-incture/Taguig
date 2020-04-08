@@ -136,7 +136,7 @@
 
 
             <LinearLayout
-                android:visibility="gone"
+                android:visibility="visible"
                 android:id="@+id/layoutPersonalInfo"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -615,7 +615,7 @@
 
             <LinearLayout
                 android:onClick="upLoadFiles"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:background="@color/colorWhite"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"

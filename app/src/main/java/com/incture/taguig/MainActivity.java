@@ -28,6 +28,7 @@ import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -82,6 +83,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 openContextMenu(view);
             }
         });
+
+
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         //registerForContextMenu(tv_header_comment)
 
@@ -180,6 +184,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         menu.setHeaderTitle("Attach image from");
         menu.add(0, v.getId(), 0, "Camera");
         menu.add(0, v.getId(), 0, "Gallery");
+        menu.add(0, v.getId(), 0, "Without Attachment");
+
+
     }
 
 
@@ -208,6 +215,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             }
 
 
+        }
+        else if (item.getTitle().toString().equals("Without Attachment")) {
+
+            Intent intent = new Intent(this, ReportIncidentActivity.class);
+            intent.putExtra(CAPTURE_FROM, "WithoutPhoto");
+            startActivity(intent);
         }
         return true;
     }
