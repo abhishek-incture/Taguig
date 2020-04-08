@@ -30,11 +30,11 @@ public class BottomSheetExample extends BottomSheetDialogFragment {
                 @Override
                 public void onClick(View v) {
                     if(username.getText().toString().isEmpty()){
-                        mListener.onButtonClicked("Pleaase Enter username");
+                        mListener.onButtonClicked("Please enter username");
                     }
                     else if(etBottomPassword.getText().toString().isEmpty())
                     {
-                        mListener.onButtonClicked("Pleaase Enter password");
+                        mListener.onButtonClicked("Please enter password");
 
                     }
                     else {

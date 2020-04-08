@@ -72,7 +72,7 @@ import static com.incture.taguig.MainActivity.IMAGE_FILE_PATH;
 public class Register2Activity extends AppCompatActivity implements View.OnClickListener,AdapterView.OnItemSelectedListener {
     private static final int REQUEST_CAPTURE_GALLERY = 101;
     int PICK_IMAGE_MULTIPLE = 1;
-     boolean backpress=false;
+     boolean backpress=true;
     private static final int RC_SIGN_IN = 102 ;
     private static final int FILE_REQUEST = 101;
     private EditText etFirstName,etLastName,etEmail,etPhoneNo,etPassword;
@@ -375,10 +375,10 @@ public class Register2Activity extends AppCompatActivity implements View.OnClick
 
         maritalStatuses = new ArrayList<>();
         maritalStatuses.add("Select");
+        maritalStatuses.add("Single");
         maritalStatuses.add("Married");
-        maritalStatuses.add("UnMarried");
-        maritalStatuses.add("Divorce");
-        maritalStatuses.add("Widow");
+        maritalStatuses.add("Divorced");
+        maritalStatuses.add("Other");
 
 
         maritalStatusAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, maritalStatuses);
@@ -392,9 +392,12 @@ public class Register2Activity extends AppCompatActivity implements View.OnClick
 
         employmentStatuses = new ArrayList<>();
         employmentStatuses.add("Select");
-        employmentStatuses.add("BusinessMan");
-        employmentStatuses.add("Employee");
+        employmentStatuses.add("UnEmployed");
         employmentStatuses.add("Self Employed");
+        employmentStatuses.add("Permanent Employee");
+        employmentStatuses.add("Retired");
+        employmentStatuses.add("Other");
+
 
 
 
