@@ -182,7 +182,6 @@
                     android:id="@+id/registerButton"
                     android:text="Submit"
                     android:textSize="18sp"
-                    android:onClick="Submit"
                     android:textColor="@color/colorWhite"
                     android:background="@drawable/bg_buttonred"
                     android:layout_width="match_parent"
