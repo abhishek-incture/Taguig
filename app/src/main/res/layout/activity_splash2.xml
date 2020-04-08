@@ -28,12 +28,12 @@
 
 
     <androidx.viewpager.widget.ViewPager
-        android:layout_weight="1.2"
+        android:layout_weight="1"
         android:id="@+id/viewPager"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
         android:layout_marginBottom="5dp"/>
 
 

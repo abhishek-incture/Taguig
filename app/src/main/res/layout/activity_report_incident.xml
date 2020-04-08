@@ -100,21 +100,20 @@
 
 </LinearLayout>
 
-        <TextView
+       <!-- <TextView
         android:layout_marginTop="20dp"
         android:text="Add Location of Incident"
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="#000000"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"/>-->
 
         <LinearLayout
             android:id="@+id/l2"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
             android:padding="5dp"
-            android:background="@drawable/bg_layoutbordergrey"
             android:layout_width="match_parent"
             android:layout_height="38dp">
 
@@ -132,7 +131,7 @@
                     android:layout_height="38dp"
                     />-->
 
-                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+              <!--  <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toRightOf="@+id/ic_magnify"
@@ -142,7 +141,25 @@
                     android:id="@+id/input_search"
                     android:background="@null"
                     android:hint="Enter Address, City or Zip Code"
-                    android:imeOptions="actionSearch"/>
+                    android:imeOptions="actionSearch"/>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:src="@drawable/ic_location_on_black_24dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"/>
+
+                <TextView
+                    android:id="@+id/tvLocation"
+                    android:layout_gravity="center_vertical"
+                    android:text="Manila"
+                    android:textSize="14sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                </LinearLayout>
+
 
 
             </androidx.core.widget.NestedScrollView>
@@ -151,18 +168,39 @@
 
         </LinearLayout>
 
-        <fragment android:id="@+id/autocomplete_fragment"
+        <Button
+            android:id="@+id/editLocation"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/bg_editlocation"
+            android:textAllCaps="false"
+            android:textColor="#FF5A5A"
+            android:textSize="18sp"
+            android:text="Edit Location"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"/>
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <fragment
+
+            android:id="@+id/autocomplete_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
             />
+        </LinearLayout>
+
 
 
 
         <Button
         android:layout_marginTop="16dp"
         android:id="@+id/registerButton"
-        android:text="Register"
+        android:text="Report"
         android:textSize="18sp"
         android:onClick="register"
         android:textColor="@color/colorWhite"
