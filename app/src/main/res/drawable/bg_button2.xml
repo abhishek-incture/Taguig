@@ -2,7 +2,7 @@
 
 
     <solid android:color="@color/defaultscreen"/>
-    <stroke android:color="@color/lightGrey"
+    <stroke android:color="#a8a8a8"
         android:width="2dp"
         />
     <corners
