@@ -1,9 +1,7 @@
 package com.incture.taguig.fragment;
 
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.speech.RecognizerIntent;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,17 +20,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.incture.taguig.ChatActivity;
 import com.incture.taguig.R;
 import com.incture.taguig.adapter.MessageListAdapter;
 import com.incture.taguig.models.BaseMessage;
 import com.incture.taguig.network.BotApplication;
+import com.incture.taguig.network.ChatbotListener;
 import com.incture.taguig.network.Connector;
 import com.incture.taguig.network.VolleyListener;
 
@@ -44,11 +42,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 
 import static com.incture.taguig.utils.Constants.REQ_CODE_SPEECH_INPUT;
 
 
-public class ChatFragment extends Fragment implements VolleyListener {
+public class ChatFragment extends Fragment implements VolleyListener, ChatbotListener {
     private static final int RESULT_OK =-1 ;
     private RecyclerView mMessageRecycler;
     private MessageListAdapter mMessageAdapter;
@@ -56,8 +55,10 @@ public class ChatFragment extends Fragment implements VolleyListener {
     private EditText mEditText;
     private ImageView ivSend;
     private ImageView ivMic;
-    Connector connector = new Connector();
+    Connector connector;
     private static final int POST = Request.Method.POST;
+
+    String converstaion_ID;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -67,12 +68,41 @@ public class ChatFragment extends Fragment implements VolleyListener {
         mEditText = view.findViewById(R.id.edittext_chatbox);
         ivSend = view.findViewById(R.id.ivSend);
         ivMic=view.findViewById(R.id.ivMic);
+        converstaion_ID= String.valueOf(System.currentTimeMillis());
         initWidgets();
+        initAdapter();
         return view;
+    }
+
+    private void initAdapter() {
+
+       // messageList.add(new BaseMessage("Hi , What  can i help you with ? .", "Recieve", new ArrayList<>()));
+            messageList.add(new BaseMessage("Hi,What can i help you with ?","Receive",new ArrayList<HashMap<String, String>>()));
+        mMessageAdapter = new MessageListAdapter(getActivity(), messageList,this);
+        mMessageRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mMessageRecycler.setAdapter(mMessageAdapter);
+        mMessageRecycler.setItemAnimator(new DefaultItemAnimator());
+
+        mMessageRecycler.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v,
+                                       int left, int top, int right, int bottom,
+                                       int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                if (bottom < oldBottom) {
+                    mMessageRecycler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            mMessageRecycler.smoothScrollToPosition(
+                                    mMessageRecycler.getAdapter().getItemCount() - 1);
+                        }
+                    }, 100);
+                }
+            }
+        });
     }
  public void initWidgets(){
 
-     mMessageAdapter = new MessageListAdapter(getActivity(), messageList);
+     mMessageAdapter = new MessageListAdapter(getActivity(), messageList,this);
      mMessageRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
      mMessageRecycler.setAdapter(mMessageAdapter);
      mMessageRecycler.setItemAnimator(new DefaultItemAnimator());
@@ -93,7 +123,7 @@ public class ChatFragment extends Fragment implements VolleyListener {
              if (content.isEmpty()) {
                  startVoiceInput();
              } else {
-                 fetchResponse(content);
+                 fetchResponse(content,content);
              }
          }
      });
@@ -143,7 +173,7 @@ public class ChatFragment extends Fragment implements VolleyListener {
             case REQ_CODE_SPEECH_INPUT: {
                 if (resultCode == RESULT_OK && null != data) {
                     ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    fetchResponse(result.get(0));
+                    fetchResponse(result.get(0),result.get(0));
                 }
                 break;
             }
@@ -151,35 +181,50 @@ public class ChatFragment extends Fragment implements VolleyListener {
         }
     }
 
-    private void fetchResponse(String content) {
+    private void fetchResponse(String content,String value) {
         messageList.add(new BaseMessage(content, "Send"));
         mMessageAdapter.notifyDataSetChanged();
 
-        mMessageRecycler.scrollToPosition(mMessageRecycler.getAdapter().getItemCount() - 1);
+        int itemCount = Objects.requireNonNull(mMessageRecycler.getAdapter()).getItemCount();
+        mMessageRecycler.scrollToPosition(itemCount - 1);
 
         try {
-            call(content);
+            call(value);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         mEditText.getText().clear();
+        //uiComponents.forceHideKeyboard();
     }
 
-    private void call(String content) throws JSONException {
+   /* private void call(String content) throws JSONException {
         connect("https://api.cai.tools.sap/build/v1/dialog", POST, createBody(content), new HashMap<String, String>(0));
         //https://api.cai.tools.sap/build/v1/dialog
         //https://api.recast.ai/build/v1/dialog
-    }
+    }*/
 
+
+
+    private void call(String content) throws JSONException {
+
+        connect("https://api.cai.tools.sap/build/v1/dialog", POST, createBody(content), ChatFragment.this,new HashMap<String, String>());
+
+    }
+//
     private JSONObject createBody(String content) throws JSONException {
         JSONObject body = getBody();
+        body.put("log_level","info");
         body.put("message", getMessage(content));
+        body.put("memory",getMemory());
+        body.put("merge_memory",true);
+        body.put("language","en");
+
         return body;
     }
 
     private JSONObject getBody() throws JSONException {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("conversation_id", 1);
+        jsonObject.put("conversation_id",converstaion_ID);
         return jsonObject;
     }
 
@@ -191,34 +236,106 @@ public class ChatFragment extends Fragment implements VolleyListener {
         return jsonObject;
     }
 
+    private JSONObject getMemory() throws JSONException {
+
+        JSONObject jsonObject = new JSONObject();
+
+        JSONObject user=new JSONObject();
+        user.put("isAdmin", true);
+        user.put("userId", "P000057");
+        user.put("userName","Shruti Patra");
+
+        jsonObject.put("user",user);
+
+        return jsonObject;
+    }
+
 
     @Override
     public void onResponseReceived(String URL, Object obj) {
+
+        Log.d("ResponseChatbot",obj.toString());
+
         JSONObject mainObject;
         try {
             mainObject = new JSONObject(obj.toString());
             JSONObject results = mainObject.optJSONObject("results");
             JSONArray array = results.optJSONArray("messages");
-            String response = "";
+            StringBuilder response = new StringBuilder();
+
+            ArrayList<HashMap<String,String>> actions=new ArrayList<>();
+
             if (array.length() > 0) {
+
                 for (int d = 0; d < array.length(); d++) {
+
+
+                    actions.clear();
+
                     JSONObject msg = array.optJSONObject(d);
-                    response = msg.optString("content");
+
+                    if (msg.getString("type").equalsIgnoreCase("text"))
+                    {
+
+                        // response.append(msg.optString("content")) ;
+
+
+                        messageList.add(new BaseMessage(msg.optString("content"), "Recieve",new ArrayList<HashMap<String, String>>()));
+
+
+                    }else if (msg.getString("type").equalsIgnoreCase("quickReplies"))
+                    {
+
+                        JSONObject inner=msg.getJSONObject("content");
+
+                        if (array.length()>1)
+                        {
+                            response.append("\n\n");
+                        }
+
+
+                        response.append(inner.getString("title"));
+
+
+                        JSONArray inner_array=inner.getJSONArray("buttons");
+
+                        for (int i=0;i<inner_array.length();i++)
+                        {
+                            JSONObject temp=inner_array.getJSONObject(i);
+
+                            HashMap<String,String> hashMap=new HashMap<>();
+                            hashMap.put("title",temp.getString("title"));
+                            hashMap.put("value",temp.getString("value"));
+
+                            actions.add(hashMap);
+
+                            //actions.add(temp.getString("title"));
+
+                        }
+
+                        messageList.add(new BaseMessage(inner.getString("title"), "Recieve",actions));
+
+                    }
+
                 }
             } else {
-                response = "I didn't get that, try something else";
+                response.append("I didn't get that, try something else");
             }
-            messageList.add(new BaseMessage(response, "Recieve"));
+
+            //messageList.add(new BaseMessage(response.toString(), "Recieve",actions));
             mMessageAdapter.notifyDataSetChanged();
 
             mMessageRecycler.scrollToPosition(mMessageRecycler.getAdapter().getItemCount() - 1);
+
+            performAction(response.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
 
-    public void connect(final String URL, int POST, JSONObject body, final HashMap<String, String> requestHeaders) {
+    public void connect(final String URL, int POST, final JSONObject body, final VolleyListener volleyListener, final HashMap<String, String> requestHeaders) {
+
+
         JsonObjectRequest jsonRequest = new JsonObjectRequest(
                 POST,
                 URL,
@@ -226,7 +343,9 @@ public class ChatFragment extends Fragment implements VolleyListener {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        VolleyLog.d("resp", response.toString());
+
+                        Log.d("RespondedData", body.toString());
+                        Log.d("ResponseServer", response.toString());
                         onResponseReceived(URL, response);
                     }
                 },
@@ -238,16 +357,46 @@ public class ChatFragment extends Fragment implements VolleyListener {
                 }) {
 
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
+            public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
                 headers.put("Content-Type", "application/json");
-                headers.put("Authorization", "Token 399cfed8c6ad414d38c228899190bcd1");
+
+                //workbox
+               // String token ="Token 02cdb6e3d294465c6ae8c1b9417b45be";
+
+                // My Token
+                String token="Token 69b7bb0fef322bfae02f326d6a08e4ec";
+                headers.put("Authorization", token);
+                headers.put("x-uuid", "84004a10-3828-4845-87e6-6a7d063d94af");
                 return headers;
-                //031339e46e8471dc638739cfa9dd088f
             }
         };
-        BotApplication.getInstance().addToRequestQueue(jsonRequest);
 
+
+        BotApplication.getInstance(getActivity()).addToRequestQueue(jsonRequest);
+
+    }
+
+    private void performAction(String response) {
+        if (response.contains("Completed")){
+
+        }
+    }
+
+    @Override
+    public void showFab() {
+
+    }
+
+    @Override
+    public void performAction(String response, String comment) {
+
+        fetchResponse(response,comment);
+    }
+
+    @Override
+    public int getBotContext() {
+        return 0;
     }
 
 }

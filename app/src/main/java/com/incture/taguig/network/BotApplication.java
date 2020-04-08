@@ -1,6 +1,7 @@
 package com.incture.taguig.network;
 
 import android.app.Application;
+import android.content.Context;
 import android.text.TextUtils;
 
 import com.android.volley.Request;
@@ -12,18 +13,25 @@ public class BotApplication extends Application {
     public static final String TAG = BotApplication.class.getSimpleName();
 
     private RequestQueue mRequestQueue;
+
+    public static Context context;
+
     @Override
     public void onCreate() {
         super.onCreate();
 
         mInstance = this;
     }
-    public static synchronized BotApplication getInstance() {
+    public static synchronized BotApplication getInstance(Context ctx) {
+
+        mInstance=new BotApplication();
+        context=ctx;
+
         return mInstance;
     }
     public RequestQueue getRequestQueue() {
         if (mRequestQueue == null) {
-            mRequestQueue = Volley.newRequestQueue(getApplicationContext());
+            mRequestQueue = Volley.newRequestQueue(context);
         }
 
         return mRequestQueue;
