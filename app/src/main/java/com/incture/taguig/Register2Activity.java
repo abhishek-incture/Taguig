@@ -104,11 +104,14 @@ public class Register2Activity extends AppCompatActivity implements View.OnClick
     private ImageView profilePic,imgViewMale,imgViewFemale;
     private  LinearLayout btnMale,btnFemale,btnOther;
 
+    ImageView closeRegistration;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register2);
 
+        closeRegistration = (ImageView) findViewById(R.id.closeRegistration);
         tvPersonalInfo = findViewById(R.id.tvPersonalInfo);
         tvAttach = findViewById(R.id.tvAttach);
         linePersonalInfo = findViewById(R.id.linePersonalInfo);
@@ -299,6 +302,13 @@ public class Register2Activity extends AppCompatActivity implements View.OnClick
         // Build a GoogleSignInClient with the options specified by gso.
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         //mGoogleSignInClient.silentSignIn();
+
+        closeRegistration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 
