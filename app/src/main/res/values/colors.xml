@@ -46,5 +46,6 @@
     <color name="colorblack">#000000</color>
     <color name="tvPersonalInfoColor">#FF5A5A</color>
     <color name="tvAttachColor">#7D7979</color>
+    <color name="tvblue">#0051BE</color>
 
 </resources>

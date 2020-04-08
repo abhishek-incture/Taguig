@@ -437,31 +437,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+
                 <LinearLayout
-                    android:background="@drawable/bg_editgrey"
+                    android:id="@+id/btnMale"
+                    android:background="@drawable/bg_editgreyselected"
                     android:gravity="center"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="34dp">
 
                     <ImageView
-                        android:src="@drawable/ic_arrow_up_24dp"
+                        android:id="@+id/imgViewMale"
+                        android:src="@drawable/maleselected"
                         android:layout_width="24dp"
                         android:layout_height="24dp"/>
 
                 <TextView
+                    android:id="@+id/tvMale"
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:textAllCaps="false"
                     android:textSize="16sp"
                     android:text="Male"
-                    android:textColor="#0051BE"
+                    android:textColor="@color/tvblue"
                     android:layout_width="wrap_content"
                     android:layout_height="34dp"/>
 
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btnFemale"
                     android:layout_marginLeft="4dp"
                     android:background="@drawable/bg_editgrey"
                     android:gravity="center"
@@ -470,23 +475,26 @@
                     android:layout_height="34dp">
 
                     <ImageView
-                        android:src="@drawable/ic_arrow_up_24dp"
+                        android:id="@+id/imgViewFemale"
+                        android:src="@drawable/female"
                         android:layout_width="24dp"
                         android:layout_height="24dp"/>
 
                     <TextView
+                        android:id="@+id/tvFemale"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
                         android:textAllCaps="false"
                         android:textSize="16sp"
-                        android:text="FeMale"
-                        android:textColor="#0051BE"
+                        android:text="Female"
+                        android:textColor="@color/colorBlack"
                         android:layout_width="wrap_content"
                         android:layout_height="34dp"/>
 
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btnOther"
                     android:layout_marginLeft="4dp"
                     android:background="@drawable/bg_editgrey"
                     android:gravity="center"
@@ -496,12 +504,13 @@
 
 
                     <TextView
+                        android:id="@+id/tvOther"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
                         android:textAllCaps="false"
                         android:textSize="16sp"
                         android:text="Other"
-                        android:textColor="#0051BE"
+                        android:textColor="@color/colorBlack"
                         android:layout_width="wrap_content"
                         android:layout_height="34dp"/>
 

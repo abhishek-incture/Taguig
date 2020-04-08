@@ -69,7 +69,7 @@ import id.zelory.compressor.Compressor;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static com.incture.taguig.MainActivity.IMAGE_FILE_PATH;
 
-public class Register2Activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class Register2Activity extends AppCompatActivity implements View.OnClickListener,AdapterView.OnItemSelectedListener {
     private static final int REQUEST_CAPTURE_GALLERY = 101;
     int PICK_IMAGE_MULTIPLE = 1;
      boolean backpress=false;
@@ -98,10 +98,11 @@ public class Register2Activity extends AppCompatActivity implements AdapterView.
     private RecyclerView recyclerView;
     private FileAdapter adapter;
     private List<String> fileNameList;
-    private TextView tvPersonalInfo,tvAttach;
+    private TextView tvPersonalInfo,tvAttach,tvMale,tvFemale,tvOther;
     private View linePersonalInfo,lineAttaach;
     private LinearLayout l2Attach,layoutPersonalInfo;
-    private ImageView profilePic;
+    private ImageView profilePic,imgViewMale,imgViewFemale;
+    private  LinearLayout btnMale,btnFemale,btnOther;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -115,6 +116,22 @@ public class Register2Activity extends AppCompatActivity implements AdapterView.
         l2Attach = findViewById(R.id.l2Attach);
         layoutPersonalInfo = findViewById(R.id.layoutPersonalInfo);
         profilePic = findViewById(R.id.profilePic);
+        btnMale= findViewById(R.id.btnMale);
+        btnFemale= findViewById(R.id.btnFemale);
+        btnOther=findViewById(R.id.btnOther);
+        imgViewMale= findViewById(R.id.imgViewMale);
+        imgViewFemale= findViewById(R.id.imgViewFemale);
+
+        tvMale= findViewById(R.id.tvMale);
+        tvFemale= findViewById(R.id.tvFemale);
+        tvOther= findViewById(R.id.tvOther);
+
+
+        btnMale.setOnClickListener(this);
+        btnFemale.setOnClickListener(this);
+        btnOther.setOnClickListener(this);
+
+
 
         fileNameList = new ArrayList<>();
         recyclerView= findViewById(R.id.recyclerView);
@@ -769,6 +786,48 @@ public class Register2Activity extends AppCompatActivity implements AdapterView.
         }
         // this is our fallback here
         return uri.getPath();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btnMale:
+                btnMale.setBackgroundResource(R.drawable.bg_editgreyselected);
+                btnFemale.setBackgroundResource(R.drawable.bg_editgrey);
+                btnOther.setBackgroundResource(R.drawable.bg_editgrey);
+                imgViewMale.setImageResource(R.drawable.maleselected);
+                imgViewFemale.setImageResource(R.drawable.female);
+                tvMale.setTextColor(getResources().getColor(R.color.tvblue));
+                tvFemale.setTextColor(getResources().getColor(R.color.colorBlack));
+                tvOther.setTextColor(getResources().getColor(R.color.colorBlack));
+
+
+                break;
+
+            case R.id.btnFemale:
+                btnFemale.setBackgroundResource(R.drawable.bg_editgreyselected);
+                btnMale.setBackgroundResource(R.drawable.bg_editgrey);
+                btnOther.setBackgroundResource(R.drawable.bg_editgrey);
+                imgViewMale.setImageResource(R.drawable.male);
+                imgViewFemale.setImageResource(R.drawable.femaleselected);
+                tvMale.setTextColor(getResources().getColor(R.color.colorBlack));
+                tvFemale.setTextColor(getResources().getColor(R.color.tvblue));
+                tvOther.setTextColor(getResources().getColor(R.color.colorBlack));
+
+                break;
+                case R.id.btnOther:
+                    btnOther.setBackgroundResource(R.drawable.bg_editgreyselected);
+                btnFemale.setBackgroundResource(R.drawable.bg_editgrey);
+                    btnMale.setBackgroundResource(R.drawable.bg_editgrey);
+                    imgViewMale.setImageResource(R.drawable.male);
+                    imgViewFemale.setImageResource(R.drawable.female);
+                    tvMale.setTextColor(getResources().getColor(R.color.colorBlack));
+                    tvFemale.setTextColor(getResources().getColor(R.color.colorBlack));
+                    tvOther.setTextColor(getResources().getColor(R.color.tvblue));
+
+
+                    break;
+        }
     }
 
 
