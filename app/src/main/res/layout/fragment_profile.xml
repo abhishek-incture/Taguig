@@ -177,7 +177,7 @@
             android:paddingTop="5dp"
             android:paddingRight="10dp"
             android:paddingBottom="5dp"
-            android:text="Surveys(1)"
+            android:text="Surveys(2)"
             android:textAlignment="center"
             android:textColor="@color/colorDarkGrey"
             android:textSize="14sp" />
@@ -200,7 +200,6 @@
             <!--Friends recycler view-->
 
             <androidx.recyclerview.widget.RecyclerView
-
                 android:id="@+id/friendsListRecycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -908,6 +907,96 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="COVID19"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Please help us improve, your feedback isvery important."
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/surveyTime1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Survey Time"
+                                    android:textColor="@color/colorLightGray"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/surveyTime1"
+                                    android:text="Max 3 Mins"
+                                    android:textColor="@color/colorAccent"
+                                    android:textSize="12sp" />
+
+                                <Button
+                                    android:id="@+id/btnStartSurvey1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="30dp"
+                                    android:layout_alignParentRight="true"
+                                    android:background="@drawable/update_profile_gradient"
+                                    android:paddingLeft="70dp"
+                                    android:paddingRight="70dp"
+                                    android:text="Start Survey"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/colorWhite"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+
+
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="5dp"
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Use of Social Media"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="Please help us improve, your feedback isvery important."
                             android:textColor="@color/colorBlack"
                             android:textSize="12sp"
@@ -940,35 +1029,19 @@
                                     android:textSize="12sp" />
 
                                 <Button
-                                    android:id="@+id/btnStartSurvey"
+                                    android:id="@+id/btnStartSurvey2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="30dp"
                                     android:layout_alignParentRight="true"
                                     android:background="@drawable/update_profile_gradient"
                                     android:paddingLeft="70dp"
                                     android:paddingRight="70dp"
-                                    android:text="Start Survey 1"
+                                    android:text="Start Survey"
                                     android:textAllCaps="false"
                                     android:textColor="@color/colorWhite"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
-                                <Button
-                                    android:layout_marginTop="10dp"
-                                    android:id="@+id/btnSecondSurvey"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="30dp"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_alignLeft="@+id/btnStartSurvey"
-                                    android:layout_below="@+id/btnStartSurvey"
-                                    android:background="@drawable/update_profile_gradient"
-                                    android:paddingLeft="70dp"
-                                    android:paddingRight="70dp"
-                                    android:text="Start Survey 2"
-                                    android:textAllCaps="false"
-                                    android:textColor="@color/colorWhite"
-                                    android:textSize="12sp"
-                                    android:textStyle="bold" />
 
 
                             </RelativeLayout>

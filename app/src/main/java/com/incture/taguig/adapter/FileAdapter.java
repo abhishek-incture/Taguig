@@ -47,7 +47,27 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.ViewHolder> im
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
         final String s1 = fileNameList.get(position);
+        String[] splits= s1.split(".");
+
+        String s2 =""+ s1.charAt(s1.length()-1)+s1.charAt(s1.length()-2)+s1.charAt(s1.length()-3);
         viewHolder.tvFileName.setText(s1);
+
+        String s3="jgjgh";
+        if(s2.equals("Pdf")){
+             viewHolder.imgView.setImageResource(R.drawable.ic_insert_drive_file_black_24dp);
+        }
+       else if(s2.equals("mp4")){
+            viewHolder.imgView.setImageResource(R.drawable.ic_videocam_black_24dp);
+        }
+       else
+        {
+            viewHolder.imgView.setImageResource(R.drawable.ic_insert_photo_black_24dp);
+
+        }
+
+
+        viewHolder.tvFileName.setText(s1);
+
         viewHolder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,7 +105,7 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.ViewHolder> im
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvFileName;
-        ImageView btnDelete;
+        ImageView btnDelete,imgView;
 
 
 
@@ -98,6 +118,7 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.ViewHolder> im
 
             tvFileName = layout.findViewById(R.id.tvFileName);
             btnDelete = layout.findViewById(R.id.btnDelete);
+            imgView = layout.findViewById(R.id.imgView);
                     }
 
     }

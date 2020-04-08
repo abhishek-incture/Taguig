@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginRight="20dp"
-    android:layout_marginLeft="20dp"
-    android:padding="8dp"
+    android:background="@drawable/registration_background"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:facebook="http://schemas.android.com/tools"
-    app:cardCornerRadius="8dp"
 
     >
 
@@ -41,7 +38,7 @@
 
             android:layout_alignParentEnd="true"
             android:layout_marginRight="20dp"
-            android:src="@drawable/ic_close_black_24dp"
+            android:src="@drawable/registration_close"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_alignParentRight="true" />
@@ -181,4 +178,4 @@
     </LinearLayout>
 
 
-</androidx.cardview.widget.CardView>
+</LinearLayout>

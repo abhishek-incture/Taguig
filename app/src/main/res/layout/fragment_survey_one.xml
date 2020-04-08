@@ -3,10 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginBottom="80dp"
     android:background="@color/defaultscreen"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".fragment.Survey2Fragment">
+    tools:context=".fragment.SurveyOneFragment">
 
 
     <LinearLayout
@@ -21,6 +20,7 @@
             android:id="@+id/backArrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:src="@drawable/back_icon"/>
 
         <TextView
@@ -38,7 +38,8 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp">
 
     <LinearLayout
         android:orientation="vertical"
@@ -52,17 +53,15 @@
         android:layout_margin="20dp"
         android:background="@drawable/bg_button8dp"
         android:padding="8dp"
-
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        />
+        android:layout_height="match_parent" />
 
         <Button
             android:id="@+id/btnSubmit"
             android:text="Submit"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
+            android:layout_marginBottom="40dp"
             android:textSize="18sp"
             android:textColor="@color/colorWhite"
             android:background="@drawable/bg_buttonorange"

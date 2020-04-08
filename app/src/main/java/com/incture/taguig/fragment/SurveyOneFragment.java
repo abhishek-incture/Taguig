@@ -5,36 +5,40 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.incture.taguig.R;
-import com.incture.taguig.adapter.RequestAdapter;
 import com.incture.taguig.adapter.Survey2Adapter;
 import com.incture.taguig.models.Question2Model;
-import com.incture.taguig.models.RequestList;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Survey2Fragment extends Fragment {
+public class SurveyOneFragment extends Fragment implements View.OnClickListener {
 
     RecyclerView recyclerView;
     private List<Question2Model> question2ModelList;
     private Survey2Adapter adapter;
     private Button btnSubmit;
+    ImageView backArrow;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_survey2, container, false);
+        View view = inflater.inflate(R.layout.fragment_survey_one, container, false);
+
+        backArrow = (ImageView)view.findViewById(R.id.backArrow);
+        btnSubmit = (Button) view.findViewById(R.id.btnSubmit);
+
+        backArrow.setOnClickListener(this);
+        btnSubmit.setOnClickListener(this);
 
         return view;
     }
@@ -43,13 +47,6 @@ public class Survey2Fragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        btnSubmit= view.findViewById(R.id.btnSubmit);
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().onBackPressed();
-            }
-        });
         recyclerView = view.findViewById(R.id.recyclerView);
         question2ModelList = new ArrayList<>();
         init();
@@ -90,4 +87,17 @@ public class Survey2Fragment extends Fragment {
         question2ModelList.add(question2Model);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.backArrow:
+                getActivity().onBackPressed();
+                break;
+
+            case R.id.btnSubmit:
+                getActivity().onBackPressed();
+                break;
+
+        }
+    }
 }
