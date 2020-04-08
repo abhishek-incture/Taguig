@@ -200,11 +200,9 @@
             <!--Friends recycler view-->
 
             <androidx.recyclerview.widget.RecyclerView
-
                 android:id="@+id/friendsListRecycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 
@@ -881,7 +879,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="15dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
 
                 <TextView
