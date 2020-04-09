@@ -88,7 +88,7 @@
             android:layout_marginTop="5dp">
 
             <com.incture.taguig.utils.CircleImageView
-                android:id="@+id/edit_profile_image"
+                android:id="@+id/profileImage"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_centerHorizontal="true"
@@ -96,11 +96,11 @@
                 android:src="@drawable/profile_image" />
 
             <com.incture.taguig.utils.CircleImageView
-                android:id="@+id/addImage"
+                android:id="@+id/editProfileImage"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_alignRight="@+id/edit_profile_image"
-                android:layout_alignBottom="@+id/edit_profile_image"
+                android:layout_alignRight="@+id/profileImage"
+                android:layout_alignBottom="@+id/profileImage"
                 android:layout_marginRight="-10dp"
                 android:layout_marginBottom="10dp"
                 android:src="@drawable/updatedp" />

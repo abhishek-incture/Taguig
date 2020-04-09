@@ -1,12 +1,26 @@
 package com.incture.taguig.fragment;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.StrictMode;
+import android.provider.MediaStore;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,19 +30,29 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.incture.taguig.Global;
 import com.incture.taguig.R;
 import com.incture.taguig.adapter.FriendsListAdapter;
+import com.incture.taguig.utils.CircleImageView;
+import com.squareup.picasso.Picasso;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_OK;
+import static androidx.core.content.PermissionChecker.checkSelfPermission;
 
 
 public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     RecyclerView friendsListRecycler;
     FriendsListAdapter friendsListAdapter;
+    CircleImageView profileImage, editProfileImage;
 
     Map<String, String> friendsListMap;
     ArrayList<Map> arrayList = new ArrayList<>();
@@ -38,6 +62,11 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     RadioButton radioButtonA1, radioButtonA2, radioButtonA3, radioButtonA4,radioButtonB1,radioButtonB2,radioButtonB3,radioButtonB4;
     RadioGroup radioGroup1;
     Button btnFirstSurvey,btnSecondSurvey;
+    private static int RESULT_LOAD_IMAGE = 1;
+    public static String base64_image_upload = null;
+
+    private static final int MY_CAMERA_PERMISSION_CODE = 100;
+    private static final int CAMERA_REQUEST = 1888;
 
 
     @Override
@@ -46,8 +75,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        btnSecondSurvey= view.findViewById(R.id.btnStartSurvey2);
+        profileImage= view.findViewById(R.id.profileImage);
+        editProfileImage= view.findViewById(R.id.editProfileImage);
 
+        btnSecondSurvey= view.findViewById(R.id.btnStartSurvey2);
         btnFirstSurvey = view.findViewById(R.id.btnStartSurvey1);
         friendsListRecycler = (RecyclerView) view.findViewById(R.id.friendsListRecycler);
         friendsButton = (TextView) view.findViewById(R.id.friendsButton);
@@ -105,9 +136,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         btnFirstSurvey.setOnClickListener(this);
 
         btnSecondSurvey.setOnClickListener(this);
-
-
-
+        editProfileImage.setOnClickListener(this);
 
 
 
@@ -123,7 +152,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         }*/
 
         init();
-        init();
+        //init();
+
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder(); StrictMode.setVmPolicy(builder.build());
 
         friendsListAdapter = new FriendsListAdapter(getActivity(), arrayList);
         friendsListRecycler.setLayoutManager(new GridLayoutManager(getActivity(), 3));
@@ -132,6 +163,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         friendsButton.setOnClickListener(this);
         pollsButton.setOnClickListener(this);
         surveysButton.setOnClickListener(this);
+
+
 
 
         return view;
@@ -317,6 +350,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             case R.id.btnStartSurvey2:
                 SurveyTwoFragment surveyTwoFragment = new SurveyTwoFragment();
                 replaceFragment(surveyTwoFragment);
+                break;
+
+            case R.id.editProfileImage:
+                selectImage(getContext());
                 break;
         }
     }
@@ -563,6 +600,113 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         radioButtonB3.setClickable(false);
         radioButtonB4.setClickable(false);
 
+    }
+
+
+    private void selectImage(Context context) {
+        final CharSequence[] options = { "Take Photo", "Choose from Gallery","Cancel" };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Choose your profile picture");
+
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+
+                if (options[item].equals("Take Photo")) {
+
+                    if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED)
+                    {
+                        requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_PERMISSION_CODE);
+                    }
+                    else
+                    {
+                        Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                        startActivityForResult(takePicture, 0);
+                    }
+
+                } else if (options[item].equals("Choose from Gallery")) {
+                    Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(pickPhoto , 1);
+
+                } else if (options[item].equals("Cancel")) {
+                    dialog.dismiss();
+                }
+            }
+        });
+        builder.show();
+    }
+
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
+    {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == MY_CAMERA_PERMISSION_CODE)
+        {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            {
+                Toast.makeText(getActivity(), "camera permission granted", Toast.LENGTH_LONG).show();
+                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, CAMERA_REQUEST);
+            }
+            else
+            {
+                Toast.makeText(getActivity(), "camera permission denied", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    public Uri getImageUri(Context inContext, Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
+        return Uri.parse(path);
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode != RESULT_CANCELED) {
+            switch (requestCode) {
+                case 0:
+                    if (resultCode == RESULT_OK && data != null) {
+
+
+                        Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
+                        profileImage.setImageBitmap(selectedImage);
+
+                       // Uri selectedImageURI = getImageUri(getContext(), selectedImage);
+                      //Picasso.with(getActivity()).load(selectedImageURI).noPlaceholder().centerCrop().fit().into(profileImage);
+
+                    }
+
+                    break;
+                case 1:
+                    if (resultCode == RESULT_OK && data != null) {
+                        Uri selectedImage =  data.getData();
+                        String[] filePathColumn = {MediaStore.Images.Media.DATA};
+                        if (selectedImage != null) {
+                            Cursor cursor = getActivity().getContentResolver().query(selectedImage,
+                                    filePathColumn, null, null, null);
+                            if (cursor != null) {
+                                cursor.moveToFirst();
+
+                                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                                String picturePath = cursor.getString(columnIndex);
+                                profileImage.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+                                Picasso.with(getActivity()).load(selectedImage).noPlaceholder().centerCrop().fit()
+                                        .into(profileImage);
+                                cursor.close();
+                            }
+                        }
+
+                    }
+                    break;
+            }
+        }
     }
 
 }

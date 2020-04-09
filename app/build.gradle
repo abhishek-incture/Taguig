@@ -5,16 +5,41 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.incture.taguig"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "ACCOUNT_NAME", '"cgsr0s9x4f"'
+            buildConfigField "String", "OAUTH_CLIENT_ID", '"8b458032-ac1d-429a-9596-7ac87052cf56"'
+            buildConfigField "String", "TOKEN", '"Token 02cdb6e3d294465c6ae8c1b9417b45be"'
+        }
+//        QA
+        staging {
+            applicationIdSuffix ".qa"
+            versionNameSuffix "-qa"
+            initWith debug
+            matchingFallbacks = ['debug']
+            buildConfigField "String", "ACCOUNT_NAME", '"a8b98c03e"'
+            buildConfigField "String", "OAUTH_CLIENT_ID", '"01c62e2e-e4b4-4d84-ac05-76b1b22de3de"'
+            buildConfigField "String", "TOKEN", '"Token 02cdb6e3d294465c6ae8c1b9417b45be"'
+        }
+//        DEV //workbox [kbniwmqlaj]
+        debug {
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+            /*buildConfigField "String", "ACCOUNT_NAME", '"cgsr0s9x4f"'
+            buildConfigField "String", "OAUTH_CLIENT_ID", '"8b458032-ac1d-429a-9596-7ac87052cf56"'
+            buildConfigField "String", "TOKEN", '"Token 02cdb6e3d294465c6ae8c1b9417b45be"'*/
+            buildConfigField "String", "ACCOUNT_NAME", '"kbniwmq1aj"'
+            buildConfigField "String", "OAUTH_CLIENT_ID", '"22929106-1520-4edf-8fca-f511a20a7220"'
+            buildConfigField "String", "TOKEN", '"Token 02cdb6e3d294465c6ae8c1b9417b45be"'
         }
     }
 }
@@ -48,4 +73,6 @@ dependencies {
     implementation 'com.google.maps.android:android-maps-utils:1.0.2'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation 'org.jetbrains:annotations-java5:15.0'
+
 }

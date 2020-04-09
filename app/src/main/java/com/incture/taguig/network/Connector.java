@@ -1,21 +1,26 @@
 package com.incture.taguig.network;
 
-
-import com.android.volley.AuthFailureError;
+import android.content.Context;
+import android.util.Log;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
-
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Connector {
+    Context context;
+
+    public Connector(Context context) {
+        this.context = context;
+    }
+
+    public void connect(final String URL, int POST, final JSONObject body, final VolleyListener volleyListener, final HashMap<String, String> requestHeaders) {
 
 
-    public void connect(final String URL, int POST, JSONObject body, final VolleyListener volleyListener, final HashMap<String, String> requestHeaders) {
         JsonObjectRequest jsonRequest = new JsonObjectRequest(
                 POST,
                 URL,
@@ -23,7 +28,9 @@ public class Connector {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        VolleyLog.d("resp", response.toString());
+
+                        Log.d("RespondedData", body.toString());
+                        Log.d("ResponseServer", response.toString());
                         volleyListener.onResponseReceived(URL, response);
                     }
                 },
@@ -35,16 +42,19 @@ public class Connector {
                 }) {
 
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
+            public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
                 headers.put("Content-Type", "application/json");
-                headers.put("Authorization", "Token 031339e46e8471dc638739cfa9dd088f");
+
+                String token ="Token 02cdb6e3d294465c6ae8c1b9417b45be";
+                headers.put("Authorization", token);
+                headers.put("x-uuid", "84004a10-3828-4845-87e6-6a7d063d94af");
                 return headers;
             }
         };
-        BotApplication.getInstance().addToRequestQueue(jsonRequest);
+
+
+        BotApplication.getInstance(context).addToRequestQueue(jsonRequest);
 
     }
-
-
 }
