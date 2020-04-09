@@ -122,19 +122,19 @@ public class RequestsFragment extends Fragment {
     private List init() {
         requestModelList.clear();
         RequestModel requestModel;
-        requestModel = new RequestModel(R.drawable.medical_icon,"Medical Appointment Approved",
+        requestModel = new RequestModel(R.drawable.medical_grey,"Medical Appointment Approved",
                 "21 Feb 2017","Approved");
         requestModelList.add(requestModel);
-        requestModel = new RequestModel(R.drawable.education_grey,"Scholarshp  Appointment Pending",
+        requestModel = new RequestModel(R.drawable.education_grey,"Scholarshp  Request Pending",
                 "21 Feb 2017","Pending");
         requestModelList.add(requestModel);
-        requestModel = new RequestModel(R.drawable.education_grey,"Medical Appointment Pending",
+        requestModel = new RequestModel(R.drawable.education_grey,"Scholarship Request Pending",
                 "21 Feb 2017","Pending");
         requestModelList.add(requestModel);
-        requestModel = new RequestModel(R.drawable.medical_icon,"Medical Appointment Rejected",
+        requestModel = new RequestModel(R.drawable.medical_grey,"Medical Appointment Rejected",
                 "21 Feb 2017","Rejected");
         requestModelList.add(requestModel);
-        requestModel = new RequestModel(R.drawable.medical_icon,"Medical Appointment Approved",
+        requestModel = new RequestModel(R.drawable.medical_grey,"Medical Appointment Approved",
                 "21 Feb 2017","Approved");
         requestModelList.add(requestModel);
 
