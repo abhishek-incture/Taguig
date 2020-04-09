@@ -53,7 +53,7 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.ViewHolder> im
         viewHolder.tvFileName.setText(s1);
 
         String s3="jgjgh";
-        if(s2.equals("Pdf")){
+        if(s2.equals("pdf")||s2.equals("txt")){
              viewHolder.imgView.setImageResource(R.drawable.ic_insert_drive_file_black_24dp);
         }
        else if(s2.equals("mp4")){

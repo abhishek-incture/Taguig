@@ -135,7 +135,6 @@ public class Register2Activity extends AppCompatActivity implements View.OnClick
         btnOther.setOnClickListener(this);
 
 
-
         fileNameList = new ArrayList<>();
         recyclerView= findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
@@ -392,7 +391,7 @@ public class Register2Activity extends AppCompatActivity implements View.OnClick
 
         employmentStatuses = new ArrayList<>();
         employmentStatuses.add("Select");
-        employmentStatuses.add("UnEmployed");
+        employmentStatuses.add("Unemployed");
         employmentStatuses.add("Self Employed");
         employmentStatuses.add("Permanent Employee");
         employmentStatuses.add("Retired");
