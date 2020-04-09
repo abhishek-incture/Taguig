@@ -1,6 +1,7 @@
 package com.incture.taguig.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,6 +78,12 @@ public class MessageListAdapter extends RecyclerView.Adapter {
             ReceivedMessageHolder holder = (ReceivedMessageHolder) viewHolder;
             holder.messageText.setText(baseMessage.getMessage());
 
+            if(baseMessage.getMessage().startsWith("https")){
+               // holder.messageText.setLinksClickable(true);
+            }else {
+
+            }
+
             if (mMessageList.get(i).isVisible())
             {
                 holder.button_recyclerviews.setVisibility(View.VISIBLE);
@@ -136,6 +143,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
             super(itemView);
             messageText = itemView.findViewById(R.id.text_message_recived);
             button_recyclerviews=itemView.findViewById(R.id.buttonrecyclerview);
+
 
 
            /// button_recyclerviews.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL,false));

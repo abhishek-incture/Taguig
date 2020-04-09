@@ -18,6 +18,9 @@
         android:background="@drawable/bg_rectangle"
         android:backgroundTint="#A9A9A9"
         android:padding="8dp"
+        android:linksClickable="true"
+        android:textColorLink="@color/blueText"
+        android:autoLink="web"
         android:text="hi man, how are you?"
         android:textColor="#000" />
 
