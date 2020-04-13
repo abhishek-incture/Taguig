@@ -176,7 +176,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
-                android:text="If Don't have an Account?"
+                android:text="Don't have an Account?"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/textsize14sp" />
 

@@ -24,6 +24,11 @@
 
     </LinearLayout>
 
+    <RelativeLayout
+        android:background="@drawable/registration_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
 
     <androidx.core.widget.NestedScrollView
 
@@ -35,7 +40,8 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/registration_background">
+            android:background="@drawable/registration_background"
+            >
 
         <LinearLayout
 
@@ -48,7 +54,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
 
                 <TextView
@@ -699,7 +705,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
                 <RelativeLayout
-                    android:layout_marginBottom="210dp"
+                    android:layout_marginBottom="30dp"
+
                     android:layout_marginTop="30dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -707,7 +714,7 @@
 
                 <Button
                     android:layout_marginTop="30dp"
-                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
                     android:id="@+id/registerButton"
                     android:text="Register"
                     android:textSize="18sp"
@@ -729,5 +736,7 @@
 
 
     </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+
 
 </LinearLayout>

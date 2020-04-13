@@ -651,7 +651,7 @@ public class Register2Activity extends AppCompatActivity implements View.OnClick
                     public void onComplete(@NonNull Task<Void> task) {
                         // ...
                         etFirstName.setText("");
-                        etLastName.setText("");
+                        //etLastName.setText("");
                         etEmail.setText("");
                         isLoggedIn = false;
                     }

@@ -56,9 +56,17 @@ public class CustomInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
 
         this.infoButtonListener = new OnInfoWindowElemTouchListener(btnGoToBook, mContext.getResources().getDrawable(R.drawable.bg_buttonred),mContext.getResources().getDrawable(R.drawable.bg_buttonred)){
             @Override
-            protected void onClickConfirmed(View v, Marker marker) {
+            protected void onClickConfirmed(View v, Marker marker1) {
                 // Here we can perform some action triggered after clicking the button
                 //Toast.makeText(mContext, "click on button 1", Toast.LENGTH_SHORT).show();
+                String snippet= marker.getSnippet();
+                String[] snippets = snippet.split("@");
+                HospitalModel h1 = new HospitalModel(Integer.parseInt(snippets[0]),snippets[2],snippets[1]);
+                Intent intent = new Intent(mContext, BookAppointmentActivity.class);
+                intent.putExtra("hospital", h1);
+                intent.putExtra("from","map");
+                mContext.startActivity(intent);
+
             }
         };
         btnGoToBook.setOnTouchListener(infoButtonListener);
@@ -67,6 +75,7 @@ public class CustomInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
             @Override
             protected void onClickConfirmed(View v, Marker marker) {
                // Toast.makeText(mContext, "click on button 2"+marker.getSnippet(), Toast.LENGTH_LONG).show();
+
             }
         };
         btnGetDirection.setOnTouchListener(infoButtonListener);
@@ -75,13 +84,13 @@ public class CustomInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
         btnGoToBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String snippet= marker.getSnippet();
+               /* String snippet= marker.getSnippet();
                 String[] snippets = snippet.split("@");
                 HospitalModel h1 = new HospitalModel(Integer.parseInt(snippets[0]),snippets[2],snippets[1]);
                 Intent intent = new Intent(mContext, BookAppointmentActivity.class);
                 intent.putExtra("hospital", h1);
                 intent.putExtra("from","map");
-                mContext.startActivity(intent);
+                mContext.startActivity(intent);*/
             }
         });
         btnGetDirection.setOnClickListener(new View.OnClickListener() {

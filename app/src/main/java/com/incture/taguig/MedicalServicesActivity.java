@@ -82,13 +82,17 @@ public class MedicalServicesActivity extends AppCompatActivity implements OnMapR
 
     private void initLatLongList() {
         LatLng  sydney;
-        sydney = new LatLng(12.957815, 77.700601);
+                sydney = new LatLng(14.4858722, 121.0262263);
+
+      //  sydney = new LatLng(12.957815, 77.700601);
         latLngList.add(sydney);
-        sydney = new LatLng(12.955280, 77.703211);
+        sydney = new LatLng(14.4747895,121.0426582);
         latLngList.add(sydney);
-        sydney = new LatLng(12.953445, 77.705740);
+        sydney = new LatLng(14.4901759,121.0112669);
         latLngList.add(sydney);
-        sydney = new LatLng(12.951674, 77.701938);
+       // sydney = new LatLng(12.951674, 77.701938);
+        sydney = new LatLng(14.5358033,121.0511135);
+
         latLngList.add(sydney);
 
 
@@ -107,7 +111,7 @@ public class MedicalServicesActivity extends AppCompatActivity implements OnMapR
                                       "Parañaque, 1711 Metro Manila, Philippines");
         hospitalModelList.add(hospitalModel);
 
-        hospitalModel = new HospitalModel(R.drawable.image3,"Paranaque Doctors Hospital",
+        hospitalModel = new HospitalModel(R.drawable.image3,"Taguig District Hospital",
                 "175 Doña Soledad Ave Better Living Subdivision,\n" +
                         "Parañaque, 1711 Metro Manila, Philippines");
         hospitalModelList.add(hospitalModel);
@@ -141,10 +145,10 @@ public class MedicalServicesActivity extends AppCompatActivity implements OnMapR
         // 20 - offset between the default InfoWindow bottom edge and it's content bottom edge
         mapWrapperLayout.init(googleMap, getPixelsFromDp(this, 39 + 20));
 
-        LatLng sydney = new LatLng(12.957815, 77.700601);
+        LatLng sydney = new LatLng(14.4901759,121.0112669);
         MarkerOptions b = new MarkerOptions().position(sydney).title("Marker in Sydney");
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        moveCamera(sydney,15f);
+        moveCamera(sydney,12f);
 
         /*mMap = googleMap;
 
